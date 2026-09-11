@@ -448,7 +448,7 @@ h4 {
   height: 100dvh;
   display: grid;
   place-items: center;
-  padding: 110px 30px 40px;
+  padding: 80px 30px 120px;
   background: var(--white);
   visibility: hidden;
   opacity: 0;
