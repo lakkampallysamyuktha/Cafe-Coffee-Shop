@@ -1,0 +1,1376 @@
+<!-- html/services.html --><!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Stackly Brew menu — espresso, filter coffee, cold brew, tea, pastries, and seasonal specials.">
+  <meta name="theme-color" content="#FFFBF5">
+  <title>Menu & Services — Stackly Brew</title>
+
+  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="../css/services.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+</head>
+
+<body>
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="page-loader">
+    <div class="page-loader__content">
+      <div class="page-loader__spinner"></div>
+      <div class="page-loader__logo">Stackly <em>Brew</em></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const loader = document.getElementById("page-loader");
+        if (loader) loader.classList.add("is-hidden");
+      }, 1500);
+    });
+  </script>
+
+  <!-- ======================== HEADER ======================== --><header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Stackly Brew home">
+        <img src="../logo.webp" alt="Stackly Brew">
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" aria-current="page">Menu</a>
+        <a href="blog.html">Journal</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn--primary header-cta" href="login.html">
+          Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="mobile-nav"
+          aria-expanded="false">
+          <span class="menu-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+      <div class="mobile-nav__inner">
+        <div class="mobile-nav__links">
+          <a href="../index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html" aria-current="page">Menu</a>
+          <a href="blog.html">Journal</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="mobile-nav__meta">
+          <span>Mon–Fri <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> 7:00–20:00</span>
+          <span>Sat–Sun <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> 8:00–21:00</span>
+        </div>
+
+        <div style="margin-top: 28px;">
+          <a class="btn btn--primary" href="login.html">Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ======================== 01 HERO — CLIP-PATH IMAGE REVEAL ======================== --><section class="sv-hero" aria-labelledby="sv-hero-title">
+      <div class="sv-hero__media">
+        <img
+          src="../assets/images/image_20.webp"
+          alt="Coffee being brewed at the bar"
+          fetchpriority="high">
+        <div class="sv-hero__scrim"></div>
+      </div>
+
+      <div class="sv-hero__inner">
+        <div class="sv-hero__left">
+          <span class="eyebrow sv-hero__eyebrow fade-in-left">The Menu <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Updated Weekly</span>
+
+          <h1 class="sv-hero__title fade-in-left" id="sv-hero-title">
+            Everything
+            <br>
+            on the
+            <em>bar.</em>
+          </h1>
+
+          <p class="sv-hero__lede fade-in-left">
+            Espresso, filter, cold brew, tea, pastry, breakfast —
+            all made in-house, all dialled in by taste. Prices are a
+            suggestion. Curiosity is encouraged.
+          </p>
+
+          <div class="sv-hero__actions fade-in-left">
+            <a class="btn btn--light" href="#overview">
+              Browse Categories <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+            </a>
+            <a class="btn" style="border-color:rgba(255,255,255,.35);color:#fff;" href="login.html">
+              Login
+            </a>
+          </div>
+        </div>
+
+        <aside class="sv-hero__strip fade-in-right" aria-label="Featured today">
+          <div class="sv-hero__strip-item">
+            <img src="../assets/images/image_45.webp" alt="Espresso shot" loading="eager">
+          </div>
+          <div class="sv-hero__strip-item">
+            <img src="../assets/images/image_27.webp" alt="Latte art" loading="eager">
+          </div>
+          <div class="sv-hero__strip-item">
+            <img src="../assets/images/image_11.webp" alt="Iced coffee" loading="eager">
+          </div>
+          <div class="sv-hero__strip-item">
+            <img src="../assets/images/image_37.webp" alt="Fresh pastries" loading="eager">
+          </div>
+        </aside>
+      </div>
+
+      <div class="sv-hero__ticker" aria-hidden="true">
+        <div class="marquee">
+          <div class="marquee__track">
+            <div class="marquee__group">
+              <span class="marquee__item">Espresso</span>
+              <span class="marquee__item">Filter</span>
+              <span class="marquee__item">Cold Brew</span>
+              <span class="marquee__item">Tea</span>
+              <span class="marquee__item">Pastry</span>
+              <span class="marquee__item">Breakfast</span>
+              <span class="marquee__item">Seasonal</span>
+            </div>
+            <div class="marquee__group" aria-hidden="true">
+              <span class="marquee__item">Espresso</span>
+              <span class="marquee__item">Filter</span>
+              <span class="marquee__item">Cold Brew</span>
+              <span class="marquee__item">Tea</span>
+              <span class="marquee__item">Pastry</span>
+              <span class="marquee__item">Breakfast</span>
+              <span class="marquee__item">Seasonal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 02 MENU OVERVIEW — ASYMMETRICAL BENTO ======================== --><section class="section sv-overview" id="overview" aria-labelledby="sv-overview-title">
+      <div class="container">
+        <div class="sv-overview__head">
+          <div class="eyebrow fade-in-left">The Menu</div>
+          <h2 class="section-title fade-in-left" id="sv-overview-title">
+            Six categories.<br>One obsession.
+          </h2>
+          <p class="sv-overview__lede fade-in-right">
+            A quick tour of what you can order. Everything is made to
+            order — nothing sits under a heat lamp.
+          </p>
+        </div>
+
+        <div class="bento">
+          <a class="bento__card bento__card--tall fade-in-left" href="../404.html">
+            <img src="../assets/images/image_43.webp" alt="Espresso" loading="lazy">
+            <div class="bento__overlay"></div>
+            <div class="bento__content">
+              <span class="bento__num">01</span>
+              <h3>Espresso</h3>
+              <p>Short, intense, and always dialled in.</p>
+            </div>
+          </a>
+
+          <a class="bento__card fade-in-right" href="../404.html">
+            <img src="../assets/images/image_22.webp" alt="Filter coffee" loading="lazy">
+            <div class="bento__overlay"></div>
+            <div class="bento__content">
+              <span class="bento__num">02</span>
+              <h3>Filter</h3>
+              <p>Pour over, batch, and single origin.</p>
+            </div>
+          </a>
+
+          <a class="bento__card fade-in-left" href="../404.html">
+            <img src="../assets/images/image_13.webp" alt="Cold brew" loading="lazy">
+            <div class="bento__overlay"></div>
+            <div class="bento__content">
+              <span class="bento__num">03</span>
+              <h3>Cold Brew</h3>
+              <p>Twelve hours of patience in a glass.</p>
+            </div>
+          </a>
+
+          <a class="bento__card fade-in-right" href="../404.html">
+            <img src="../assets/images/image_59.webp" alt="Tea" loading="lazy">
+            <div class="bento__overlay"></div>
+            <div class="bento__content">
+              <span class="bento__num">04</span>
+              <h3>Tea</h3>
+              <p>Loose leaf, brewed properly.</p>
+            </div>
+          </a>
+
+          <a class="bento__card bento__card--wide fade-in-left" href="../404.html">
+            <img src="../assets/images/image_36.webp" alt="Pastries" loading="lazy">
+            <div class="bento__overlay"></div>
+            <div class="bento__content">
+              <span class="bento__num">05</span>
+              <h3>Pastries & Breakfast</h3>
+              <p>Baked every morning, gone by noon.</p>
+            </div>
+          </a>
+
+          <a class="bento__card fade-in-right" href="../404.html">
+            <img src="../assets/images/image_50.webp" alt="Seasonal drink" loading="lazy">
+            <div class="bento__overlay"></div>
+            <div class="bento__content">
+              <span class="bento__num">06</span>
+              <h3>Seasonal</h3>
+              <p>Limited pours, rotating monthly.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 03 SIGNATURE COFFEE — STICKY SHOWCASE ======================== --><section class="sv-signature" aria-labelledby="sv-signature-title">
+      <div class="container">
+        <div class="sv-signature__grid">
+          <div class="sv-signature__visual">
+            <div class="sv-signature__image-stack">
+              <figure class="sv-signature__img sv-signature__img--back">
+                <img src="../assets/images/image_29.webp" alt="Latte art close up" loading="lazy">
+              </figure>
+              <figure class="sv-signature__img sv-signature__img--front">
+                <img src="../assets/images/image_44.webp" alt="Signature espresso" loading="lazy">
+              </figure>
+              <div class="sv-signature__stamp" aria-hidden="true">
+                <span>House<br>Signature</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sv-signature__content">
+            <span class="eyebrow fade-in-right">Signature Coffee</span>
+            <h2 class="section-title fade-in-right" id="sv-signature-title">
+              The Stackly<br>Espresso.
+            </h2>
+
+            <p class="body-large fade-in-right">
+              Our house espresso is a rotating single origin, pulled short
+              and bright. You will taste something different every month —
+              we think that is the point.
+            </p>
+
+            <dl class="sv-signature__specs fade-in-right">
+              <div>
+                <dt>Origin</dt>
+                <dd>Huila, Colombia</dd>
+              </div>
+              <div>
+                <dt>Process</dt>
+                <dd>Washed</dd>
+              </div>
+              <div>
+                <dt>Notes</dt>
+                <dd>Red apple <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Panela <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Almond</dd>
+              </div>
+              <div>
+                <dt>Dose</dt>
+                <dd>18g in <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> 36g out <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> 27s</dd>
+              </div>
+            </dl>
+
+            <div class="sv-signature__price fade-in-right">
+              <span class="sv-signature__price-tag">₹220</span>
+              <span class="sv-signature__price-note">Per shot <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> tax included</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 04 COFFEE CATEGORIES — INTERACTIVE TABS ======================== --><section class="section sv-categories" aria-labelledby="sv-categories-title">
+      <div class="container">
+        <div class="sv-categories__head">
+          <div class="eyebrow fade-in-left">Browse Categories</div>
+          <h2 class="section-title fade-in-left" id="sv-categories-title">
+            Pick a mood.<br>Find your cup.
+          </h2>
+        </div>
+
+        <div class="cat-tabs fade-in-right">
+          <div class="cat-tabs__bar" role="tablist" aria-label="Menu categories">
+            <button class="cat-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="cat-espresso" id="tab-espresso">
+              Espresso
+            </button>
+            <button class="cat-tab" type="button" role="tab" aria-selected="false" aria-controls="cat-filter" id="tab-filter" tabindex="-1">
+              Filter
+            </button>
+            <button class="cat-tab" type="button" role="tab" aria-selected="false" aria-controls="cat-cold" id="tab-cold" tabindex="-1">
+              Cold Brew
+            </button>
+            <button class="cat-tab" type="button" role="tab" aria-selected="false" aria-controls="cat-tea" id="tab-tea" tabindex="-1">
+              Tea
+            </button>
+            <button class="cat-tab" type="button" role="tab" aria-selected="false" aria-controls="cat-food" id="tab-food" tabindex="-1">
+              Food
+            </button>
+          </div>
+
+          <div class="cat-panels">
+
+            <!-- Espresso --><div class="cat-panel is-active" id="cat-espresso" role="tabpanel" aria-labelledby="tab-espresso">
+              <ul class="menu-list">
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Stackly Espresso</h3>
+                    <p>House blend <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> rotating single origin</p>
+                  </div>
+                  <span class="menu-list__price">₹220</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Cortado</h3>
+                    <p>Espresso cut with warm milk</p>
+                  </div>
+                  <span class="menu-list__price">₹240</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Flat White</h3>
+                    <p>Double shot <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> silky microfoam</p>
+                  </div>
+                  <span class="menu-list__price">₹260</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Cappuccino</h3>
+                    <p>Classic ratio <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> chocolate dust</p>
+                  </div>
+                  <span class="menu-list__price">₹260</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Latte</h3>
+                    <p>Sixteen ounces of comfort</p>
+                  </div>
+                  <span class="menu-list__price">₹280</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Mocha</h3>
+                    <p>House ganache <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> espresso <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> milk</p>
+                  </div>
+                  <span class="menu-list__price">₹300</span>
+                </li>
+              </ul>
+
+              <div class="cat-panel__visual">
+                <img src="../assets/images/image_47.webp" alt="Espresso drinks" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Filter --><div class="cat-panel" id="cat-filter" role="tabpanel" aria-labelledby="tab-filter" hidden>
+              <ul class="menu-list">
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Single Origin Pour Over</h3>
+                    <p>V60 <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ask what is on bar today</p>
+                  </div>
+                  <span class="menu-list__price">₹280</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Batch Brew</h3>
+                    <p>Freshly brewed <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> free refill</p>
+                  </div>
+                  <span class="menu-list__price">₹200</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Chemex (for two)</h3>
+                    <p>Shared pour <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> brewed at the bar</p>
+                  </div>
+                  <span class="menu-list__price">₹480</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Aeropress</h3>
+                    <p>Richer body <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> short filter</p>
+                  </div>
+                  <span class="menu-list__price">₹260</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Affogato</h3>
+                    <p>Espresso over vanilla ice cream</p>
+                  </div>
+                  <span class="menu-list__price">₹300</span>
+                </li>
+              </ul>
+
+              <div class="cat-panel__visual">
+                <img src="../assets/images/image_22.webp" alt="Pour over coffee" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Cold --><div class="cat-panel" id="cat-cold" role="tabpanel" aria-labelledby="tab-cold" hidden>
+              <ul class="menu-list">
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Original Cold Brew</h3>
+                    <p>Twelve hours <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> no sugar added</p>
+                  </div>
+                  <span class="menu-list__price">₹260</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Lavender Cold Brew</h3>
+                    <p>House lavender syrup <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> milk optional</p>
+                  </div>
+                  <span class="menu-list__price">₹300</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Iced Latte</h3>
+                    <p>Double shot over milk and ice</p>
+                  </div>
+                  <span class="menu-list__price">₹280</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Espresso Tonic</h3>
+                    <p>Bitter, bright, deeply refreshing</p>
+                  </div>
+                  <span class="menu-list__price">₹300</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Shakerato</h3>
+                    <p>Shaken espresso <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> served neat</p>
+                  </div>
+                  <span class="menu-list__price">₹280</span>
+                </li>
+              </ul>
+
+              <div class="cat-panel__visual">
+                <img src="../assets/images/image_13.webp" alt="Iced coffee drinks" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Tea --><div class="cat-panel" id="cat-tea" role="tabpanel" aria-labelledby="tab-tea" hidden>
+              <ul class="menu-list">
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Single Estate Darjeeling</h3>
+                    <p>First flush <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> lightly floral</p>
+                  </div>
+                  <span class="menu-list__price">₹260</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Matcha Latte</h3>
+                    <p>Ceremonial grade <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> whisked to order</p>
+                  </div>
+                  <span class="menu-list__price">₹320</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Hojicha</h3>
+                    <p>Roasted green tea <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> naturally sweet</p>
+                  </div>
+                  <span class="menu-list__price">₹260</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Masala Chai</h3>
+                    <p>House blend <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> slow simmered</p>
+                  </div>
+                  <span class="menu-list__price">₹220</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Mint & Chamomile</h3>
+                    <p>Caffeine-free <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> evening favourite</p>
+                  </div>
+                  <span class="menu-list__price">₹220</span>
+                </li>
+              </ul>
+
+              <div class="cat-panel__visual">
+                <img src="../assets/images/image_59.webp" alt="Loose leaf tea" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Food --><div class="cat-panel" id="cat-food" role="tabpanel" aria-labelledby="tab-food" hidden>
+              <ul class="menu-list">
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Butter Croissant</h3>
+                    <p>Laminated over three days</p>
+                  </div>
+                  <span class="menu-list__price">₹180</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Almond Croissant</h3>
+                    <p>Frangipane <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> toasted flakes</p>
+                  </div>
+                  <span class="menu-list__price">₹220</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Banana Bread</h3>
+                    <p>Toasted <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> salted butter</p>
+                  </div>
+                  <span class="menu-list__price">₹200</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Avocado Toast</h3>
+                    <p>Sourdough <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> chilli <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> lime</p>
+                  </div>
+                  <span class="menu-list__price">₹320</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Shakshuka</h3>
+                    <p>Two eggs <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> house bread <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> weekend only</p>
+                  </div>
+                  <span class="menu-list__price">₹420</span>
+                </li>
+                <li>
+                  <div class="menu-list__info">
+                    <h3>Granola Bowl</h3>
+                    <p>House granola <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> yoghurt <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> seasonal fruit</p>
+                  </div>
+                  <span class="menu-list__price">₹340</span>
+                </li>
+              </ul>
+
+              <div class="cat-panel__visual">
+                <img src="../assets/images/image_38.webp" alt="Fresh pastries" loading="lazy">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 05 BREWING PROCESS — PROCESS FLOW ======================== --><section class="section sv-process" aria-labelledby="sv-process-title">
+      <div class="container">
+        <div class="sv-process__head">
+          <div class="eyebrow fade-in-left">The Brewing Process</div>
+          <h2 class="section-title fade-in-left" id="sv-process-title">
+            How a cup<br>gets made.
+          </h2>
+          <p class="sv-process__lede fade-in-right">
+            Five steps from bean to bar. None of them are shortcuts.
+          </p>
+        </div>
+
+        <ol class="process-flow">
+          <li class="process-step fade-in-left">
+            <div class="process-step__media">
+              <img src="../assets/images/image_06.webp" alt="Coffee beans being measured" loading="lazy">
+            </div>
+            <div class="process-step__body">
+              <span class="process-step__num">01</span>
+              <h3>Weigh</h3>
+              <p>Every dose is measured to the gram. Consistency starts before the grind.</p>
+            </div>
+          </li>
+
+          <li class="process-step fade-in-right">
+            <div class="process-step__media">
+              <img src="../assets/images/image_50.webp" alt="Coffee grinder in action" loading="lazy">
+            </div>
+            <div class="process-step__body">
+              <span class="process-step__num">02</span>
+              <h3>Grind</h3>
+              <p>Burr ground fresh for every cup. Re-dialled twice daily as humidity shifts.</p>
+            </div>
+          </li>
+
+          <li class="process-step fade-in-left">
+            <div class="process-step__media">
+              <img src="../assets/images/image_22.webp" alt="Espresso extraction" loading="lazy">
+            </div>
+            <div class="process-step__body">
+              <span class="process-step__num">03</span>
+              <h3>Extract</h3>
+              <p>Pressure, time and temperature are dialled for sweetness and clarity.</p>
+            </div>
+          </li>
+
+          <li class="process-step fade-in-right">
+            <div class="process-step__media">
+              <img src="../assets/images/image_29.webp" alt="Steaming milk" loading="lazy">
+            </div>
+            <div class="process-step__body">
+              <span class="process-step__num">04</span>
+              <h3>Texture</h3>
+              <p>Milk steamed to Stackly. Any hotter and the sweetness burns off.</p>
+            </div>
+          </li>
+
+          <li class="process-step fade-in-left">
+            <div class="process-step__media">
+              <img src="../assets/images/image_42.webp" alt="Finished latte" loading="lazy">
+            </div>
+            <div class="process-step__body">
+              <span class="process-step__num">05</span>
+              <h3>Serve</h3>
+              <p>Straight to your table, at the temperature it was made to be drunk.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ======================== 06 FOOD & PASTRIES — EXPANDABLE PANELS ======================== --><section class="section sv-food" aria-labelledby="sv-food-title">
+      <div class="container">
+        <div class="sv-food__head">
+          <div class="eyebrow fade-in-left">From the Kitchen</div>
+          <h2 class="section-title fade-in-left" id="sv-food-title">
+            Food that earns<br>its place.
+          </h2>
+          <p class="sv-food__lede fade-in-right">
+            Everything is made in-house, in small batches. When it is gone,
+            it is gone.
+          </p>
+        </div>
+
+        <div class="food-grid">
+          <article class="food-panel food-panel--open fade-in-left">
+            <button class="food-panel__trigger" type="button" aria-expanded="true" aria-controls="food-pastry">
+              <span class="food-panel__num">01</span>
+              <span class="food-panel__label">Pastry</span>
+              <span class="food-panel__icon" aria-hidden="true"></span>
+            </button>
+            <div class="food-panel__body" id="food-pastry">
+              <div class="food-panel__media">
+                <img src="../assets/images/image_36.webp" alt="Pastry selection" loading="lazy">
+              </div>
+              <div class="food-panel__copy">
+                <h3>Laminated, proofed, baked, gone.</h3>
+                <p>
+                  Croissants, danishes and morning buns start proofing at
+                  4am. If you arrive after eleven, the best of them are
+                  usually spoken for.
+                </p>
+                <ul class="food-panel__list">
+                  <li>Butter Croissant <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹180</li>
+                  <li>Almond Croissant <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹220</li>
+                  <li>Pain au Chocolat <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹200</li>
+                  <li>Cardamom Bun <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹200</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-panel fade-in-right">
+            <button class="food-panel__trigger" type="button" aria-expanded="false" aria-controls="food-breakfast">
+              <span class="food-panel__num">02</span>
+              <span class="food-panel__label">Breakfast</span>
+              <span class="food-panel__icon" aria-hidden="true"></span>
+            </button>
+            <div class="food-panel__body" id="food-breakfast" hidden>
+              <div class="food-panel__media">
+                <img src="../assets/images/image_52.webp" alt="Breakfast plate" loading="lazy">
+              </div>
+              <div class="food-panel__copy">
+                <h3>Slow mornings, done properly.</h3>
+                <p>
+                  Served until 2pm. Most of it is assembled on the counter
+                  while you watch — nothing hides behind a pass.
+                </p>
+                <ul class="food-panel__list">
+                  <li>Avocado Toast <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹320</li>
+                  <li>Shakshuka <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹420</li>
+                  <li>Granola Bowl <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹340</li>
+                  <li>Eggs &amp; Sourdough <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹380</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-panel fade-in-left">
+            <button class="food-panel__trigger" type="button" aria-expanded="false" aria-controls="food-sweet">
+              <span class="food-panel__num">03</span>
+              <span class="food-panel__label">Sweet</span>
+              <span class="food-panel__icon" aria-hidden="true"></span>
+            </button>
+            <div class="food-panel__body" id="food-sweet" hidden>
+              <div class="food-panel__media">
+                <img src="../assets/images/image_55.webp" alt="Desserts" loading="lazy">
+              </div>
+              <div class="food-panel__copy">
+                <h3>Because the second coffee needs a friend.</h3>
+                <p>
+                  A small, rotating selection of cakes and bakes.
+                  Ask at the bar — the list changes weekly.
+                </p>
+                <ul class="food-panel__list">
+                  <li>Basque Cheesecake <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹320</li>
+                  <li>Olive Oil Cake <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹280</li>
+                  <li>Brownie <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹220</li>
+                  <li>Seasonal Tart <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹340</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="food-panel fade-in-right">
+            <button class="food-panel__trigger" type="button" aria-expanded="false" aria-controls="food-retail">
+              <span class="food-panel__num">04</span>
+              <span class="food-panel__label">Retail Beans</span>
+              <span class="food-panel__icon" aria-hidden="true"></span>
+            </button>
+            <div class="food-panel__body" id="food-retail" hidden>
+              <div class="food-panel__media">
+                <img src="../assets/images/image_03.webp" alt="Bagged coffee beans" loading="lazy">
+              </div>
+              <div class="food-panel__copy">
+                <h3>Take the bar home with you.</h3>
+                <p>
+                  All our coffees are available as retail bags, roasted to
+                  order and rested seven days before pickup.
+                </p>
+                <ul class="food-panel__list">
+                  <li>250g Whole Bean <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹650</li>
+                  <li>1kg Whole Bean <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹2,200</li>
+                  <li>Monthly Subscription <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> from ₹1,800</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 07 SEASONAL SPECIALS — STAGGERED CARDS ======================== --><section class="section sv-seasonal" aria-labelledby="sv-seasonal-title">
+      <div class="container">
+        <div class="sv-seasonal__head">
+          <div class="eyebrow fade-in-left">Seasonal Specials</div>
+          <h2 class="section-title fade-in-left" id="sv-seasonal-title">
+            This month<br>on the bar.
+          </h2>
+          <p class="sv-seasonal__lede fade-in-right">
+            Limited pours, rotating every four weeks. When they are
+            gone, they are gone — at least until next year.
+          </p>
+        </div>
+
+        <div class="seasonal-stack">
+          <article class="seasonal-card fade-in-left">
+            <div class="seasonal-card__media">
+              <img src="../assets/images/image_50.webp" alt="Lavender cold brew" loading="lazy">
+              <span class="seasonal-card__badge">New</span>
+            </div>
+            <div class="seasonal-card__body">
+              <span class="seasonal-card__tag">Cold <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Limited</span>
+              <h3>Lavender Cold Brew</h3>
+              <p>House lavender syrup, twelve-hour cold brew, your choice of milk.</p>
+              <span class="seasonal-card__price">₹300</span>
+            </div>
+          </article>
+
+          <article class="seasonal-card fade-in-right">
+            <div class="seasonal-card__media">
+              <img src="../assets/images/image_13.webp" alt="Espresso tonic" loading="lazy">
+              <span class="seasonal-card__badge">Barista Pick</span>
+            </div>
+            <div class="seasonal-card__body">
+              <span class="seasonal-card__tag">Sparkling <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Bright</span>
+              <h3>Espresso Tonic</h3>
+              <p>Bitter tonic, our seasonal espresso, a slice of orange peel.</p>
+              <span class="seasonal-card__price">₹300</span>
+            </div>
+          </article>
+
+          <article class="seasonal-card fade-in-left">
+            <div class="seasonal-card__media">
+              <img src="../assets/images/image_58.webp" alt="Maple latte" loading="lazy">
+            </div>
+            <div class="seasonal-card__body">
+              <span class="seasonal-card__tag">Warm <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Comfort</span>
+              <h3>Maple Oat Latte</h3>
+              <p>Dark maple syrup, house oat milk, cinnamon dust.</p>
+              <span class="seasonal-card__price">₹320</span>
+            </div>
+          </article>
+
+          <article class="seasonal-card fade-in-right">
+            <div class="seasonal-card__media">
+              <img src="../assets/images/image_60.webp" alt="Iced matcha" loading="lazy">
+            </div>
+            <div class="seasonal-card__body">
+              <span class="seasonal-card__tag">Cold <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Green</span>
+              <h3>Iced Matcha Latte</h3>
+              <p>Ceremonial matcha, lightly sweetened, poured over ice.</p>
+              <span class="seasonal-card__price">₹340</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 08 CATERING — SPLIT SCREEN ======================== --><section class="section sv-catering" aria-labelledby="sv-catering-title">
+      <div class="container">
+        <div class="sv-catering__grid">
+          <div class="sv-catering__media fade-in-left">
+            <img src="../assets/images/image_39.webp" alt="Coffee catering setup" loading="lazy">
+            <div class="sv-catering__badge" aria-hidden="true">
+              <span>Booking<br>Now</span>
+            </div>
+          </div>
+
+          <div class="sv-catering__content fade-in-right">
+            <span class="eyebrow">Catering &amp; Events</span>
+            <h2 class="section-title" id="sv-catering-title">
+              We bring the<br>bar to you.
+            </h2>
+
+            <p class="body-large">
+              From a mobile espresso cart at your wedding to a full
+              breakfast service for a small team, we can bring the
+              Stackly Brew experience to your event.
+            </p>
+
+            <ul class="sv-catering__list">
+              <li>
+                <span class="sv-catering__list-num">01</span>
+                <div>
+                  <h4>Mobile Coffee Cart</h4>
+                  <p>Espresso, filter and cold brew on demand.</p>
+                </div>
+              </li>
+              <li>
+                <span class="sv-catering__list-num">02</span>
+                <div>
+                  <h4>Breakfast Drop</h4>
+                  <p>Pastries, granola and coffee delivered warm.</p>
+                </div>
+              </li>
+              <li>
+                <span class="sv-catering__list-num">03</span>
+                <div>
+                  <h4>Private Cupping</h4>
+                  <p>Guided tasting at our bar for up to 12 guests.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="sv-catering__actions">
+              <a class="btn btn--primary" href="contact.html">
+                Enquire Now <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 09 FAQ — ACCORDION SHOWCASE ======================== --><section class="section sv-faq" aria-labelledby="sv-faq-title">
+      <div class="container">
+        <div class="sv-faq__grid">
+          <div class="sv-faq__aside fade-in-left">
+            <span class="eyebrow">Questions</span>
+            <h2 class="section-title" id="sv-faq-title">
+              Things<br>people ask.
+            </h2>
+            <p class="sv-faq__note">
+              Still curious? Ask at the bar — we like talking about coffee.
+            </p>
+            <div class="sv-faq__media" aria-hidden="true">
+              <img src="../assets/images/image_10.webp" alt="" loading="lazy">
+            </div>
+          </div>
+
+          <div class="sv-faq__list">
+            <article class="faq fade-in-right">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-1">
+                <span class="faq__q">Do you offer decaf?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__panel" id="faq-1" hidden>
+                <p>
+                  Yes. Our decaf is a Colombian sugarcane-process coffee —
+                  it tastes like coffee, not an apology. Available on
+                  espresso and filter.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq fade-in-left">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-2">
+                <span class="faq__q">Are the pastries made in-house?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__panel" id="faq-2" hidden>
+                <p>
+                  Yes, all pastry is laminated and baked on site. The
+                  croissants take three days from dough to plate.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq fade-in-right">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-3">
+                <span class="faq__q">Can I work from the cafe?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__panel" id="faq-3" hidden>
+                <p>
+                  Absolutely. We have wifi, plugs under most tables, and
+                  a quiet back room for calls. We only ask that you make
+                  room for others during peak hours.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq fade-in-left">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-4">
+                <span class="faq__q">Do you sell beans to take home?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__panel" id="faq-4" hidden>
+                <p>
+                  Yes — all coffees on bar are available as 250g and 1kg
+                  retail bags. We recommend resting them seven days
+                  before brewing.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq fade-in-right">
+              <button class="faq__trigger" type="button" aria-expanded="false" aria-controls="faq-5">
+                <span class="faq__q">Do you take reservations?</span>
+                <span class="faq__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq__panel" id="faq-5" hidden>
+                <p>
+                  For parties of four or more, yes. Use the reservation
+                  form on our contact page or call the cafe directly.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 10 CTA — FULL-BLEED PARALLAX ======================== --><section class="sv-cta" aria-labelledby="sv-cta-title">
+      <div class="sv-cta__media">
+        <img
+          src="../assets/images/image_20.webp"
+          alt=""
+          loading="lazy">
+      </div>
+      <div class="sv-cta__scrim"></div>
+
+      <div class="sv-cta__content">
+        <span class="eyebrow fade-in-left">Hungry Yet?</span>
+        <h2 class="sv-cta__title fade-in-left" id="sv-cta-title">
+          Come taste<br>the whole menu.
+        </h2>
+        <p class="sv-cta__lede fade-in-right">
+          Everything on this page is available today. The only thing
+          missing is you.
+        </p>
+        <div class="sv-cta__actions fade-in-right">
+          <a class="btn btn--light" href="login.html">
+            Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+          </a>
+          <a class="btn" style="border-color:rgba(255,255,255,.35);color:#fff;" href="blog.html">
+            Read the Journal
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="../index.html" aria-label="Stackly Brew home">
+            <img src="../logo.webp" alt="Stackly Brew">
+          </a>
+          <p>
+            Specialty coffee, handmade food and slow moments.
+            A neighborhood cafe built around the simple pleasure of a good cup.
+          </p>
+          <div class="footer-socials-new" style="margin-top: 20px; display: flex; gap: 15px;">
+            <a href="../404.html" aria-label="Instagram" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+            <a href="../404.html" aria-label="Facebook" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="../404.html" aria-label="Twitter" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="../404.html" aria-label="Pinterest" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="../404.html" aria-label="LinkedIn" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Explore</div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Menu</a>
+            <a href="blog.html">Journal</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Quick Links</div>
+          <nav class="footer-links" aria-label="Quick links">
+            <a href="../404.html">Gift Cards</a>
+            <a href="../404.html">Merchandise</a>
+            <a href="../404.html">Wholesale</a>
+            <a href="../404.html">Careers</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Hours</div>
+          <div class="footer-hours">
+            <span><strong>Mon�LFri</strong><br>7:00 — 20:00</span>
+            <span><strong>Sat��Sun</strong><br>8:00 — 21:00</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Stay in touch</div>
+          <div class="footer-hours">
+            <span><i class="fa-solid fa-location-dot" style="width: 16px; margin-right: 8px;"></i> Stackly, Salem, TN, India</span>
+            <span><i class="fa-solid fa-phone" style="width: 16px; margin-right: 8px;"></i> +91 90000 00000</span>
+            <span><i class="fa-solid fa-envelope" style="width: 16px; margin-right: 8px;"></i> hello@stackly.example</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Stackly Brew. Crafted with care.</span>
+
+        <div class="footer-legal" style="display: flex; gap: 20px;">
+          <a href="../404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Privacy Policy</a>
+          <a href="../404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" type="button" aria-label="Back to top">↑</button>
+
+  <!-- GSAP --><script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (typeof gsap !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+    /* ---------- Header ---------- */
+    const header = document.getElementById("site-header");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
+    const mobileLinks = mobileNav.querySelectorAll("a");
+
+    const setHeaderState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 30);
+    };
+
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+    setHeaderState();
+
+    const closeMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      mobileNav.classList.remove("is-open");
+      mobileNav.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("menu-open");
+
+      if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+        gsap.to(".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn", {
+          y: 15, opacity: 0, duration: .2, stagger: .02, overwrite: true
+        });
+      }
+    };
+
+    const openMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Close navigation menu");
+      mobileNav.classList.add("is-open");
+      mobileNav.setAttribute("aria-hidden", "false");
+      document.body.classList.add("menu-open");
+
+      if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+        gsap.fromTo(
+          ".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn",
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: .55, stagger: .06, ease: "power3.out", delay: .08 }
+        );
+      }
+    };
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    mobileLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    /* ---------- Hero ---------- */
+    window.addEventListener("load", () => {
+      if (typeof gsap === "undefined" || prefersReducedMotion) {
+        document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+          el.style.opacity = "1";
+        });
+        return;
+      }
+
+      const tl = gsap.timeline({ defaults: { duration: .85, ease: "power3.out" } });
+
+      tl.fromTo(".sv-hero__eyebrow", { x: -40, opacity: 0 }, { x: 0, opacity: 1 })
+        .fromTo(".sv-hero__title",   { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, "-=.6")
+        .fromTo(".sv-hero__lede",    { x: -30, opacity: 0 }, { x: 0, opacity: 1 }, "-=.5")
+        .fromTo(".sv-hero__actions", { x: -25, opacity: 0 }, { x: 0, opacity: 1 }, "-=.5")
+        .fromTo(".sv-hero__strip",   { x:  40, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, "-=.8");
+
+      // stagger the strip items for a reveal feel
+      gsap.fromTo(".sv-hero__strip-item img",
+        { scale: 1.15 },
+        { scale: 1, duration: 1.3, ease: "power2.out", stagger: .1, delay: .4 });
+
+      gsap.to(".sv-hero__media img", {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".sv-hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    });
+
+    /* ---------- Scroll Reveals ---------- */
+    if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+      gsap.utils.toArray(".fade-in-left").forEach(el => {
+        if (el.closest(".sv-hero")) return;
+        gsap.fromTo(el,
+          { x: -40, opacity: 0 },
+          { x: 0, opacity: 1, duration: .75, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 86%", once: true } });
+      });
+
+      gsap.utils.toArray(".fade-in-right").forEach(el => {
+        if (el.closest(".sv-hero")) return;
+        gsap.fromTo(el,
+          { x: 40, opacity: 0 },
+          { x: 0, opacity: 1, duration: .75, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 86%", once: true } });
+      });
+
+      // Stagger bento card entry
+      gsap.fromTo(".bento__card", { y: 40, opacity: 0 }, {
+        y: 0, opacity: 1, duration: .8, ease: "power3.out", stagger: .08,
+        scrollTrigger: { trigger: ".bento", start: "top 80%", once: true }
+      });
+
+      // Process flow steps
+      gsap.utils.toArray(".process-step").forEach((step, i) => {
+        gsap.fromTo(step,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: .7, ease: "power2.out",
+            delay: i * .05,
+            scrollTrigger: { trigger: step, start: "top 85%", once: true } });
+      });
+
+      // Seasonal cards stagger
+      gsap.fromTo(".seasonal-card", { y: 50, opacity: 0 }, {
+        y: 0, opacity: 1, duration: .85, ease: "power3.out", stagger: .1,
+        scrollTrigger: { trigger: ".seasonal-stack", start: "top 82%", once: true }
+      });
+
+      // Signature stamp rotation
+      gsap.fromTo(".sv-signature__stamp",
+        { rotate: -25, scale: .8, opacity: 0 },
+        { rotate: -12, scale: 1, opacity: 1, duration: .9, ease: "back.out(1.6)",
+          scrollTrigger: { trigger: ".sv-signature", start: "top 70%", once: true } });
+
+      // Signature image stack parallax
+      gsap.to(".sv-signature__img--back", {
+        yPercent: -12, ease: "none",
+        scrollTrigger: { trigger: ".sv-signature", start: "top bottom", end: "bottom top", scrub: true }
+      });
+      gsap.to(".sv-signature__img--front", {
+        yPercent: 8, ease: "none",
+        scrollTrigger: { trigger: ".sv-signature", start: "top bottom", end: "bottom top", scrub: true }
+      });
+
+      // Catering media parallax
+      gsap.to(".sv-catering__media img", {
+        yPercent: -8, ease: "none",
+        scrollTrigger: { trigger: ".sv-catering", start: "top bottom", end: "bottom top", scrub: true }
+      });
+
+      // CTA parallax
+      gsap.to(".sv-cta__media img", {
+        yPercent: 10, ease: "none",
+        scrollTrigger: { trigger: ".sv-cta", start: "top bottom", end: "bottom top", scrub: true }
+      });
+    } else {
+      document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+        el.style.opacity = "1";
+      });
+    }
+
+    /* ---------- 04 Category Tabs ---------- */
+    (function initCategoryTabs() {
+      const root = document.querySelector(".cat-tabs");
+      if (!root) return;
+
+      const tabs = Array.from(root.querySelectorAll(".cat-tab"));
+      const panels = Array.from(root.querySelectorAll(".cat-panel"));
+
+      function activate(i) {
+        tabs.forEach((t, j) => {
+          const on = i === j;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach((p, j) => {
+          const on = i === j;
+          p.classList.toggle("is-active", on);
+          p.hidden = !on;
+        });
+      }
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => activate(i));
+        tab.addEventListener("keydown", e => {
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+            e.preventDefault();
+            const dir = e.key === "ArrowRight" ? 1 : -1;
+            const next = (i + dir + tabs.length) % tabs.length;
+            activate(next);
+            tabs[next].focus();
+          }
+        });
+      });
+
+      activate(0);
+    })();
+
+    /* ---------- 06 Food expandable panels ---------- */
+    (function initFoodPanels() {
+      const panels = document.querySelectorAll(".food-panel");
+      if (!panels.length) return;
+
+      panels.forEach(panel => {
+        const trigger = panel.querySelector(".food-panel__trigger");
+        const body = panel.querySelector(".food-panel__body");
+
+        trigger.addEventListener("click", () => {
+          const isOpen = panel.classList.contains("food-panel--open");
+
+          panels.forEach(other => {
+            if (other === panel) return;
+            other.classList.remove("food-panel--open");
+            const t = other.querySelector(".food-panel__trigger");
+            const b = other.querySelector(".food-panel__body");
+            t.setAttribute("aria-expanded", "false");
+            b.hidden = true;
+          });
+
+          if (isOpen) {
+            panel.classList.remove("food-panel--open");
+            trigger.setAttribute("aria-expanded", "false");
+            body.hidden = true;
+          } else {
+            panel.classList.add("food-panel--open");
+            trigger.setAttribute("aria-expanded", "true");
+            body.hidden = false;
+
+            if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+              gsap.fromTo(body,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: .55, ease: "power3.out" });
+            }
+          }
+        });
+      });
+    })();
+
+    /* ---------- 09 FAQ accordion ---------- */
+    (function initFaq() {
+      const faqs = document.querySelectorAll(".faq");
+      if (!faqs.length) return;
+
+      faqs.forEach(item => {
+        const trigger = item.querySelector(".faq__trigger");
+        const panel = item.querySelector(".faq__panel");
+
+        trigger.addEventListener("click", () => {
+          const isOpen = item.classList.contains("is-open");
+
+          faqs.forEach(other => {
+            if (other === item) return;
+            other.classList.remove("is-open");
+            const t = other.querySelector(".faq__trigger");
+            const p = other.querySelector(".faq__panel");
+            t.setAttribute("aria-expanded", "false");
+            p.hidden = true;
+          });
+
+          if (isOpen) {
+            item.classList.remove("is-open");
+            trigger.setAttribute("aria-expanded", "false");
+            panel.hidden = true;
+          } else {
+            item.classList.add("is-open");
+            trigger.setAttribute("aria-expanded", "true");
+            panel.hidden = false;
+          }
+        });
+      });
+    })();
+
+    /* ---------- Back To Top ---------- */
+    const backTop = document.getElementById("back-top");
+
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("is-visible", window.scrollY > 700);
+    }, { passive: true });
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth"
+      });
+    });
+  </script>
+</body>
+</html>

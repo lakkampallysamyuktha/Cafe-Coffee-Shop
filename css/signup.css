@@ -1,0 +1,58 @@
+/* =========================================================
+   SIGNUP.CSS
+   Cafe & Coffee Shop — Signup Page
+   Extends login.css (shared auth base). Small overrides only.
+   ========================================================= */
+
+/* Import the shared auth base so signup.html only needs one link */
+@import url("./login.css");
+
+/* ---------- Signup-specific tweaks ---------- */
+
+/* Slightly wider form column to comfortably fit the extra fields */
+#signup-form {
+  gap: 24px;
+}
+
+/* Terms row uses a block-level check with longer copy */
+.check--block span {
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+/* Give the confirm-password field a tiny bit of breathing room */
+#signup-confirm {
+  letter-spacing: .02em;
+}
+
+/* On very tall forms, reduce the top gap so the panel does not
+   push the footer off-screen on smaller laptops */
+@media (max-height: 780px) and (min-width: 981px) {
+  .auth__panel {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .auth__logo {
+    margin-bottom: 24px;
+  }
+
+  .auth__head {
+    margin-bottom: 26px;
+  }
+
+  #signup-form {
+    gap: 18px;
+  }
+}
+
+/* On small screens, tighten spacing further */
+@media (max-width: 600px) {
+  #signup-form {
+    gap: 20px;
+  }
+
+  .check--block span {
+    font-size: .82rem;
+  }
+}

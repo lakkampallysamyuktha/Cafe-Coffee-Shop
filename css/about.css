@@ -1,0 +1,1291 @@
+/* =========================================================
+   ABOUT.CSS
+   Cafe & Coffee Shop — About Page
+   10 sections · Unique layouts, no Home-page repeats
+   ========================================================= */
+
+/* =====================================================
+   01 HERO — Editorial Full-Bleed
+   ===================================================== */
+
+.ab-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--header-height) + 40px) 0 60px;
+  overflow: hidden;
+  color: var(--cream);
+}
+
+.ab-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.ab-hero__media img {
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  transform: translateY(-5%);
+}
+
+.ab-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(36,27,47,.55) 0%, rgba(36,27,47,.15) 35%, rgba(36,27,47,.82) 100%),
+    linear-gradient(90deg, rgba(36,27,47,.4), transparent 60%);
+}
+
+.ab-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: min(calc(100% - 48px), var(--container));
+  margin-inline: auto;
+  display: grid;
+  gap: 40px;
+}
+
+.ab-hero__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255, 251, 245, .8);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.ab-hero__meta-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--lavender);
+}
+
+.ab-hero__title {
+  max-width: 1100px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 8vw, 9rem);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.055em;
+}
+
+.ab-hero__title-em {
+  color: var(--lavender);
+  font-style: italic;
+}
+
+.ab-hero__foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 251, 245, .18);
+}
+
+.ab-hero__lede {
+  max-width: 520px;
+  color: rgba(255, 251, 245, .78);
+  font-size: clamp(.95rem, 1.2vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.ab-hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--cream);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.ab-hero__scroll-line {
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: var(--lavender);
+  position: relative;
+}
+
+.ab-hero__scroll-line::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lavender);
+}
+
+/* =====================================================
+   02 LETTER — Editorial Manifesto
+   ===================================================== */
+
+.ab-letter {
+  background: var(--cream);
+}
+
+.ab-letter__grid {
+  display: grid;
+  grid-template-columns: minmax(240px, .55fr) minmax(0, 1.45fr);
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+
+.ab-letter__aside {
+  position: sticky;
+  top: 130px;
+  display: grid;
+  gap: 22px;
+  padding-top: 8px;
+}
+
+.ab-letter__kicker {
+  color: var(--purple);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.ab-letter__date {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.ab-letter__signature {
+  display: grid;
+  gap: 4px;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.ab-letter__signature span:last-child {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .72rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ab-letter__body {
+  position: relative;
+}
+
+.ab-letter__title {
+  max-width: 900px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4.2vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+
+.ab-letter__title em {
+  color: var(--purple);
+  font-style: italic;
+}
+
+.ab-letter__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 40px;
+  margin-top: 55px;
+}
+
+.ab-letter__columns p {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.ab-letter__columns p:first-of-type::first-letter {
+  float: left;
+  margin: .1em .12em 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4.4rem;
+  line-height: .85;
+  color: var(--purple);
+}
+
+.ab-letter__stamp {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 120px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  color: var(--purple);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: .78rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* =====================================================
+   03 MISSION & VISION — Diagonal Overlap
+   ===================================================== */
+
+.ab-mv {
+  position: relative;
+  padding: 130px 0;
+  background: var(--cream-deep);
+  overflow: hidden;
+}
+
+.ab-mv__head {
+  max-width: 700px;
+  margin-bottom: 80px;
+}
+
+.ab-mv__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 4vw, 60px);
+}
+
+.ab-mv__panel {
+  position: relative;
+  padding: clamp(40px, 5vw, 70px);
+  border-radius: 30px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+}
+
+.ab-mv__panel--mission {
+  transform: translateY(40px) rotate(-1.2deg);
+}
+
+.ab-mv__panel--vision {
+  transform: translateY(-40px) rotate(1.2deg);
+  background: var(--ink);
+  color: var(--cream);
+  border-color: transparent;
+}
+
+.ab-mv__panel:hover {
+  transform: translateY(0) rotate(0deg);
+  box-shadow: var(--shadow-md);
+}
+
+.ab-mv__panel-num {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 6px 12px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  color: var(--purple);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.ab-mv__panel--vision .ab-mv__panel-num {
+  color: var(--lavender);
+}
+
+.ab-mv__panel h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.2vw, 3.6rem);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.ab-mv__panel p {
+  max-width: 480px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.ab-mv__panel--vision p {
+  color: rgba(255, 251, 245, .72);
+}
+
+.ab-mv__list {
+  display: grid;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid var(--border);
+}
+
+.ab-mv__panel--vision .ab-mv__list {
+  border-color: rgba(255, 251, 245, .18);
+}
+
+.ab-mv__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: .92rem;
+  color: var(--ink-soft);
+}
+
+.ab-mv__panel--vision .ab-mv__list li {
+  color: rgba(255, 251, 245, .82);
+}
+
+.ab-mv__list li::before {
+  content: "✦";
+  color: var(--purple);
+  font-size: .85rem;
+}
+
+.ab-mv__panel--vision .ab-mv__list li::before {
+  color: var(--lavender);
+}
+
+/* =====================================================
+   04 VALUES — Expandable Accordion
+   ===================================================== */
+
+.ab-values {
+  background: var(--cream);
+}
+
+.ab-values__head {
+  display: grid;
+  gap: 20px;
+  max-width: 900px;
+  margin-bottom: 60px;
+}
+
+.ab-values__hint {
+  color: var(--muted);
+  font-size: .85rem;
+  font-style: italic;
+}
+
+.ab-values__list {
+  border-top: 1px solid var(--border);
+}
+
+.value-row {
+  border-bottom: 1px solid var(--border);
+}
+
+.value-row__trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 80px 1fr 44px;
+  align-items: center;
+  gap: 30px;
+  padding: 34px 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: padding .5s var(--ease);
+}
+
+.value-row:hover .value-row__trigger {
+  padding-left: 12px;
+}
+
+.value-row__num {
+  color: var(--purple);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.value-row__label {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 4.5vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.04em;
+  transition: color .35s ease;
+}
+
+.value-row.is-open .value-row__label {
+  color: var(--purple);
+}
+
+.value-row__icon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: background .35s ease, border-color .35s ease, transform .5s var(--ease);
+}
+
+.value-row__icon::before,
+.value-row__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform .4s var(--ease);
+}
+
+.value-row__icon::before { width: 12px; height: 1.5px; }
+.value-row__icon::after  { width: 1.5px; height: 12px; }
+
+.value-row.is-open .value-row__icon {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+  transform: rotate(135deg);
+}
+
+.value-row.is-open .value-row__icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+.value-row__panel {
+  overflow: hidden;
+  padding: 0 0 34px 110px;
+  max-width: 850px;
+}
+
+.value-row__panel p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* =====================================================
+   05 JOURNEY — Horizontal Scroll Rail
+   ===================================================== */
+
+.ab-journey {
+  padding: 130px 0 100px;
+  background: var(--ink);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+.ab-journey__head {
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.ab-journey__head .eyebrow {
+  color: var(--lavender);
+}
+
+.ab-journey__hint {
+  margin-top: 18px;
+  color: rgba(255, 251, 245, .5);
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.ab-journey__rail {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding: 0 max(24px, calc((100vw - var(--container)) / 2)) 30px;
+  scrollbar-width: none;
+}
+
+.ab-journey__rail::-webkit-scrollbar { display: none; }
+
+.ab-journey__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+
+.chapter {
+  flex: 0 0 auto;
+  width: min(420px, 78vw);
+  scroll-snap-align: start;
+  display: grid;
+  gap: 18px;
+  padding: 40px 32px;
+  border: 1px solid rgba(255, 251, 245, .12);
+  border-radius: 26px;
+  background: rgba(255, 251, 245, .04);
+  transition: transform .5s var(--ease), border-color .5s ease, background .5s ease;
+}
+
+.chapter:hover {
+  transform: translateY(-6px);
+  border-color: rgba(195, 172, 208, .5);
+  background: rgba(195, 172, 208, .08);
+}
+
+.chapter__year {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  color: var(--lavender);
+  line-height: 1;
+}
+
+.chapter__tag {
+  color: rgba(255, 251, 245, .55);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.chapter__title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.chapter__copy {
+  color: rgba(255, 251, 245, .68);
+  line-height: 1.75;
+  font-size: .95rem;
+}
+
+/* =====================================================
+   06 TEAM — Coverflow
+   ===================================================== */
+
+.ab-team {
+  background: var(--cream-deep);
+  overflow: hidden;
+}
+
+.ab-team__head {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.ab-team__lede {
+  margin-top: 18px;
+  max-width: 480px;
+  color: var(--muted);
+}
+
+.coverflow {
+  position: relative;
+  padding: 40px 0 20px;
+  outline: none;
+}
+
+.coverflow__viewport {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+  perspective: 1400px;
+}
+
+.coverflow__track {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transform-style: preserve-3d;
+  padding: 0 30px;
+}
+
+.crew {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 340px;
+  height: 480px;
+  transform:
+    translate(-50%, -50%)
+    translateX(calc(var(--offset, 0) * 200px))
+    scale(calc(1 - (var(--abs, 0) * 0.08)))
+    rotateY(calc(var(--offset, 0) * -12deg));
+  transition: transform .8s var(--ease), opacity .6s ease;
+  opacity: calc(1 - (var(--abs, 0) * 0.25));
+  border-radius: 26px;
+  overflow: hidden;
+  background: var(--ink);
+  box-shadow: 0 30px 60px rgba(36, 27, 47, .18);
+  will-change: transform;
+}
+
+.crew.is-active {
+  opacity: 1;
+  box-shadow: 0 40px 80px rgba(36, 27, 47, .28);
+}
+
+.crew__photo {
+  position: absolute;
+  inset: 0;
+}
+
+.crew__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s var(--ease);
+}
+
+.crew.is-active .crew__photo img {
+  transform: scale(1.03);
+}
+
+.crew__info {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(255, 251, 245, .92);
+  backdrop-filter: blur(15px);
+  color: var(--ink);
+}
+
+.crew__role {
+  color: var(--purple);
+  font-size: .67rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.crew__name {
+  margin-top: 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+
+.crew__bio {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.55;
+}
+
+.coverflow__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.coverflow__btn {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .3s ease, color .3s ease, border-color .3s ease;
+}
+
+.coverflow__btn:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+}
+
+.coverflow__dots {
+  display: flex;
+  gap: 8px;
+}
+
+.coverflow__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+}
+
+.coverflow__dot.is-active {
+  background: var(--purple);
+  transform: scale(1.4);
+}
+
+/* =====================================================
+   07 PHILOSOPHY — Pull Quote Editorial
+   ===================================================== */
+
+.ab-philosophy {
+  background: var(--cream);
+}
+
+.ab-philosophy__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ab-philosophy__mark {
+  color: var(--lavender);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(6rem, 12vw, 12rem);
+  line-height: .55;
+}
+
+.ab-philosophy__quote {
+  margin: 60px 0 70px;
+  max-width: 1200px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 6vw, 7rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.ab-philosophy__quote em {
+  color: var(--purple);
+  font-style: italic;
+}
+
+.ab-philosophy__meta {
+  display: grid;
+  grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr);
+  gap: clamp(40px, 6vw, 110px);
+  align-items: start;
+}
+
+.ab-philosophy__note p {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.ab-philosophy__steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 40px;
+}
+
+.ab-philosophy__steps li {
+  display: grid;
+  gap: 8px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.ab-philosophy__steps span {
+  color: var(--purple);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.ab-philosophy__steps h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.ab-philosophy__steps p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   08 ORIGINS — Origin List
+   ===================================================== */
+
+.ab-origins {
+  background: var(--cream-deep);
+}
+
+.ab-origins__head {
+  max-width: 800px;
+  margin-bottom: 60px;
+}
+
+.ab-origins__lede {
+  margin-top: 22px;
+  max-width: 520px;
+  color: var(--muted);
+}
+
+.origin-list {
+  border-top: 1px solid var(--border);
+}
+
+.origin {
+  display: grid;
+  grid-template-columns: 80px 1fr 1.4fr auto;
+  gap: 40px;
+  align-items: center;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left .5s var(--ease), background .4s ease;
+}
+
+.origin:hover {
+  padding-left: 14px;
+  background: rgba(195, 172, 208, .1);
+}
+
+.origin__index {
+  color: var(--purple);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+
+.origin__place h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+  font-weight: 500;
+}
+
+.origin__place span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.origin__notes {
+  color: var(--ink-soft);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+
+.origin__tag {
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--purple);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ab-origins__foot {
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: .9rem;
+  font-style: italic;
+}
+
+/* =====================================================
+   09 ROOM — Tabbed Gallery
+   ===================================================== */
+
+.ab-room {
+  background: var(--cream);
+}
+
+.ab-room__head {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+
+.room-tabs {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.room-tabs__list {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.room-tab {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 0;
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: left;
+  transition: color .3s ease, padding-left .4s var(--ease);
+}
+
+.room-tab span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  color: var(--muted);
+}
+
+.room-tab:hover {
+  padding-left: 8px;
+  color: var(--purple);
+}
+
+.room-tab.is-active {
+  color: var(--purple);
+}
+
+.room-tab.is-active span {
+  color: var(--purple);
+}
+
+.room-tabs__panels {
+  position: relative;
+}
+
+.room-panel {
+  display: grid;
+  gap: 24px;
+  animation: roomFade .55s var(--ease);
+}
+
+.room-panel[hidden] {
+  display: none;
+}
+
+.room-panel__media {
+  overflow: hidden;
+  border-radius: 26px;
+  aspect-ratio: 16 / 10;
+  background: var(--cream-deep);
+}
+
+.room-panel__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.room-panel__media:hover img {
+  transform: scale(1.04);
+}
+
+.room-panel__meta h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-weight: 500;
+}
+
+.room-panel__meta p {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 620px;
+}
+
+@keyframes roomFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================================
+   10 CTA — Overlapping Card
+   ===================================================== */
+
+.ab-cta {
+  background: var(--cream-deep);
+  padding-bottom: 140px;
+}
+
+.ab-cta__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  min-height: 580px;
+}
+
+.ab-cta__image {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.ab-cta__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ab-cta__card {
+  position: relative;
+  z-index: 2;
+  margin-left: -110px;
+  padding: clamp(40px, 5vw, 72px);
+  border-radius: 30px;
+  background: var(--cream);
+  box-shadow: var(--shadow-md);
+}
+
+.ab-cta__title {
+  margin-top: 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 4.4vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 1.02;
+}
+
+.ab-cta__copy {
+  margin-top: 22px;
+  max-width: 480px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.ab-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* =====================================================
+   Responsive
+   ===================================================== */
+
+@media (max-width: 1100px) {
+  .ab-letter__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-letter__aside {
+    position: relative;
+    top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ab-letter__signature {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .ab-letter__stamp {
+    display: none;
+  }
+
+  .ab-letter__columns {
+    grid-template-columns: 1fr;
+  }
+
+  .room-tabs {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .room-tabs__list {
+    display: flex;
+    overflow-x: auto;
+    gap: 6px;
+    padding-bottom: 8px;
+    border-top: 0;
+    scrollbar-width: none;
+  }
+
+  .room-tabs__list::-webkit-scrollbar { display: none; }
+
+  .room-tab {
+    flex: 0 0 auto;
+    padding: 12px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .room-tab.is-active {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: var(--white);
+  }
+
+  .room-tab.is-active span {
+    color: rgba(255, 255, 255, .75);
+  }
+}
+
+@media (max-width: 900px) {
+  .ab-mv__stage {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-mv__panel--mission,
+  .ab-mv__panel--vision {
+    transform: none;
+  }
+
+  .ab-philosophy__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .origin {
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+  }
+
+  .origin__notes,
+  .origin__tag {
+    grid-column: 2;
+  }
+
+  .origin__tag {
+    justify-self: start;
+    margin-top: 8px;
+  }
+
+  .ab-cta__stage {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-cta__image {
+    height: 420px;
+  }
+
+  .ab-cta__card {
+    margin: -60px 24px 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .ab-hero__inner {
+    width: min(calc(100% - 32px), var(--container));
+    gap: 28px;
+  }
+
+  .ab-hero__title {
+    font-size: clamp(2.6rem, 12vw, 5rem);
+  }
+
+  .ab-hero__foot {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .ab-hero__scroll-line {
+    width: 40px;
+  }
+
+  .value-row__trigger {
+    grid-template-columns: 44px 1fr 38px;
+    gap: 16px;
+    padding: 26px 0;
+  }
+
+  .value-row__panel {
+    padding-left: 60px;
+  }
+
+  .ab-philosophy__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .coverflow__viewport {
+    height: 480px;
+  }
+
+  .crew {
+    width: 280px;
+    height: 420px;
+    transform:
+      translate(-50%, -50%)
+      translateX(calc(var(--offset, 0) * 160px))
+      scale(calc(1 - (var(--abs, 0) * 0.08)))
+      rotateY(calc(var(--offset, 0) * -10deg));
+  }
+
+  .chapter {
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ab-letter__columns p:first-of-type::first-letter {
+    font-size: 3.4rem;
+  }
+
+  .value-row__label {
+    font-size: 2rem;
+  }
+
+  .value-row__panel {
+    padding-left: 44px;
+  }
+
+  .ab-origins__head,
+  .ab-team__head,
+  .ab-room__head,
+  .ab-values__head {
+    margin-bottom: 40px;
+  }
+
+  .coverflow__viewport {
+    height: 440px;
+  }
+
+  .crew {
+    width: 260px;
+    height: 380px;
+  }
+
+  .ab-cta__card {
+    margin: -40px 12px 0;
+    padding: 32px 24px;
+  }
+
+  .ab-cta__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room-panel { animation: none; }
+  .crew,
+  .chapter,
+  .ab-mv__panel { transition: none; }
+  .ab-hero__media img { transform: none; }
+}

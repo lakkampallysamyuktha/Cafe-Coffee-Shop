@@ -1,0 +1,918 @@
+<!-- html/blog.html --><!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Stackly Brew Journal — coffee guides, brewing notes, origin stories, and cafe life.">
+  <meta name="theme-color" content="#FFFBF5">
+  <title>The Journal — Stackly Brew</title>
+
+  <link rel="stylesheet" href="../global.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+</head>
+
+<body>
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="page-loader">
+    <div class="page-loader__content">
+      <div class="page-loader__spinner"></div>
+      <div class="page-loader__logo">Stackly <em>Brew</em></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const loader = document.getElementById("page-loader");
+        if (loader) loader.classList.add("is-hidden");
+      }, 1500);
+    });
+  </script>
+
+  <!-- ======================== HEADER ======================== --><header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html" aria-label="Stackly Brew home">
+        <img src="../logo.webp" alt="Stackly Brew">
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Menu</a>
+        <a href="blog.html" aria-current="page">Journal</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn--primary header-cta" href="login.html">
+          Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="mobile-nav"
+          aria-expanded="false">
+          <span class="menu-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+      <div class="mobile-nav__inner">
+        <div class="mobile-nav__links">
+          <a href="../index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Menu</a>
+          <a href="blog.html" aria-current="page">Journal</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="mobile-nav__meta">
+          <span>Mon–Fri <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> 7:00–20:00</span>
+          <span>Sat–Sun <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> 8:00–21:00</span>
+        </div>
+
+        <div style="margin-top: 28px;">
+          <a class="btn btn--primary" href="login.html">Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ======================== 01 HERO — EDITORIAL MASTHEAD ======================== --><section class="bl-hero" aria-labelledby="bl-hero-title">
+      <div class="container">
+        <div class="bl-hero__masthead fade-in-left">
+          <span class="eyebrow">The Stackly Brew Journal <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Issue 12</span>
+          <span class="bl-hero__date">Spring 2026</span>
+        </div>
+
+        <h1 class="bl-hero__title fade-in-left" id="bl-hero-title">
+          Notes from
+          <br>
+          the bar,
+          <em>slowly.</em>
+        </h1>
+
+        <div class="bl-hero__foot">
+          <p class="bl-hero__lede fade-in-left">
+            Brewing guides, origin stories, barista opinions, and
+            occasional detours into why the croissant recipe took
+            fourteen tries.
+          </p>
+
+          <div class="bl-hero__strip fade-in-right">
+            <figure class="bl-hero__thumb">
+              <img src="../assets/images/image_21.webp" alt="Coffee brewing" loading="eager">
+            </figure>
+            <figure class="bl-hero__thumb">
+              <img src="../assets/images/image_04.webp" alt="Coffee beans" loading="eager">
+            </figure>
+            <figure class="bl-hero__thumb">
+              <img src="../assets/images/image_26.webp" alt="Latte art" loading="eager">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 02 FEATURED ARTICLE ======================== --><section class="section bl-featured" aria-labelledby="bl-featured-title">
+      <div class="container">
+        <div class="bl-featured__grid">
+
+          <div class="bl-featured__media fade-in-left">
+            <img
+              src="../assets/images/image_19.webp"
+              alt="Barista pouring coffee"
+              loading="lazy">
+            <span class="bl-featured__badge">Featured</span>
+          </div>
+
+          <div class="bl-featured__content fade-in-right">
+            <span class="bl-featured__meta">
+              <span class="bl-featured__cat">Coffee Guide</span>
+              <span class="bl-featured__dot"></span>
+              <span>8 min read</span>
+            </span>
+
+            <h2 class="bl-featured__title" id="bl-featured-title">
+              How to taste coffee
+              <br>
+              without pretending
+              <br>
+              you know everything.
+            </h2>
+
+            <p class="bl-featured__excerpt">
+              You do not need a certified palate to enjoy a good cup.
+              You need curiosity, a spoon, and the willingness to say
+              "this tastes like something" — even if that something
+              is "warm."
+            </p>
+
+            <div class="bl-featured__byline">
+              <div class="bl-featured__avatar" aria-hidden="true">
+                <img src="../assets/images/image_15.webp" alt="">
+              </div>
+              <div>
+                <span class="bl-featured__author">By Aria</span>
+                <span class="bl-featured__date">March 12, 2026</span>
+              </div>
+            </div>
+
+            <a class="btn btn--primary" href="../404.html">
+              Read the Guide <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+     
+
+    <!-- ======================== 04 LATEST ARTICLES — MASONRY GRID ======================== --><section class="section bl-latest" id="latest" aria-labelledby="bl-latest-title">
+      <div class="container">
+        <div class="bl-latest__head">
+          <div class="eyebrow fade-in-left">Latest Articles</div>
+          <h2 class="section-title fade-in-left" id="bl-latest-title">
+            Fresh from<br>the journal.
+          </h2>
+          <p class="bl-latest__lede fade-in-right">
+            New writing every Tuesday. No filler, no listicles — just
+            things we actually wanted to say.
+          </p>
+        </div>
+
+        <div class="masonry">
+          <article class="masonry__item masonry__item--tall fade-in-left">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_06.webp" alt="Coffee beans on table" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Origin</span>
+                <h3>Why origin changes your morning cup.</h3>
+                <p>Terroir, processing, and the small decisions that turn a bean into a flavour.</p>
+                <span class="masonry__meta">5 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Noah</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="masonry__item fade-in-right">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_29.webp" alt="Latte art" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Barista Notes</span>
+                <h3>Milk, texture and the art of a great latte.</h3>
+                <span class="masonry__meta">4 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Aria</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="masonry__item fade-in-left">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_13.webp" alt="Iced coffee" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Brewing</span>
+                <h3>Cold brew at home: what actually matters.</h3>
+                <p>Grind, ratio, time — and what you can safely ignore.</p>
+                <span class="masonry__meta">6 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Elias</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="masonry__item masonry__item--wide fade-in-right">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_36.webp" alt="Croissants on tray" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Cafe Life</span>
+                <h3>Fourteen croissants later: notes from the pastry kitchen.</h3>
+                <p>The full, slightly obsessive story of our house croissant — and every version we threw away.</p>
+                <span class="masonry__meta">9 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Mira</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="masonry__item fade-in-left">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_50.webp" alt="Iced coffee with lavender" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Recipes</span>
+                <h3>Lavender syrup, done properly.</h3>
+                <span class="masonry__meta">3 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Aria</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="masonry__item masonry__item--tall fade-in-right">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_10.webp" alt="Barista at work" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Cafe Life</span>
+                <h3>A day behind the bar, in eight small moments.</h3>
+                <p>From the first grind to the last wipe-down — what a shift actually looks like.</p>
+                <span class="masonry__meta">7 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Mira</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="masonry__item fade-in-left">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_47.webp" alt="Espresso shot" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Coffee Guide</span>
+                <h3>Reading a roast profile in plain English.</h3>
+                <span class="masonry__meta">6 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Noah</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="masonry__item fade-in-right">
+            <a href="../404.html">
+              <div class="masonry__media">
+                <img src="../assets/images/image_22.webp" alt="Pour over coffee" loading="lazy">
+              </div>
+              <div class="masonry__body">
+                <span class="masonry__cat">Brewing</span>
+                <h3>Pour over water: the variable nobody talks about.</h3>
+                <span class="masonry__meta">5 min <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Elias</span>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <div class="bl-latest__more fade-in-right">
+          <a class="btn btn--outline" href="../404.html">
+            Load More Articles <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 05 POPULAR TOPICS — STACKED CARDS ======================== --><section class="section bl-topics" aria-labelledby="bl-topics-title">
+      <div class="container">
+        <div class="bl-topics__head">
+          <div class="eyebrow fade-in-left">Popular Topics</div>
+          <h2 class="section-title fade-in-left" id="bl-topics-title">
+            What people<br>are reading.
+          </h2>
+        </div>
+
+        <div class="topics-stack">
+
+          <article class="topic-card fade-in-left">
+            <div class="topic-card__media">
+              <img src="../assets/images/image_41.webp" alt="Latte" loading="lazy">
+            </div>
+            <div class="topic-card__body">
+              <span class="topic-card__rank">#1</span>
+              <h3>The Latte, Reconsidered</h3>
+              <p>Why your milk choice changes the whole drink — and how to pick right.</p>
+              <span class="topic-card__meta">12,400 reads</span>
+            </div>
+            <span class="topic-card__arrow" aria-hidden="true"> <i class="fa-solid fa-arrow-right" style="margin: 0 6px;"></i> </span>
+          </article>
+
+          <article class="topic-card fade-in-right">
+            <div class="topic-card__media">
+              <img src="../assets/images/image_05.webp" alt="Coffee beans" loading="lazy">
+            </div>
+            <div class="topic-card__body">
+              <span class="topic-card__rank">#2</span>
+              <h3>Single Origin, Explained</h3>
+              <p>What it actually means, when it matters, and when it does not.</p>
+              <span class="topic-card__meta">9,800 reads</span>
+            </div>
+            <span class="topic-card__arrow" aria-hidden="true"> <i class="fa-solid fa-arrow-right" style="margin: 0 6px;"></i> </span>
+          </article>
+
+          <article class="topic-card fade-in-left">
+            <div class="topic-card__media">
+              <img src="../assets/images/image_12.webp" alt="Cold brew" loading="lazy">
+            </div>
+            <div class="topic-card__body">
+              <span class="topic-card__rank">#3</span>
+              <h3>Cold Brew vs. Iced Coffee</h3>
+              <p>They are not the same thing. Here is exactly why.</p>
+              <span class="topic-card__meta">8,200 reads</span>
+            </div>
+            <span class="topic-card__arrow" aria-hidden="true"> <i class="fa-solid fa-arrow-right" style="margin: 0 6px;"></i> </span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 06 COFFEE GUIDES — SPLIT SCREEN ======================== --><section class="section bl-guides" aria-labelledby="bl-guides-title">
+      <div class="container">
+        <div class="bl-guides__grid">
+          <div class="bl-guides__media fade-in-left">
+            <img src="../assets/images/image_48.webp" alt="Coffee brewing setup" loading="lazy">
+            <div class="bl-guides__stamp" aria-hidden="true">
+              <span>Read<br>Slowly</span>
+            </div>
+          </div>
+
+          <div class="bl-guides__content fade-in-right">
+            <span class="eyebrow">Coffee Guides</span>
+            <h2 class="section-title" id="bl-guides-title">
+              Guides for the<br>curious beginner.
+            </h2>
+
+            <p class="body-large">
+              Everything we wish someone had told us when we started. No
+              gatekeeping, no jargon — just the small things that make a
+              big difference.
+            </p>
+
+            <ul class="guide-list">
+              <li>
+                <a href="../404.html">
+                  <span class="guide-list__num">01</span>
+                  <span class="guide-list__title">Choosing your first grinder</span>
+                  <span class="guide-list__arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="../404.html">
+                  <span class="guide-list__num">02</span>
+                  <span class="guide-list__title">Dialling in espresso at home</span>
+                  <span class="guide-list__arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="../404.html">
+                  <span class="guide-list__num">03</span>
+                  <span class="guide-list__title">Understanding roast dates</span>
+                  <span class="guide-list__arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="../404.html">
+                  <span class="guide-list__num">04</span>
+                  <span class="guide-list__title">Water, and why it matters</span>
+                  <span class="guide-list__arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="../404.html">
+                  <span class="guide-list__num">05</span>
+                  <span class="guide-list__title">Milk alternatives, ranked honestly</span>
+                  <span class="guide-list__arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================== 08 BREWING RESOURCES — INTERACTIVE TABS ======================== --><section class="section bl-resources" aria-labelledby="bl-resources-title">
+      <div class="container">
+        <div class="bl-resources__head">
+          <div class="eyebrow fade-in-left">Brewing Resources</div>
+          <h2 class="section-title fade-in-left" id="bl-resources-title">
+            Everything you<br>need to brew well.
+          </h2>
+        </div>
+
+        <div class="res-tabs fade-in-right">
+          <div class="res-tabs__bar" role="tablist" aria-label="Brewing resources">
+            <button class="res-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="res-recipe" id="res-tab-recipe">
+              Recipes
+            </button>
+            <button class="res-tab" type="button" role="tab" aria-selected="false" aria-controls="res-tools" id="res-tab-tools" tabindex="-1">
+              Tools
+            </button>
+            <button class="res-tab" type="button" role="tab" aria-selected="false" aria-controls="res-beans" id="res-tab-beans" tabindex="-1">
+              Beans
+            </button>
+            <button class="res-tab" type="button" role="tab" aria-selected="false" aria-controls="res-water" id="res-tab-water" tabindex="-1">
+              Water
+            </button>
+          </div>
+
+          <div class="res-panels">
+
+            <!-- Recipes --><div class="res-panel is-active" id="res-recipe" role="tabpanel" aria-labelledby="res-tab-recipe">
+              <div class="res-panel__grid">
+                <div class="res-panel__intro">
+                  <h3>Recipes we actually use.</h3>
+                  <p>
+                    Every recipe on bar, written for home brewers.
+                    Grams, seconds, and temperatures — no guesswork.
+                  </p>
+                </div>
+                <ul class="res-panel__list">
+                  <li><span>V60 <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Single Cup</span><span>15g / 250g / 2:45</span></li>
+                  <li><span>V60 <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Two Cup</span><span>22g / 360g / 3:00</span></li>
+                  <li><span>Aeropress</span><span>14g / 220g / 1:45</span></li>
+                  <li><span>Chemex</span><span>30g / 500g / 4:00</span></li>
+                  <li><span>Espresso <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> House</span><span>18g / 36g / 27s</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tools --><div class="res-panel" id="res-tools" role="tabpanel" aria-labelledby="res-tab-tools" hidden>
+              <div class="res-panel__grid">
+                <div class="res-panel__intro">
+                  <h3>The kit that earns its counter space.</h3>
+                  <p>
+                    We are not sponsored by anyone. These are the tools we
+                    would buy again tomorrow.
+                  </p>
+                </div>
+                <ul class="res-panel__list">
+                  <li><span>Hand Grinder</span><span>Comandante C40</span></li>
+                  <li><span>Electric Grinder</span><span>Niche Zero</span></li>
+                  <li><span>Pour Over</span><span>Hario V60 02</span></li>
+                  <li><span>Kettle</span><span>Fellow Stagg EKG</span></li>
+                  <li><span>Scale</span><span>Acaia Pearl S</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Beans --><div class="res-panel" id="res-beans" role="tabpanel" aria-labelledby="res-tab-beans" hidden>
+              <div class="res-panel__grid">
+                <div class="res-panel__intro">
+                  <h3>Coffees currently on our shelf.</h3>
+                  <p>
+                    All available as retail bags at the cafe.
+                    Roasted to order, rested seven days.
+                  </p>
+                </div>
+                <ul class="res-panel__list">
+                  <li><span>Yirgacheffe <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Ethiopia</span><span>Filter <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹650 / 250g</span></li>
+                  <li><span>Huila <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Colombia</span><span>Espresso <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹620 / 250g</span></li>
+                  <li><span>Nyeri <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Kenya</span><span>Filter <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹720 / 250g</span></li>
+                  <li><span>Antigua <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Guatemala</span><span>Espresso <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹680 / 250g</span></li>
+                  <li><span>Kayanza <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Burundi</span><span>Filter <i class="fa-solid fa-circle" style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> ₹700 / 250g</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Water --><div class="res-panel" id="res-water" role="tabpanel" aria-labelledby="res-tab-water" hidden>
+              <div class="res-panel__grid">
+                <div class="res-panel__intro">
+                  <h3>Water: the ingredient you forgot.</h3>
+                  <p>
+                    Coffee is 98% water. If you would not drink it, do not
+                    brew with it.
+                  </p>
+                </div>
+                <ul class="res-panel__list">
+                  <li><span>TDS Target</span><span>75–125 ppm</span></li>
+                  <li><span>Ideal pH</span><span>6.5–7.5</span></li>
+                  <li><span>Alkalinity</span><span>40 ppm</span></li>
+                  <li><span>Mineral Recipe</span><span>Third Wave Water</span></li>
+                  <li><span>Filter</span><span>Brita or equivalent</span></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 09 NEWSLETTER — FLOATING FORM ======================== --><section class="section bl-newsletter" id="newsletter" aria-labelledby="bl-newsletter-title">
+      <div class="container">
+        <div class="newsletter-card fade-in-left">
+
+          <div class="newsletter-card__media">
+            <img src="../assets/images/image_03.webp" alt="Coffee beans close up" loading="lazy">
+          </div>
+
+          <div class="newsletter-card__body fade-in-right">
+            <span class="eyebrow">The Newsletter</span>
+            <h2 class="newsletter-card__title" id="bl-newsletter-title">
+              One good read,<br>every Tuesday.
+            </h2>
+            <p class="newsletter-card__lede">
+              A short letter about coffee, brewing, and the small things
+              we noticed this week. No spam, ever.
+            </p>
+
+            <form class="newsletter-form" novalidate>
+              <label class="sr-only" for="newsletter-email">Email address</label>
+              <input
+                class="newsletter-form__input"
+                type="email"
+                id="newsletter-email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required>
+
+              <button class="btn btn--primary newsletter-form__submit" type="submit">
+                Subscribe <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+              </button>
+            </form>
+
+            <p class="newsletter-form__note" role="status" aria-live="polite"></p>
+
+            <p class="newsletter-card__small">
+              By subscribing you agree to receive one email per week.
+              Unsubscribe any time.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== 10 CTA — IMAGE MASK REVEAL ======================== --><section class="bl-cta" aria-labelledby="bl-cta-title">
+      <div class="bl-cta__media">
+        <img
+          src="../assets/images/image_20.webp"
+          alt=""
+          loading="lazy">
+      </div>
+      <div class="bl-cta__scrim"></div>
+
+      <div class="bl-cta__content">
+        <span class="eyebrow fade-in-left">Keep Reading</span>
+        <h2 class="bl-cta__title fade-in-left" id="bl-cta-title">
+          Good writing,<br>good coffee.
+        </h2>
+        <p class="bl-cta__lede fade-in-right">
+          The journal is best enjoyed with a cup. Come sit with us, or
+          keep reading from wherever you are.
+        </p>
+        <div class="bl-cta__actions fade-in-right">
+          <a class="btn btn--light" href="login.html">
+            Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+          </a>
+          <a class="btn" style="border-color:rgba(255,255,255,.35);color:#fff;" href="services.html">
+            Explore the Menu
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="../index.html" aria-label="Stackly Brew home">
+            <img src="../logo.webp" alt="Stackly Brew">
+          </a>
+          <p>
+            Specialty coffee, handmade food and slow moments.
+            A neighborhood cafe built around the simple pleasure of a good cup.
+          </p>
+          <div class="footer-socials-new" style="margin-top: 20px; display: flex; gap: 15px;">
+            <a href="../404.html" aria-label="Instagram" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+            <a href="../404.html" aria-label="Facebook" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="../404.html" aria-label="Twitter" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="../404.html" aria-label="Pinterest" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="../404.html" aria-label="LinkedIn" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Explore</div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Menu</a>
+            <a href="blog.html">Journal</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Quick Links</div>
+          <nav class="footer-links" aria-label="Quick links">
+            <a href="../404.html">Gift Cards</a>
+            <a href="../404.html">Merchandise</a>
+            <a href="../404.html">Wholesale</a>
+            <a href="../404.html">Careers</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Hours</div>
+          <div class="footer-hours">
+            <span><strong>Mon�LFri</strong><br>7:00 — 20:00</span>
+            <span><strong>Sat��Sun</strong><br>8:00 — 21:00</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Stay in touch</div>
+          <div class="footer-hours">
+            <span><i class="fa-solid fa-location-dot" style="width: 16px; margin-right: 8px;"></i> Stackly, Salem, TN, India</span>
+            <span><i class="fa-solid fa-phone" style="width: 16px; margin-right: 8px;"></i> +91 90000 00000</span>
+            <span><i class="fa-solid fa-envelope" style="width: 16px; margin-right: 8px;"></i> hello@stackly.example</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Stackly Brew. Crafted with care.</span>
+
+        <div class="footer-legal" style="display: flex; gap: 20px;">
+          <a href="../404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Privacy Policy</a>
+          <a href="../404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" type="button" aria-label="Back to top">↑</button>
+
+  <!-- GSAP --><script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (typeof gsap !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+    /* ---------- Header ---------- */
+    const header = document.getElementById("site-header");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
+    const mobileLinks = mobileNav.querySelectorAll("a");
+
+    const setHeaderState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 30);
+    };
+
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+    setHeaderState();
+
+    const closeMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      mobileNav.classList.remove("is-open");
+      mobileNav.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("menu-open");
+
+      if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+        gsap.to(".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn", {
+          y: 15, opacity: 0, duration: .2, stagger: .02, overwrite: true
+        });
+      }
+    };
+
+    const openMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Close navigation menu");
+      mobileNav.classList.add("is-open");
+      mobileNav.setAttribute("aria-hidden", "false");
+      document.body.classList.add("menu-open");
+
+      if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+        gsap.fromTo(
+          ".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn",
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: .55, stagger: .06, ease: "power3.out", delay: .08 }
+        );
+      }
+    };
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    mobileLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    /* ---------- Hero ---------- */
+    window.addEventListener("load", () => {
+      if (typeof gsap === "undefined" || prefersReducedMotion) {
+        document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+          el.style.opacity = "1";
+        });
+        return;
+      }
+
+      const tl = gsap.timeline({ defaults: { duration: .9, ease: "power3.out" } });
+
+      tl.fromTo(".bl-hero__masthead", { x: -40, opacity: 0 }, { x: 0, opacity: 1 })
+        .fromTo(".bl-hero__title",    { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, "-=.6")
+        .fromTo(".bl-hero__lede",     { x: -30, opacity: 0 }, { x: 0, opacity: 1 }, "-=.5")
+        .fromTo(".bl-hero__strip",    { x:  40, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, "-=.6");
+
+      gsap.fromTo(".bl-hero__thumb img",
+        { scale: 1.15 },
+        { scale: 1, duration: 1.3, ease: "power2.out", stagger: .12, delay: .35 });
+    });
+
+    /* ---------- Scroll Reveals ---------- */
+    if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+      gsap.utils.toArray(".fade-in-left").forEach(el => {
+        if (el.closest(".bl-hero")) return;
+        gsap.fromTo(el,
+          { x: -40, opacity: 0 },
+          { x: 0, opacity: 1, duration: .75, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 86%", once: true } });
+      });
+
+      gsap.utils.toArray(".fade-in-right").forEach(el => {
+        if (el.closest(".bl-hero")) return;
+        gsap.fromTo(el,
+          { x: 40, opacity: 0 },
+          { x: 0, opacity: 1, duration: .75, ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 86%", once: true } });
+      });
+
+      // Feature media subtle scale
+      gsap.fromTo(".bl-featured__media img",
+        { scale: 1.1 },
+        { scale: 1, duration: 1.4, ease: "power2.out",
+          scrollTrigger: { trigger: ".bl-featured", start: "top 75%", once: true } });
+
+      // Masonry stagger
+      gsap.fromTo(".masonry__item",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: .8, ease: "power3.out", stagger: .07,
+          scrollTrigger: { trigger: ".masonry", start: "top 82%", once: true } });
+
+      // Topic cards stagger
+      gsap.fromTo(".topic-card",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: .75, ease: "power3.out", stagger: .1,
+          scrollTrigger: { trigger: ".topics-stack", start: "top 82%", once: true } });
+
+      // Insight cards stagger
+      gsap.fromTo(".insight",
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: .8, ease: "power3.out", stagger: .1,
+          scrollTrigger: { trigger: ".insights-grid", start: "top 82%", once: true } });
+
+      // Guides stamp rotate
+      gsap.fromTo(".bl-guides__stamp",
+        { rotate: -25, scale: .85, opacity: 0 },
+        { rotate: -10, scale: 1, opacity: 1, duration: .9, ease: "back.out(1.6)",
+          scrollTrigger: { trigger: ".bl-guides", start: "top 70%", once: true } });
+
+      // Newsletter media parallax
+      gsap.to(".newsletter-card__media img", {
+        yPercent: -8, ease: "none",
+        scrollTrigger: { trigger: ".bl-newsletter", start: "top bottom", end: "bottom top", scrub: true }
+      });
+
+      // CTA parallax
+      gsap.to(".bl-cta__media img", {
+        yPercent: 10, ease: "none",
+        scrollTrigger: { trigger: ".bl-cta", start: "top bottom", end: "bottom top", scrub: true }
+      });
+    } else {
+      document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+        el.style.opacity = "1";
+      });
+    }
+
+    /* ---------- 08 Resources Tabs ---------- */
+    (function initResTabs() {
+      const root = document.querySelector(".res-tabs");
+      if (!root) return;
+
+      const tabs = Array.from(root.querySelectorAll(".res-tab"));
+      const panels = Array.from(root.querySelectorAll(".res-panel"));
+
+      function activate(i) {
+        tabs.forEach((t, j) => {
+          const on = i === j;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach((p, j) => {
+          const on = i === j;
+          p.classList.toggle("is-active", on);
+          p.hidden = !on;
+        });
+      }
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => activate(i));
+        tab.addEventListener("keydown", e => {
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+            e.preventDefault();
+            const dir = e.key === "ArrowRight" ? 1 : -1;
+            const next = (i + dir + tabs.length) % tabs.length;
+            activate(next);
+            tabs[next].focus();
+          }
+        });
+      });
+
+      activate(0);
+    })();
+
+    /* ---------- 09 Newsletter form (front-end only) ---------- */
+    (function initNewsletter() {
+      const form = document.querySelector(".newsletter-form");
+      const note = document.querySelector(".newsletter-form__note");
+      if (!form || !note) return;
+
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        const email = form.querySelector("#newsletter-email");
+        const value = email.value.trim();
+        const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+        if (!valid) {
+          note.textContent = "Please enter a valid email address.";
+          note.style.color = "var(--purple)";
+          email.focus();
+          return;
+        }
+
+        // Front-end only - no backend connected
+        note.style.color = "var(--muted)";
+        form.reset();
+        window.location.href = "../404.html";
+      });
+    })();
+
+    /* ---------- Back To Top ---------- */
+    const backTop = document.getElementById("back-top");
+
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("is-visible", window.scrollY > 700);
+    }, { passive: true });
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? "auto" : "smooth"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,3035 @@
+<!-- html/user.html -->
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Stackly Brew journal.">
+  <meta name="theme-color" content="#FFFBF5">
+  <title>My Journal — Stackly Brew</title>
+
+  <style>
+    /* =========================================================
+       USER JOURNAL — Inline styles
+       Editorial notebook. Cream-dominant. Purple as accent.
+       Full-screen mobile drawer.
+       ========================================================= */
+
+    :root {
+      --cream: #FFFBF5;
+      --cream-deep: #F7EFE5;
+      --lavender: #C3ACD0;
+      --purple: #7743DB;
+
+      --ink: #241B2F;
+      --ink-soft: #51475D;
+      --muted: #776D80;
+      --white: #FFFFFF;
+
+      --border: rgba(36, 27, 47, 0.12);
+      --border-strong: rgba(119, 67, 219, 0.28);
+      --purple-soft: rgba(119, 67, 219, 0.08);
+      --lavender-soft: rgba(195, 172, 208, 0.28);
+
+      --success: #4a9d55;
+      --success-soft: rgba(74, 157, 85, .14);
+      --warn: #c98a2c;
+      --warn-soft: rgba(201, 138, 44, .14);
+      --danger: #d44848;
+      --danger-soft: rgba(212, 72, 72, .12);
+
+      --shadow-sm: 0 12px 35px rgba(36, 27, 47, 0.08);
+      --shadow-md: 0 24px 70px rgba(36, 27, 47, 0.12);
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+
+      --container: 1400px;
+      --header-h: 76px;
+
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { zoom: 0.8; }
+    html, body { margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body {
+      min-height: 100vh;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.drawer-open { overflow: hidden; }
+
+    h1, h2, h3, h4, p { margin: 0; }
+    h1, h2, h3, h4 { line-height: 1.05; letter-spacing: -0.02em; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; border: 0; background: transparent; cursor: pointer; color: inherit; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    img, svg { display: block; max-width: 100%; }
+
+    :focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 4px; }
+
+    /* =====================================================
+       TOP BAR (desktop nav)
+       ===================================================== */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: var(--header-h);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: 0 32px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 251, 245, .88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .topbar__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .topbar__logo img {
+      width: 140px;
+      max-height: 46px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(31%) sepia(89%) saturate(2350%)
+              hue-rotate(251deg) brightness(87%) contrast(93%);
+    }
+
+    .topbar__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--purple);
+      color: var(--white);
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .topbar__chip::before {
+      content: "";
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--lavender);
+    }
+
+    .topbar__nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-self: center;
+    }
+
+    .topbar__nav-item {
+      position: relative;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      color: var(--ink-soft);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      transition: background .3s ease, color .3s ease;
+    }
+
+    .topbar__nav-item:hover {
+      background: var(--cream-deep);
+      color: var(--ink);
+    }
+
+    .topbar__nav-item.is-active {
+      background: var(--purple);
+      color: var(--white);
+    }
+
+    .topbar__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .topbar__search {
+      position: relative;
+      display: flex;
+      align-items: center;
+      max-width: 220px;
+      flex: 1;
+    }
+
+    .topbar__search input {
+      width: 100%;
+      height: 40px;
+      padding: 0 14px 0 38px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      background: var(--cream-deep);
+      color: var(--ink);
+      font-size: .82rem;
+      font-family: inherit;
+      transition: border-color .3s ease, background .3s ease;
+    }
+
+    .topbar__search input::placeholder { color: var(--muted); }
+    .topbar__search input:focus {
+      outline: none;
+      border-color: var(--purple);
+      background: var(--white);
+    }
+
+    .topbar__search svg {
+      position: absolute;
+      left: 14px;
+      width: 15px;
+      height: 15px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .topbar__user {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 6px;
+      border-radius: var(--radius-pill);
+      background: var(--cream-deep);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: border-color .3s ease, background .3s ease;
+    }
+
+    .topbar__user:hover { border-color: var(--border-strong); background: var(--white); }
+
+    .topbar__logout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--cream-deep);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color .3s ease, background .3s ease, color .3s ease;
+    }
+
+    .topbar__logout:hover {
+      border-color: var(--border-strong);
+      background: var(--white);
+      color: var(--purple);
+    }
+
+    .topbar__user-avatar {
+      display: grid;
+      width: 32px; height: 32px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lavender);
+      color: var(--ink);
+      font-size: .78rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .topbar__user-name {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .topbar__burger {
+      display: none;
+      width: 44px; height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .topbar__burger-lines,
+    .topbar__burger-lines::before,
+    .topbar__burger-lines::after {
+      display: block;
+      width: 18px; height: 1.6px;
+      background: currentColor;
+    }
+
+    .topbar__burger-lines { position: relative; }
+
+    .topbar__burger-lines::before,
+    .topbar__burger-lines::after { content: ""; position: absolute; left: 0; }
+    .topbar__burger-lines::before { top: -6px; }
+    .topbar__burger-lines::after { top: 6px; }
+
+    /* =====================================================
+       FULL-SCREEN MOBILE DRAWER
+       - Covers 100vw x 100vh
+       - Close icon top-right
+       - Body scroll locked
+       ===================================================== */
+
+    .drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      background: var(--cream);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+
+    .drawer.is-open {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .drawer__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .drawer__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .drawer__brand img {
+      width: 140px;
+      max-height: 42px;
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(31%) sepia(89%) saturate(2350%)
+              hue-rotate(251deg) brightness(87%) contrast(93%);
+    }
+
+    .drawer__close {
+      display: grid;
+      width: 52px; height: 52px;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--ink);
+      transition: background .3s ease, border-color .3s ease, color .3s ease, transform .35s var(--ease);
+    }
+
+    .drawer__close:hover {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+      transform: rotate(90deg);
+    }
+
+    .drawer__close svg { width: 20px; height: 20px; }
+
+    .drawer__body {
+      padding: 40px 24px;
+      overflow-y: auto;
+      display: grid;
+      align-content: start;
+      gap: 32px;
+    }
+
+    .drawer__greeting {
+      display: grid;
+      gap: 6px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .drawer__greeting-label {
+      color: var(--purple);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .drawer__greeting-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 7vw, 2.6rem);
+      font-weight: 500;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .drawer__links {
+      display: grid;
+      gap: 4px;
+    }
+
+    .drawer__link {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+      width: 100%;
+      padding: 20px 8px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      transition: padding-left .35s var(--ease), color .3s ease;
+    }
+
+    .drawer__link:hover { padding-left: 18px; color: var(--purple); }
+
+    .drawer__link-num {
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+
+    .drawer__link-label {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
+      font-weight: 500;
+      letter-spacing: -.03em;
+      color: var(--ink);
+      transition: color .3s ease;
+    }
+
+    .drawer__link:hover .drawer__link-label,
+    .drawer__link.is-active .drawer__link-label { color: var(--purple); }
+
+    .drawer__link-arrow {
+      color: var(--purple);
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity .3s ease, transform .35s var(--ease);
+    }
+
+    .drawer__link:hover .drawer__link-arrow,
+    .drawer__link.is-active .drawer__link-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .drawer__foot {
+      display: grid;
+      gap: 16px;
+      padding: 22px 24px 28px;
+      border-top: 1px solid var(--border);
+      background: var(--cream-deep);
+    }
+
+    .drawer__foot-user {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .drawer__foot-avatar {
+      display: grid;
+      width: 46px; height: 46px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lavender);
+      color: var(--ink);
+      font-size: .95rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .drawer__foot-meta { display: grid; gap: 2px; min-width: 0; }
+
+    .drawer__foot-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .drawer__foot-mail {
+      color: var(--muted);
+      font-size: .78rem;
+      word-break: break-all;
+    }
+
+    .drawer__logout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 52px;
+      border-radius: var(--radius-pill);
+      background: var(--ink);
+      color: var(--cream);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: background .3s ease, transform .35s var(--ease);
+    }
+
+    .drawer__logout:hover { background: var(--purple); transform: translateY(-2px); }
+    .drawer__logout svg { width: 16px; height: 16px; }
+
+    /* =====================================================
+       PAGE LAYOUT
+       ===================================================== */
+
+    .page {
+      max-width: var(--container);
+      width: 100%;
+      margin-inline: auto;
+      padding: 40px clamp(20px, 3vw, 40px) 80px;
+    }
+
+    .panel { display: none; animation: panelIn .5s var(--ease); }
+    .panel.is-active { display: block; }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Shared editorial heading */
+
+    .ed-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .ed-head__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--purple);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .ed-head__kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .ed-head__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4.2vw, 3.6rem);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: .98;
+    }
+
+    .ed-head__title em {
+      color: var(--purple);
+      font-style: italic;
+    }
+
+    .ed-head__sub {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+
+    /* Buttons */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: var(--radius-pill);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      transition: transform .35s var(--ease), background .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn--primary {
+      background: var(--purple);
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(119, 67, 219, .22);
+    }
+
+    .btn--outline { border: 1px solid var(--border); color: var(--ink); background: var(--cream); }
+    .btn--outline:hover { border-color: var(--purple); color: var(--purple); background: var(--purple-soft); }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--ink-soft);
+      border: 1px solid transparent;
+    }
+
+    .btn--ghost:hover { background: var(--cream-deep); color: var(--ink); }
+
+    .btn--small { min-height: 38px; padding: 0 16px; font-size: .68rem; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pill--active  { background: var(--success-soft); color: var(--success); }
+    .pill--pending { background: var(--purple-soft); color: var(--purple); }
+    .pill--done    { background: rgba(119, 109, 128, .14); color: var(--muted); }
+    .pill--warn    { background: var(--warn-soft); color: var(--warn); }
+
+    /* =====================================================
+       01 — MY HOME / MORNING BRIEFING
+       Layout: editorial spread
+       - Cream note panel with big serif date + greeting
+       - Today's small facts ticker (3 columns)
+       - "Currently loving" horizontal reading rail
+       - Small reading cards at bottom
+       ===================================================== */
+
+    .brief {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--cream-deep);
+      margin-bottom: 40px;
+      border: 1px solid var(--border);
+    }
+
+    .brief__copy {
+      padding: clamp(34px, 4vw, 60px);
+      display: grid;
+      gap: 22px;
+      align-content: center;
+    }
+
+    .brief__date {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--purple);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .brief__date::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .brief__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .brief__title em {
+      color: var(--purple);
+      font-style: italic;
+    }
+
+    .brief__lede {
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 520px;
+    }
+
+    .brief__actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .brief__side {
+      position: relative;
+      background: var(--ink);
+      color: var(--cream);
+      padding: clamp(28px, 3vw, 44px);
+      display: grid;
+      align-content: center;
+      gap: 22px;
+    }
+
+    .brief__side::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(119, 67, 219, .22);
+      pointer-events: none;
+    }
+
+    .brief__side-kicker {
+      display: block;
+      color: var(--lavender);
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .brief__side-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+
+    .brief__side-art {
+      width: 100%;
+      height: 160px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #35244f;
+    }
+
+    .brief__side-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s var(--ease);
+    }
+
+    .brief__side-art:hover img { transform: scale(1.05); }
+
+    .brief__side-note {
+      color: rgba(255, 251, 245, .72);
+      font-size: .88rem;
+      line-height: 1.7;
+    }
+
+    /* Today's small facts — 3 column ticker */
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .fact {
+      padding: 26px 30px;
+      border-right: 1px solid var(--border);
+      display: grid;
+      gap: 6px;
+    }
+
+    .fact:last-child { border-right: 0; }
+
+    .fact__label {
+      color: var(--muted);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .fact__value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .fact__note {
+      color: var(--muted);
+      font-size: .8rem;
+      margin-top: 2px;
+    }
+
+    /* Currently loving — reading rail */
+
+    .rail-section {
+      margin-bottom: 40px;
+    }
+
+    .rail__scroll {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding: 4px 4px 22px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--lavender) transparent;
+    }
+
+    .rail__scroll::-webkit-scrollbar { height: 6px; }
+    .rail__scroll::-webkit-scrollbar-track { background: transparent; }
+    .rail__scroll::-webkit-scrollbar-thumb { background: var(--lavender); border-radius: 3px; }
+
+    .loved-card {
+      flex: 0 0 auto;
+      width: 300px;
+      scroll-snap-align: start;
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform .45s var(--ease), box-shadow .45s ease, border-color .3s ease;
+    }
+
+    .loved-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+
+    .loved-card__art {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: var(--cream-deep);
+      overflow: hidden;
+    }
+
+    .loved-card__art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s var(--ease);
+    }
+
+    .loved-card:hover .loved-card__art img { transform: scale(1.06); }
+
+    .loved-card__body {
+      padding: 22px;
+    }
+
+    .loved-card__name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .loved-card__note {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.55;
+    }
+
+    .loved-card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .loved-card__count {
+      color: var(--purple);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .loved-card__arrow {
+      color: var(--purple);
+      font-size: 1rem;
+      transition: transform .35s var(--ease);
+    }
+
+    .loved-card:hover .loved-card__arrow { transform: translateX(4px); }
+
+    /* Two small reading cards */
+
+    .read-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .read-card {
+      padding: 32px;
+      border-radius: var(--radius-md);
+      background: var(--cream-deep);
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 14px;
+      transition: transform .4s var(--ease), box-shadow .4s ease;
+    }
+
+    .read-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+
+    .read-card__kicker {
+      color: var(--purple);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .read-card__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: var(--ink);
+    }
+
+    .read-card__note {
+      color: var(--ink-soft);
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+
+    .read-card__sig {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: .9rem;
+      font-style: italic;
+    }
+
+    .read-card__sig::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--purple);
+    }
+
+    /* =====================================================
+       02 — MY ORDERS / LEDGER JOURNAL
+       Layout: single-column reading flow
+       - Date dividers
+       - Each entry is a full-width journal row
+       - Right column has a sticky month summary on desktop
+       ===================================================== */
+
+    .ledger {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, .9fr);
+      gap: 60px;
+      align-items: start;
+    }
+
+    .ledger__stream {
+      display: grid;
+      gap: 0;
+    }
+
+    .day-divider {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 30px 0 22px;
+      border-bottom: 1px solid var(--border);
+      margin-top: 20px;
+    }
+
+    .day-divider:first-child { margin-top: 0; padding-top: 0; }
+
+    .day-divider__label {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+
+    .day-divider__line {
+      height: 1px;
+      background: var(--border);
+    }
+
+    .journal-entry {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 26px;
+      align-items: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding-left .4s var(--ease), background .3s ease;
+      cursor: pointer;
+    }
+
+    .journal-entry:hover {
+      padding-left: 14px;
+      background: rgba(255, 251, 245, .5);
+    }
+
+    .journal-entry__time {
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .journal-entry__body { display: grid; gap: 4px; }
+
+    .journal-entry__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+
+    .journal-entry__items {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.55;
+    }
+
+    .journal-entry__amount {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      color: var(--ink);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      text-align: right;
+    }
+
+    .journal-entry__status {
+      display: block;
+      color: var(--muted);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      text-align: right;
+    }
+
+    .journal-entry--pending .journal-entry__status { color: var(--purple); }
+    .journal-entry--cancelled .journal-entry__amount { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--danger); }
+    .journal-entry--cancelled .journal-entry__status { color: var(--danger); }
+
+    /* Ledger sidebar */
+
+    .ledger__aside {
+      position: sticky;
+      top: calc(var(--header-h) + 20px);
+      display: grid;
+      gap: 26px;
+    }
+
+    .ledger__stat {
+      display: grid;
+      gap: 8px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ledger__stat:last-of-type { border-bottom: 0; padding-bottom: 0; }
+
+    .ledger__stat-label {
+      color: var(--purple);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .ledger__stat-value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 500;
+      letter-spacing: -.03em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .ledger__stat-note {
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .ledger__note {
+      padding: 22px;
+      border-radius: var(--radius-md);
+      background: var(--cream-deep);
+      border: 1px dashed var(--border-strong);
+      color: var(--ink-soft);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    /* =====================================================
+       03 — MY TABLE / PLANNER SPREAD
+       Layout: two-week strip + detail tickets
+       ===================================================== */
+
+    .planner__strip {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day-cell {
+      position: relative;
+      display: grid;
+      gap: 8px;
+      padding: 14px 6px 12px;
+      border-radius: 14px;
+      background: var(--cream-deep);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: transform .35s var(--ease), background .3s ease, border-color .3s ease;
+      cursor: pointer;
+      min-height: 96px;
+    }
+
+    .day-cell:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+
+    .day-cell__dow {
+      color: var(--muted);
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .day-cell__num {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .day-cell__dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .day-cell__dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--lavender);
+    }
+
+    .day-cell__dot--booked { background: var(--purple); }
+    .day-cell__dot--visited { background: rgba(119, 109, 128, .4); }
+
+    .day-cell--today {
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+
+    .day-cell--today .day-cell__dow { color: rgba(255, 255, 255, .7); }
+    .day-cell--today .day-cell__num { color: var(--white); }
+
+    .day-cell--booked {
+      background: var(--cream);
+      border-color: var(--border-strong);
+    }
+
+    /* Table detail tickets */
+
+    .table-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .table-ticket {
+      position: relative;
+      padding: 30px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      border: 1px solid var(--border);
+      display: grid;
+      gap: 18px;
+      transition: transform .4s var(--ease), box-shadow .4s ease;
+    }
+
+    .table-ticket:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .table-ticket--next {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: transparent;
+    }
+
+    .table-ticket--past { opacity: .78; }
+
+    .table-ticket__head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .table-ticket__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--purple-soft);
+      color: var(--purple);
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .table-ticket--next .table-ticket__kicker { background: rgba(195, 172, 208, .18); color: var(--lavender); }
+
+    .table-ticket__seat {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      line-height: 1;
+      text-align: right;
+    }
+
+    .table-ticket--next .table-ticket__seat { color: var(--cream); }
+
+    .table-ticket__seat-label {
+      display: block;
+      color: var(--muted);
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      text-align: right;
+    }
+
+    .table-ticket--next .table-ticket__seat-label { color: rgba(255, 251, 245, .5); }
+
+    .table-ticket__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: var(--ink);
+    }
+
+    .table-ticket--next .table-ticket__title { color: var(--cream); }
+
+    .table-ticket__meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .table-ticket--next .table-ticket__meta { border-color: rgba(255, 251, 245, .14); }
+
+    .table-ticket__meta-item { display: grid; gap: 3px; }
+
+    .table-ticket__meta-label {
+      color: var(--muted);
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .table-ticket--next .table-ticket__meta-label { color: rgba(255, 251, 245, .5); }
+
+    .table-ticket__meta-value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .table-ticket--next .table-ticket__meta-value { color: var(--cream); }
+
+    .table-ticket__actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding-top: 4px;
+    }
+
+    .table-ticket--next .btn--outline {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .2);
+      color: var(--cream);
+    }
+
+    /* =====================================================
+       04 — MY PUNCH CARD / JOURNEY MAP
+       Layout: horizontal path with stops
+       ===================================================== */
+
+    .journey {
+      position: relative;
+      padding: 40px 0 60px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    .journey::-webkit-scrollbar { display: none; }
+
+    .journey__path {
+      position: relative;
+      display: flex;
+      gap: 0;
+      min-width: 960px;
+      padding: 0 40px;
+    }
+
+    .journey__path::before {
+      content: "";
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      right: 60px;
+      height: 2px;
+      background-image: linear-gradient(to right, var(--border-strong) 60%, transparent 40%);
+      background-size: 14px 2px;
+      background-repeat: repeat-x;
+      z-index: 0;
+    }
+
+    .stop {
+      position: relative;
+      flex: 1 0 auto;
+      display: grid;
+      justify-items: center;
+      gap: 14px;
+      z-index: 1;
+      min-width: 120px;
+    }
+
+    .stop__dot {
+      display: grid;
+      width: 60px; height: 60px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 2px dashed var(--border);
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: transform .4s var(--ease), background .3s ease, border-color .3s ease;
+    }
+
+    .stop:hover .stop__dot { transform: scale(1.08); }
+
+    .stop--filled .stop__dot {
+      background: var(--purple);
+      border: 2px solid var(--purple);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(119, 67, 219, .28);
+    }
+
+    .stop--reward .stop__dot {
+      background: #a06a1e;
+      border: 2px solid #a06a1e;
+      color: #fff8dc;
+      font-size: 1.3rem;
+      box-shadow: 0 10px 24px rgba(160, 106, 30, .3);
+    }
+
+    .stop--current .stop__dot {
+      background: var(--white);
+      border: 2px dashed var(--purple);
+      color: var(--purple);
+      animation: pulseStop 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseStop {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(119, 67, 219, .4); }
+      50% { box-shadow: 0 0 0 12px rgba(119, 67, 219, 0); }
+    }
+
+    .stop__label {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .stop--filled .stop__label { color: var(--ink); }
+
+    /* Journey bottom: goal + activity */
+
+    .journey-foot {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    .goal-card {
+      padding: 32px 34px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(125deg, var(--ink), #35244f);
+      color: var(--cream);
+      display: grid;
+      gap: 18px;
+    }
+
+    .goal-card__kicker {
+      color: var(--lavender);
+      font-size: .66rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .goal-card__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+    }
+
+    .goal-card__note {
+      color: rgba(255, 251, 245, .72);
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+
+    .goal-card__progress {
+      display: grid;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .goal-card__progress-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      color: var(--cream);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .goal-card__bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .12);
+      overflow: hidden;
+    }
+
+    .goal-card__fill {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--lavender), var(--purple));
+      transition: width 1.2s var(--ease);
+    }
+
+    .activity-card {
+      padding: 30px;
+      border-radius: var(--radius-md);
+      background: var(--cream-deep);
+      border: 1px solid var(--border);
+    }
+
+    .activity-card__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+
+    .activity-feed { display: grid; gap: 0; }
+
+    .feed-row {
+      display: grid;
+      grid-template-columns: 30px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feed-row:last-child { border-bottom: 0; }
+
+    .feed-row__dot {
+      display: grid;
+      width: 30px; height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--purple);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .feed-row__dot--reward { background: #a06a1e; }
+
+    .feed-row__text {
+      font-size: .88rem;
+      color: var(--ink-soft);
+    }
+
+    .feed-row__text strong { color: var(--ink); }
+
+    .feed-row__date {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      white-space: nowrap;
+    }
+
+    /* =====================================================
+       05 — MY NOTES / PROFILE SPREAD
+       Layout: portrait card + narrative
+       ===================================================== */
+
+    .profile-spread {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+      gap: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .profile-card {
+      position: relative;
+      padding: clamp(34px, 4vw, 52px);
+      background: var(--ink);
+      color: var(--cream);
+      display: grid;
+      gap: 22px;
+      align-content: start;
+    }
+
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(119, 67, 219, .25);
+      pointer-events: none;
+    }
+
+    .profile-card__avatar {
+      display: grid;
+      width: 92px; height: 92px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--lavender);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+    }
+
+    .profile-card__name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 500;
+      letter-spacing: -.03em;
+      color: var(--cream);
+      line-height: 1.05;
+    }
+
+    .profile-card__meta {
+      color: rgba(255, 251, 245, .68);
+      font-size: .9rem;
+      word-break: break-all;
+    }
+
+    .profile-card__stats {
+      display: grid;
+      gap: 14px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 251, 245, .14);
+      margin-top: auto;
+    }
+
+    .profile-stat {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .profile-stat__label {
+      color: rgba(255, 251, 245, .6);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .profile-stat__value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      color: var(--cream);
+      font-weight: 500;
+    }
+
+    .profile-narrative {
+      padding: clamp(34px, 4vw, 52px);
+      background: var(--cream-deep);
+      display: grid;
+      gap: 26px;
+      align-content: start;
+    }
+
+    .profile-narrative__kicker {
+      color: var(--purple);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .profile-narrative__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .profile-narrative__title em { color: var(--purple); font-style: italic; }
+
+    .profile-narrative__body {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      letter-spacing: -.005em;
+    }
+
+    .profile-narrative__body em { color: var(--purple); font-style: italic; }
+
+    .profile-narrative__sig {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--border);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-size: 1.02rem;
+      color: var(--ink);
+    }
+
+    .profile-narrative__sig::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: var(--purple);
+    }
+
+    /* Preferences list */
+
+    .prefs {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--white);
+      padding: 0 clamp(24px, 3vw, 40px);
+    }
+
+    .prefs__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 26px 0 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prefs__title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .prefs__sub {
+      color: var(--muted);
+      font-size: .82rem;
+      margin-top: 4px;
+    }
+
+    .pref-row {
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      align-items: center;
+      gap: 26px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pref-row:last-child { border-bottom: 0; }
+
+    .pref-row__label {
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pref-row__bar {
+      height: 8px;
+      border-radius: 999px;
+      background: var(--lavender-soft);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pref-row__fill {
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--purple), #5a2fb5);
+      transition: width 1.2s var(--ease);
+    }
+
+    .pref-row__value {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      color: var(--purple);
+      font-weight: 500;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+
+    /* =====================================================
+       Responsive
+       ===================================================== */
+
+    @media (max-width: 1200px) {
+      .brief { grid-template-columns: 1fr; }
+      .ledger { grid-template-columns: 1fr; gap: 40px; }
+      .ledger__aside { position: relative; top: 0; }
+      .journey-foot { grid-template-columns: 1fr; }
+      .profile-spread { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 1024px) {
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 0 20px;
+      }
+
+      .topbar__nav { display: none; }
+      .topbar__search { display: none; }
+      .topbar__logout { display: none; }
+      .topbar__burger { display: inline-flex; }
+    }
+
+    @media (max-width: 780px) {
+      .page { padding: 26px 20px 60px; }
+
+      .ed-head { margin-bottom: 30px; }
+      .facts { grid-template-columns: 1fr; }
+      .fact { border-right: 0; border-bottom: 1px solid var(--border); }
+      .fact:last-child { border-bottom: 0; }
+
+      .read-row { grid-template-columns: 1fr; }
+
+      .day-divider { grid-template-columns: 1fr; gap: 6px; }
+      .day-divider__line { display: none; }
+
+      .journal-entry {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .journal-entry__amount { text-align: left; }
+
+      .table-detail-grid { grid-template-columns: 1fr; }
+
+      .planner__strip {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 6px;
+      }
+
+      .day-cell { min-height: 82px; padding: 10px 4px; }
+      .day-cell__num { font-size: 1.15rem; }
+
+      .pref-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .pref-row__value { justify-self: start; }
+    }
+
+    @media (max-width: 480px) {
+      .topbar { padding: 0 14px; gap: 12px; }
+      .topbar__logo img { width: 140px; }
+      .topbar__user-name { display: none; }
+      .topbar__user { padding: 4px; }
+
+      .brief__copy,
+      .brief__side { padding: 26px 22px; }
+
+      .read-card { padding: 24px; }
+      .goal-card { padding: 26px 24px; }
+      .activity-card { padding: 22px; }
+
+      .profile-card,
+      .profile-narrative { padding: 26px 22px; }
+
+      .profile-card__avatar { width: 72px; height: 72px; font-size: 1.8rem; }
+
+      .prefs { padding: 0 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .stop--current .stop__dot { animation: none !important; }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- ================= TOP BAR ================= -->
+  <header class="topbar" id="topbar">
+    <a class="topbar__brand" href="user.html" aria-label="Stackly Brew home" style="text-align: left; text-decoration: none;">
+      <span class="topbar__logo">
+        <img src="../logo.webp" alt="Stackly Brew">
+      </span>
+      <span class="topbar__chip">Member</span>
+    </a>
+
+    <nav class="topbar__nav" aria-label="Dashboard sections" id="topnav">
+      <button class="topbar__nav-item is-active" type="button" data-panel="home">My Home</button>
+      <button class="topbar__nav-item" type="button" data-panel="orders">My Orders</button>
+      <button class="topbar__nav-item" type="button" data-panel="reservations">My Table</button>
+      <button class="topbar__nav-item" type="button" data-panel="rewards">Punch Card</button>
+      <button class="topbar__nav-item" type="button" data-panel="profile">My Notes</button>
+    </nav>
+
+    <div class="topbar__actions">
+      <div class="topbar__search" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <line x1="21" y1="21" x2="17" y2="17"/>
+        </svg>
+        <label class="sr-only" for="topbar-search">Search</label>
+        <input id="topbar-search" type="search" placeholder="Search…">
+      </div>
+
+      <a class="topbar__user" href="../404.html" aria-label="Your account">
+        <span class="topbar__user-avatar" data-avatar aria-hidden="true">G</span>
+        <span class="topbar__user-name" data-user-mail>Guest</span>
+      </a>
+
+      <a class="topbar__logout" href="login.html" aria-label="Logout" title="Logout">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </a>
+
+      <button class="topbar__burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <span class="topbar__burger-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= FULL-SCREEN DRAWER ================= -->
+  <aside class="drawer" id="drawer" aria-label="Mobile menu" aria-hidden="true">
+    <div class="drawer__head">
+      <a class="drawer__brand" href="user.html" aria-label="Stackly Brew home" style="text-align: left; text-decoration: none;">
+        <img src="../logo.webp" alt="Stackly Brew">
+        <span class="topbar__chip">Member</span>
+      </a>
+
+      <button class="drawer__close" id="drawer-close" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer__body">
+      <div class="drawer__greeting">
+        <span class="drawer__greeting-label">Welcome back</span>
+        <span class="drawer__greeting-title" data-greeting>Hello Guest</span>
+      </div>
+
+      <nav class="drawer__links" aria-label="Mobile navigation">
+        <button class="drawer__link is-active" type="button" data-panel="home">
+          <span class="drawer__link-num">01</span>
+          <span class="drawer__link-label">My Home</span>
+          <span class="drawer__link-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="drawer__link" type="button" data-panel="orders">
+          <span class="drawer__link-num">02</span>
+          <span class="drawer__link-label">My Orders</span>
+          <span class="drawer__link-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="drawer__link" type="button" data-panel="reservations">
+          <span class="drawer__link-num">03</span>
+          <span class="drawer__link-label">My Table</span>
+          <span class="drawer__link-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="drawer__link" type="button" data-panel="rewards">
+          <span class="drawer__link-num">04</span>
+          <span class="drawer__link-label">Punch Card</span>
+          <span class="drawer__link-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="drawer__link" type="button" data-panel="profile">
+          <span class="drawer__link-num">05</span>
+          <span class="drawer__link-label">My Notes</span>
+          <span class="drawer__link-arrow" aria-hidden="true">→</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="drawer__foot">
+      <div class="drawer__foot-user">
+        <span class="drawer__foot-avatar" data-avatar aria-hidden="true">G</span>
+        <div class="drawer__foot-meta">
+          <span class="drawer__foot-name" data-user-name>Guest</span>
+          <span class="drawer__foot-mail" data-user-mail>guest@Stackly.example</span>
+        </div>
+      </div>
+
+      <a class="drawer__logout" href="login.html" id="logout-drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Log Out
+      </a>
+    </div>
+  </aside>
+
+  <!-- ================= PAGE ================= -->
+  <main class="page" id="page">
+
+    <!-- =========================================================
+         PANEL: MY HOME / MORNING BRIEFING
+         ========================================================= -->
+    <section class="panel is-active" id="panel-home" data-panel-id="home" aria-labelledby="home-title">
+
+      <div class="brief">
+        <div class="brief__copy">
+          <span class="brief__date">Thursday · 20 March 2026</span>
+          <h1 class="brief__title" id="home-title">
+            Good morning, <em data-greeting>Guest</em>.
+          </h1>
+          <p class="brief__lede">
+            The grinder is dialled in, the window seat is free, and
+            Aria has a new Kenyan pour over she thinks you'll love.
+            Ready when you are.
+          </p>
+          <div class="brief__actions">
+            <a class="btn btn--primary" href="../404.html">
+              Order Again <span aria-hidden="true">↗</span>
+            </a>
+            <a class="btn btn--outline" href="../404.html">See the Menu</a>
+          </div>
+        </div>
+
+        <div class="brief__side">
+          <span class="brief__side-kicker">Today's Pick For You</span>
+          <h3 class="brief__side-title">Stackly Latte · Large · Oat</h3>
+          <div class="brief__side-art">
+            <img src="../assets/images/image_28.webp" alt="Stackly Latte" loading="lazy">
+          </div>
+          <p class="brief__side-note">
+            The same order you've had 32 times — and honestly, we don't
+            blame you. Extra shot, light foam, oat milk.
+          </p>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div class="fact">
+          <span class="fact__label">Current Streak</span>
+          <span class="fact__value"><span data-count="7">0</span> days</span>
+          <span class="fact__note">Best so far: 14 days</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label">Punches</span>
+          <span class="fact__value"><span data-count="7">0</span> / 10</span>
+          <span class="fact__note">3 more for a free cup</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label">This Month</span>
+          <span class="fact__value">₹<span data-count="4860">0</span></span>
+          <span class="fact__note">12 orders · avg ₹405</span>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="ed-head" style="margin-bottom: 22px; padding-bottom: 0; border-bottom: 0;">
+          <div>
+            <span class="ed-head__kicker">Cups I've Loved</span>
+            <h2 class="ed-head__title">A reading list of<br>your <em>favourite orders.</em></h2>
+          </div>
+          <a class="btn btn--ghost btn--small" href="../404.html">View All →</a>
+        </div>
+
+        <div class="rail__scroll">
+
+          <article class="loved-card" data-cup>
+            <div class="loved-card__art">
+              <img src="../assets/images/image_28.webp" alt="Stackly Latte" loading="lazy">
+            </div>
+            <div class="loved-card__body">
+              <h3 class="loved-card__name">Stackly Latte</h3>
+              <p class="loved-card__note">Your default. Oat milk, extra shot, light foam.</p>
+              <div class="loved-card__meta">
+                <span class="loved-card__count">32 cups</span>
+                <span class="loved-card__arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="loved-card" data-cup>
+            <div class="loved-card__art">
+              <img src="../assets/images/image_41.webp" alt="Cappuccino" loading="lazy">
+            </div>
+            <div class="loved-card__body">
+              <h3 class="loved-card__name">Cappuccino</h3>
+              <p class="loved-card__note">The afternoon classic. Regular size, no sugar.</p>
+              <div class="loved-card__meta">
+                <span class="loved-card__count">18 cups</span>
+                <span class="loved-card__arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="loved-card" data-cup>
+            <div class="loved-card__art">
+              <img src="../assets/images/image_12.webp" alt="Lavender Cold Brew" loading="lazy">
+            </div>
+            <div class="loved-card__body">
+              <h3 class="loved-card__name">Lavender Cold Brew</h3>
+              <p class="loved-card__note">Twelve-hour brew, house lavender, dangerously good.</p>
+              <div class="loved-card__meta">
+                <span class="loved-card__count">14 cups</span>
+                <span class="loved-card__arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="loved-card" data-cup>
+            <div class="loved-card__art">
+              <img src="../assets/images/image_46.webp" alt="Double Espresso" loading="lazy">
+            </div>
+            <div class="loved-card__body">
+              <h3 class="loved-card__name">Double Espresso</h3>
+              <p class="loved-card__note">For the mornings that need a firm hand.</p>
+              <div class="loved-card__meta">
+                <span class="loved-card__count">11 cups</span>
+                <span class="loved-card__arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="loved-card" data-cup>
+            <div class="loved-card__art">
+              <img src="../assets/images/image_49.webp" alt="Filter Yirgacheffe" loading="lazy">
+            </div>
+            <div class="loved-card__body">
+              <h3 class="loved-card__name">Filter Yirgacheffe</h3>
+              <p class="loved-card__note">Bright, floral, worth the wait.</p>
+              <div class="loved-card__meta">
+                <span class="loved-card__count">8 cups</span>
+                <span class="loved-card__arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="read-row">
+        <article class="read-card">
+          <span class="read-card__kicker">From the Bar</span>
+          <h3 class="read-card__title">Try the Kenya Nyeri this week</h3>
+          <p class="read-card__note">
+            Bright blackcurrant and cane sugar. Same family as your usual
+            Yirgacheffe, but louder. Aria thinks you'll enjoy it as a
+            pour over — ask at the bar and it's on the house.
+          </p>
+          <div class="read-card__sig">Aria, Head Barista</div>
+        </article>
+
+        <article class="read-card">
+          <span class="read-card__kicker">A Small Note</span>
+          <h3 class="read-card__title">Your oat milk is ready</h3>
+          <p class="read-card__note">
+            We switched to a new brand this week — creamier, less chalky.
+            It pairs beautifully with the Stackly Latte. Let us know what
+            you think next time you're in.
+          </p>
+          <div class="read-card__sig">The Stackly Brew team</div>
+        </article>
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         PANEL: MY ORDERS / LEDGER JOURNAL
+         ========================================================= -->
+    <section class="panel" id="panel-orders" data-panel-id="orders" aria-labelledby="orders-title" hidden>
+
+      <div class="ed-head">
+        <div>
+          <span class="ed-head__kicker">My Orders</span>
+          <h2 class="ed-head__title" id="orders-title">A reading list of<br><em>every cup.</em></h2>
+        </div>
+        <p class="ed-head__sub">
+          Every order, in order. Tap any entry to reorder in a single
+          click — or just to remember what that Tuesday tasted like.
+        </p>
+      </div>
+
+      <div class="ledger">
+
+        <div class="ledger__stream">
+
+          <div class="day-divider">
+            <span class="day-divider__label">Today · Thursday, 20 March</span>
+            <span class="day-divider__line" aria-hidden="true"></span>
+          </div>
+
+          <article class="journal-entry journal-entry--pending" data-entry>
+            <span class="journal-entry__time">08:14 AM</span>
+            <div class="journal-entry__body">
+              <h3 class="journal-entry__title">Stackly Latte × 2 · Large</h3>
+              <p class="journal-entry__items">Oat milk, extra shot · Butter Croissant · Takeaway</p>
+            </div>
+            <div>
+              <div class="journal-entry__amount">₹700</div>
+              <span class="journal-entry__status">Brewing</span>
+            </div>
+          </article>
+
+          <div class="day-divider">
+            <span class="day-divider__label">Yesterday · Wednesday, 19 March</span>
+            <span class="day-divider__line" aria-hidden="true"></span>
+          </div>
+
+          <article class="journal-entry" data-entry>
+            <span class="journal-entry__time">10:02 AM</span>
+            <div class="journal-entry__body">
+              <h3 class="journal-entry__title">Cappuccino · Regular</h3>
+              <p class="journal-entry__items">Almond Croissant · Dine-in · Window 3</p>
+            </div>
+            <div>
+              <div class="journal-entry__amount">₹460</div>
+              <span class="journal-entry__status">Served</span>
+            </div>
+          </article>
+
+          <div class="day-divider">
+            <span class="day-divider__label">Wednesday, 12 March</span>
+            <span class="day-divider__line" aria-hidden="true"></span>
+          </div>
+
+          <article class="journal-entry" data-entry>
+            <span class="journal-entry__time">04:30 PM</span>
+            <div class="journal-entry__body">
+              <h3 class="journal-entry__title">Lavender Cold Brew · Large</h3>
+              <p class="journal-entry__items">Dine-in · Window 3</p>
+            </div>
+            <div>
+              <div class="journal-entry__amount">₹280</div>
+              <span class="journal-entry__status">Served</span>
+            </div>
+          </article>
+
+          <div class="day-divider">
+            <span class="day-divider__label">Tuesday, 11 March</span>
+            <span class="day-divider__line" aria-hidden="true"></span>
+          </div>
+
+          <article class="journal-entry" data-entry>
+            <span class="journal-entry__time">09:20 AM</span>
+            <div class="journal-entry__body">
+              <h3 class="journal-entry__title">Filter Yirgacheffe</h3>
+              <p class="journal-entry__items">Banana Bread · Toasted · Dine-in</p>
+            </div>
+            <div>
+              <div class="journal-entry__amount">₹420</div>
+              <span class="journal-entry__status">Served</span>
+            </div>
+          </article>
+
+          <div class="day-divider">
+            <span class="day-divider__label">Monday, 10 March</span>
+            <span class="day-divider__line" aria-hidden="true"></span>
+          </div>
+
+          <article class="journal-entry journal-entry--cancelled" data-entry>
+            <span class="journal-entry__time">07:55 AM</span>
+            <div class="journal-entry__body">
+              <h3 class="journal-entry__title">Butter Croissant</h3>
+              <p class="journal-entry__items">Takeaway · Cancelled before pickup</p>
+            </div>
+            <div>
+              <div class="journal-entry__amount">₹180</div>
+              <span class="journal-entry__status">Refunded</span>
+            </div>
+          </article>
+
+        </div>
+
+        <aside class="ledger__aside">
+
+          <div>
+            <div class="ledger__stat">
+              <span class="ledger__stat-label">This Month</span>
+              <span class="ledger__stat-value">₹<span data-count="4860">0</span></span>
+              <span class="ledger__stat-note">Across 12 orders · avg ₹405 per visit</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="ledger__stat">
+              <span class="ledger__stat-label">Favourite Day</span>
+              <span class="ledger__stat-value">Thursday</span>
+              <span class="ledger__stat-note">You've been in 6 of the last 8 Thursdays</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="ledger__stat">
+              <span class="ledger__stat-label">Lifetime Cups</span>
+              <span class="ledger__stat-value"><span data-count="142">0</span></span>
+              <span class="ledger__stat-note">Since joining in August 2025</span>
+            </div>
+          </div>
+
+          <div class="ledger__note">
+            You've never ordered the same drink twice in a row — not
+            quite. We noticed, and we think it's charming.
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         PANEL: MY TABLE / PLANNER SPREAD
+         ========================================================= -->
+    <section class="panel" id="panel-reservations" data-panel-id="reservations" aria-labelledby="res-title" hidden>
+
+      <div class="ed-head">
+        <div>
+          <span class="ed-head__kicker">My Table</span>
+          <h2 class="ed-head__title" id="res-title">Two weeks<br><em>at a glance.</em></h2>
+        </div>
+        <p class="ed-head__sub">
+          Your upcoming visits, saved and shown on a simple two-week
+          planner. Tap any day to book.
+        </p>
+      </div>
+
+      <div class="planner__strip" role="list">
+        <button class="day-cell" type="button" role="listitem" aria-label="Wednesday 18 March, visited">
+          <span class="day-cell__dow">Wed</span>
+          <span class="day-cell__num">18</span>
+          <span class="day-cell__dots"><span class="day-cell__dot day-cell__dot--visited"></span></span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Thursday 19 March, visited">
+          <span class="day-cell__dow">Thu</span>
+          <span class="day-cell__num">19</span>
+          <span class="day-cell__dots"><span class="day-cell__dot day-cell__dot--visited"></span></span>
+        </button>
+        <button class="day-cell day-cell--today" type="button" role="listitem" aria-label="Friday 20 March, today">
+          <span class="day-cell__dow">Fri</span>
+          <span class="day-cell__num">20</span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Saturday 21 March">
+          <span class="day-cell__dow">Sat</span>
+          <span class="day-cell__num">21</span>
+        </button>
+        <button class="day-cell day-cell--booked" type="button" role="listitem" aria-label="Sunday 22 March, booked">
+          <span class="day-cell__dow">Sun</span>
+          <span class="day-cell__num">22</span>
+          <span class="day-cell__dots"><span class="day-cell__dot day-cell__dot--booked"></span></span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Monday 23 March">
+          <span class="day-cell__dow">Mon</span>
+          <span class="day-cell__num">23</span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Tuesday 24 March">
+          <span class="day-cell__dow">Tue</span>
+          <span class="day-cell__num">24</span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Wednesday 25 March">
+          <span class="day-cell__dow">Wed</span>
+          <span class="day-cell__num">25</span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Thursday 26 March">
+          <span class="day-cell__dow">Thu</span>
+          <span class="day-cell__num">26</span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Friday 27 March">
+          <span class="day-cell__dow">Fri</span>
+          <span class="day-cell__num">27</span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Saturday 28 March">
+          <span class="day-cell__dow">Sat</span>
+          <span class="day-cell__num">28</span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Sunday 29 March">
+          <span class="day-cell__dow">Sun</span>
+          <span class="day-cell__num">29</span>
+        </button>
+        <button class="day-cell day-cell--booked" type="button" role="listitem" aria-label="Monday 30 March, booked">
+          <span class="day-cell__dow">Mon</span>
+          <span class="day-cell__num">30</span>
+          <span class="day-cell__dots"><span class="day-cell__dot day-cell__dot--booked"></span></span>
+        </button>
+        <button class="day-cell" type="button" role="listitem" aria-label="Tuesday 31 March">
+          <span class="day-cell__dow">Tue</span>
+          <span class="day-cell__num">31</span>
+        </button>
+      </div>
+
+      <div class="table-detail-grid">
+
+        <article class="table-ticket table-ticket--next">
+          <div class="table-ticket__head">
+            <span class="table-ticket__kicker">Next visit · In 2 days</span>
+            <div>
+              <div class="table-ticket__seat">W3</div>
+              <span class="table-ticket__seat-label">Window 3</span>
+            </div>
+          </div>
+
+          <h3 class="table-ticket__title">Saturday morning, back at the window</h3>
+
+          <div class="table-ticket__meta">
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Date</span>
+              <span class="table-ticket__meta-value">Sat, 22 Mar</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Time</span>
+              <span class="table-ticket__meta-value">10:30 AM</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Party</span>
+              <span class="table-ticket__meta-value">2 people</span>
+            </div>
+          </div>
+
+          <div class="table-ticket__actions">
+            <a class="btn btn--primary btn--small" href="../404.html">Manage Booking</a>
+            <a class="btn btn--outline btn--small" href="../404.html">Add a Note</a>
+          </div>
+        </article>
+
+        <article class="table-ticket">
+          <div class="table-ticket__head">
+            <span class="table-ticket__kicker">In 10 days</span>
+            <div>
+              <div class="table-ticket__seat">BR</div>
+              <span class="table-ticket__seat-label">Back Room</span>
+            </div>
+          </div>
+
+          <h3 class="table-ticket__title">Sunday brunch with friends</h3>
+
+          <div class="table-ticket__meta">
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Date</span>
+              <span class="table-ticket__meta-value">Mon, 30 Mar</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Time</span>
+              <span class="table-ticket__meta-value">11:00 AM</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Party</span>
+              <span class="table-ticket__meta-value">4 people</span>
+            </div>
+          </div>
+
+          <div class="table-ticket__actions">
+            <a class="btn btn--outline btn--small" href="../404.html">Manage Booking</a>
+            <a class="btn btn--ghost btn--small" href="../404.html">Cancel</a>
+          </div>
+        </article>
+
+        <article class="table-ticket table-ticket--past">
+          <div class="table-ticket__head">
+            <span class="table-ticket__kicker">Visited</span>
+            <div>
+              <div class="table-ticket__seat">W3</div>
+              <span class="table-ticket__seat-label">Window 3</span>
+            </div>
+          </div>
+
+          <h3 class="table-ticket__title">Saturday morning, back at the window</h3>
+
+          <div class="table-ticket__meta">
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Date</span>
+              <span class="table-ticket__meta-value">Sat, 15 Mar</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Time</span>
+              <span class="table-ticket__meta-value">09:45 AM</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Party</span>
+              <span class="table-ticket__meta-value">2 people</span>
+            </div>
+          </div>
+
+          <div class="table-ticket__actions">
+            <a class="btn btn--outline btn--small" href="../404.html">Book Again</a>
+          </div>
+        </article>
+
+        <article class="table-ticket table-ticket--past">
+          <div class="table-ticket__head">
+            <span class="table-ticket__kicker">Visited</span>
+            <div>
+              <div class="table-ticket__seat">B2</div>
+              <span class="table-ticket__seat-label">Bar Stool 2</span>
+            </div>
+          </div>
+
+          <h3 class="table-ticket__title">Quick solo morning at the bar</h3>
+
+          <div class="table-ticket__meta">
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Date</span>
+              <span class="table-ticket__meta-value">Wed, 12 Mar</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Time</span>
+              <span class="table-ticket__meta-value">08:15 AM</span>
+            </div>
+            <div class="table-ticket__meta-item">
+              <span class="table-ticket__meta-label">Party</span>
+              <span class="table-ticket__meta-value">1 person</span>
+            </div>
+          </div>
+
+          <div class="table-ticket__actions">
+            <a class="btn btn--outline btn--small" href="../404.html">Book Again</a>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         PANEL: MY PUNCH CARD / JOURNEY MAP
+         ========================================================= -->
+    <section class="panel" id="panel-rewards" data-panel-id="rewards" aria-labelledby="rewards-title" hidden>
+
+      <div class="ed-head">
+        <div>
+          <span class="ed-head__kicker">My Punch Card</span>
+          <h2 class="ed-head__title" id="rewards-title">The journey<br><em>so far.</em></h2>
+        </div>
+        <p class="ed-head__sub">
+          Every cup leaves a stamp. Ten stamps earns a free one —
+          and you're three away from the next.
+        </p>
+      </div>
+
+      <div class="journey" role="region" aria-label="Punch card journey">
+        <div class="journey__path">
+
+          <div class="stop stop--filled">
+            <span class="stop__dot">☕</span>
+            <span class="stop__label">Cup 01</span>
+          </div>
+          <div class="stop stop--filled">
+            <span class="stop__dot">☕</span>
+            <span class="stop__label">Cup 02</span>
+          </div>
+          <div class="stop stop--filled">
+            <span class="stop__dot">☕</span>
+            <span class="stop__label">Cup 03</span>
+          </div>
+          <div class="stop stop--filled">
+            <span class="stop__dot">☕</span>
+            <span class="stop__label">Cup 04</span>
+          </div>
+          <div class="stop stop--filled">
+            <span class="stop__dot">☕</span>
+            <span class="stop__label">Cup 05</span>
+          </div>
+          <div class="stop stop--filled">
+            <span class="stop__dot">☕</span>
+            <span class="stop__label">Cup 06</span>
+          </div>
+          <div class="stop stop--filled">
+            <span class="stop__dot">☕</span>
+            <span class="stop__label">Cup 07</span>
+          </div>
+          <div class="stop stop--current">
+            <span class="stop__dot">08</span>
+            <span class="stop__label">Next</span>
+          </div>
+          <div class="stop">
+            <span class="stop__dot">09</span>
+            <span class="stop__label">Cup 09</span>
+          </div>
+          <div class="stop stop--reward">
+            <span class="stop__dot">★</span>
+            <span class="stop__label">Free Cup</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="journey-foot">
+
+        <div class="goal-card">
+          <span class="goal-card__kicker">Goal Progress</span>
+          <h3 class="goal-card__title">Three cups to a free one.</h3>
+          <p class="goal-card__note">
+            You're 70% of the way through this punch card. Keep going —
+            the free one is worth it (trust us, it's the good stuff).
+          </p>
+
+          <div class="goal-card__progress">
+            <div class="goal-card__progress-top">
+              <span>7 / 10 cups punched</span>
+              <span>70%</span>
+            </div>
+            <div class="goal-card__bar">
+              <div class="goal-card__fill" data-prog="70"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <h3 class="activity-card__title">Recent Punches</h3>
+
+          <div class="activity-feed">
+            <div class="feed-row">
+              <span class="feed-row__dot">7</span>
+              <span class="feed-row__text">Punched a cup · <strong>Stackly Latte</strong></span>
+              <span class="feed-row__date">Today</span>
+            </div>
+            <div class="feed-row">
+              <span class="feed-row__dot">6</span>
+              <span class="feed-row__text">Punched a cup · <strong>Cappuccino</strong></span>
+              <span class="feed-row__date">Yesterday</span>
+            </div>
+            <div class="feed-row">
+              <span class="feed-row__dot">5</span>
+              <span class="feed-row__text">Punched a cup · <strong>Lavender Cold Brew</strong></span>
+              <span class="feed-row__date">12 Mar</span>
+            </div>
+            <div class="feed-row">
+              <span class="feed-row__dot feed-row__dot--reward">★</span>
+              <span class="feed-row__text">Redeemed a <strong>free croissant</strong></span>
+              <span class="feed-row__date">10 Mar</span>
+            </div>
+            <div class="feed-row">
+              <span class="feed-row__dot">4</span>
+              <span class="feed-row__text">Punched a cup · <strong>Filter Yirgacheffe</strong></span>
+              <span class="feed-row__date">08 Mar</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         PANEL: MY NOTES / PROFILE SPREAD
+         ========================================================= -->
+    <section class="panel" id="panel-profile" data-panel-id="profile" aria-labelledby="profile-title" hidden>
+
+      <div class="ed-head">
+        <div>
+          <span class="ed-head__kicker">My Notes</span>
+          <h2 class="ed-head__title" id="profile-title">What we know<br><em>about you.</em></h2>
+        </div>
+        <p class="ed-head__sub">
+          A short page written by the people at the bar — the details
+          we remember, so you never have to explain them twice.
+        </p>
+      </div>
+
+      <div class="profile-spread">
+
+        <aside class="profile-card">
+          <span class="profile-card__avatar" data-avatar aria-hidden="true">G</span>
+          <h3 class="profile-card__name" data-user-name>Guest</h3>
+          <span class="profile-card__meta" data-user-mail>guest@Stackly.example</span>
+
+          <div class="profile-card__stats">
+            <div class="profile-stat">
+              <span class="profile-stat__label">Member Since</span>
+              <span class="profile-stat__value">Aug 2025</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__label">Total Visits</span>
+              <span class="profile-stat__value" data-count="28">0</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__label">Favourite Seat</span>
+              <span class="profile-stat__value">Window 3</span>
+            </div>
+            <div class="profile-stat">
+              <span class="profile-stat__label">Usual Order</span>
+              <span class="profile-stat__value">Stackly Latte</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="profile-narrative">
+          <span class="profile-narrative__kicker">A Note From The Bar</span>
+          <h2 class="profile-narrative__title">
+            You're a regular now —<br>
+            <em>and we've noticed.</em>
+          </h2>
+
+          <p class="profile-narrative__body">
+            Almost always mornings, almost always <em>Window 3</em>.
+            You order a large <em>Stackly Latte with oat milk and an extra
+            shot</em>, and no sugar — never sugar. Occasionally a filter
+            if the mood is different. We think that means something.
+          </p>
+
+          <p class="profile-narrative__body">
+            You say hello to everyone on the way in. You tip on Sundays.
+            You once brought us pastries from another cafe by accident,
+            and we forgave you instantly (because they were good).
+          </p>
+
+          <div class="profile-narrative__sig">Signed, the Stackly Brew team</div>
+        </div>
+
+      </div>
+
+      <div class="prefs">
+        <div class="prefs__head">
+          <div>
+            <h3 class="prefs__title">Your Usual, Digitised</h3>
+            <p class="prefs__sub">Based on the last 30 orders we've served you</p>
+          </div>
+          <a class="btn btn--outline btn--small" href="../404.html">Edit</a>
+        </div>
+
+        <div class="pref-row">
+          <span class="pref-row__label">Roast Level</span>
+          <div class="pref-row__bar"><div class="pref-row__fill" data-prog="55"></div></div>
+          <span class="pref-row__value">Medium</span>
+        </div>
+
+        <div class="pref-row">
+          <span class="pref-row__label">Milk Choice</span>
+          <div class="pref-row__bar"><div class="pref-row__fill" data-prog="80"></div></div>
+          <span class="pref-row__value">Oat milk</span>
+        </div>
+
+        <div class="pref-row">
+          <span class="pref-row__label">Sweetener</span>
+          <div class="pref-row__bar"><div class="pref-row__fill" data-prog="10"></div></div>
+          <span class="pref-row__value">None</span>
+        </div>
+
+        <div class="pref-row">
+          <span class="pref-row__label">Caffeine</span>
+          <div class="pref-row__bar"><div class="pref-row__fill" data-prog="70"></div></div>
+          <span class="pref-row__value">Extra shot</span>
+        </div>
+
+        <div class="pref-row">
+          <span class="pref-row__label">Visit Time</span>
+          <div class="pref-row__bar"><div class="pref-row__fill" data-prog="85"></div></div>
+          <span class="pref-row__value">Mornings</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+  <script>
+    document.documentElement.classList.remove("no-js");
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    /* =====================================================
+       1) LOAD USER FROM LOCALSTORAGE
+       ===================================================== */
+    (function loadUser() {
+      let email = "guest@Stackly.example";
+      let name = "Guest";
+
+      try {
+        email = localStorage.getItem("vb_user_email") || email;
+        const stored = localStorage.getItem("vb_user_name");
+        if (stored) name = stored;
+        else if (email.includes("@")) name = email.split("@")[0];
+      } catch (e) { /* ignore */ }
+
+      const pretty = name.charAt(0).toUpperCase() + name.slice(1);
+
+      document.querySelectorAll("[data-user-name]").forEach(el => el.textContent = pretty);
+      document.querySelectorAll("[data-user-mail]").forEach(el => el.textContent = email);
+
+      document.querySelectorAll("[data-greeting]").forEach(el => {
+        // For the hero title "Good morning, Guest." keep just the name
+        if (el.tagName.toLowerCase() === "em") el.textContent = pretty;
+        else el.textContent = `Hello ${pretty}`;
+      });
+
+      document.querySelectorAll("[data-avatar]").forEach(el => {
+        el.textContent = pretty.charAt(0).toUpperCase();
+      });
+    })();
+
+    /* =====================================================
+       2) PANEL SWITCHING
+       ===================================================== */
+    const panelEls = document.querySelectorAll(".panel");
+    const navBtns = document.querySelectorAll("[data-panel]");
+
+    const sectionLabels = {
+      home: "My Home",
+      orders: "My Orders",
+      reservations: "My Table",
+      rewards: "Punch Card",
+      profile: "My Notes"
+    };
+
+    function activatePanel(name) {
+      panelEls.forEach(p => {
+        const on = p.dataset.panelId === name;
+        p.classList.toggle("is-active", on);
+        if (on) p.removeAttribute("hidden");
+        else p.setAttribute("hidden", "");
+      });
+
+      // Sync nav buttons (top bar + drawer)
+      navBtns.forEach(btn => {
+        btn.classList.toggle("is-active", btn.dataset.panel === name);
+      });
+
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        document.documentElement.style.scrollBehavior = '';
+      }, 10);
+      animateActivePanel();
+    }
+
+    navBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const name = btn.dataset.panel;
+        if (!name) return;
+        activatePanel(name);
+        closeDrawer();
+      });
+    });
+
+    /* =====================================================
+       3) FULL-SCREEN DRAWER
+       - Covers 100vw x 100vh
+       - Body scroll locked
+       - Close icon top-right + ESC + backdrop click (the drawer itself)
+       ===================================================== */
+    const drawer = document.getElementById("drawer");
+    const drawerClose = document.getElementById("drawer-close");
+    const burger = document.getElementById("burger");
+
+    function openDrawer() {
+      drawer.classList.add("is-open");
+      drawer.setAttribute("aria-hidden", "false");
+      burger.setAttribute("aria-expanded", "true");
+      document.body.classList.add("drawer-open");
+      // move focus into the drawer for a11y
+      if (drawerClose) drawerClose.focus();
+    }
+
+    function closeDrawer() {
+      if (!drawer.classList.contains("is-open")) return;
+      drawer.classList.remove("is-open");
+      drawer.setAttribute("aria-hidden", "true");
+      burger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("drawer-open");
+      burger.focus();
+    }
+
+    burger.addEventListener("click", () => {
+      if (drawer.classList.contains("is-open")) closeDrawer();
+      else openDrawer();
+    });
+
+    drawerClose.addEventListener("click", closeDrawer);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeDrawer();
+    });
+
+    // Close the drawer if the viewport grows past the mobile breakpoint
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1024) closeDrawer();
+    });
+
+    /* =====================================================
+       4) LOGOUT — clear session
+       ===================================================== */
+    const logoutBtn = document.getElementById("logout-drawer");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => {
+        try {
+          localStorage.removeItem("vb_user_email");
+          localStorage.removeItem("vb_user_name");
+          localStorage.removeItem("vb_user_role");
+        } catch (err) { /* ignore */ }
+      });
+    }
+
+    /* =====================================================
+       5) INTERACTIONS
+       ===================================================== */
+    // Cup cards → 404
+    document.querySelectorAll("[data-cup]").forEach(card => {
+      card.addEventListener("click", () => {
+        window.location.href = "../404.html";
+      });
+    });
+
+    // Journal entries → 404
+    document.querySelectorAll("[data-entry]").forEach(entry => {
+      entry.addEventListener("click", () => {
+        window.location.href = "../404.html";
+      });
+    });
+
+    // Day cells → 404
+    document.querySelectorAll(".day-cell").forEach(cell => {
+      cell.addEventListener("click", () => {
+        window.location.href = "../404.html";
+      });
+    });
+
+    // Journey stops → 404
+    document.querySelectorAll(".stop").forEach(stop => {
+      stop.addEventListener("click", () => {
+        window.location.href = "../404.html";
+      });
+      stop.style.cursor = "pointer";
+    });
+
+    // Preferences bars — clickable
+    document.querySelectorAll(".pref-row").forEach(row => {
+      row.style.cursor = "pointer";
+      row.addEventListener("click", () => {
+        window.location.href = "../404.html";
+      });
+    });
+
+    // Search enter → 404
+    const searchInput = document.getElementById("topbar-search");
+    if (searchInput) {
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          window.location.href = "../404.html";
+        }
+      });
+    }
+
+    /* =====================================================
+       6) ANIMATIONS
+       ===================================================== */
+    function animateCounters(scope) {
+      scope.querySelectorAll("[data-count]").forEach(el => {
+        const target = Number(el.dataset.count) || 0;
+        if (prefersReducedMotion || typeof gsap === "undefined") {
+          el.textContent = target.toLocaleString();
+          return;
+        }
+        const state = { v: 0 };
+        gsap.killTweensOf(state);
+        gsap.to(state, {
+          v: target,
+          duration: 1.2,
+          ease: "power2.out",
+          onUpdate: () => { el.textContent = Math.floor(state.v).toLocaleString(); }
+        });
+      });
+    }
+
+    function animateProgress(scope) {
+      scope.querySelectorAll("[data-prog]").forEach((fill, i) => {
+        const pct = Number(fill.dataset.prog) || 0;
+        fill.style.transition = "none";
+        fill.style.width = "0";
+
+        requestAnimationFrame(() => {
+          fill.style.transition = `width 1.2s cubic-bezier(.22, 1, .36, 1) ${i * 0.06}s`;
+          fill.style.width = pct + "%";
+        });
+      });
+    }
+
+    function animateStops(scope) {
+      const stops = scope.querySelectorAll(".stop--filled");
+      stops.forEach((s, i) => {
+        if (prefersReducedMotion) return;
+        s.style.opacity = "0";
+        s.style.transform = "scale(.5)";
+        setTimeout(() => {
+          s.style.transition = "opacity .4s ease, transform .5s cubic-bezier(.34, 1.56, .64, 1)";
+          s.style.opacity = "1";
+          s.style.transform = "scale(1)";
+        }, 120 + i * 60);
+      });
+    }
+
+    function animateActivePanel() {
+      const active = document.querySelector(".panel.is-active");
+      if (!active) return;
+
+      animateCounters(active);
+      animateProgress(active);
+      animateStops(active);
+    }
+
+    /* =====================================================
+       7) ENTRANCE
+       ===================================================== */
+    window.addEventListener("load", () => {
+      if (!prefersReducedMotion && typeof gsap !== "undefined") {
+        if (window.innerWidth > 980) {
+          gsap.fromTo(".sidebar",
+            { x: -30, opacity: 0 },
+            { x: 0, opacity: 1, duration: .7, ease: "power3.out", clearProps: "all" });
+        }
+
+        gsap.fromTo(".topbar",
+          { y: -20, opacity: 0 },
+          { y: 0, opacity: 1, duration: .7, ease: "power3.out", clearProps: "all" });
+
+        gsap.fromTo(".home-greeting, .receipt, .ticket, .punch-card, .barista-note",
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: .7, ease: "power3.out", delay: .15, stagger: .06, clearProps: "all" });
+      }
+
+      animateActivePanel();
+    });
+  </script>
+</body>
+</html>

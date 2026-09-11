@@ -1,0 +1,999 @@
+<!-- html/about.html -->
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The story of Stackly Brew — a neighborhood cafe built on craft, curiosity, and good coffee.">
+    <meta name="theme-color" content="#FFFBF5">
+    <title>About — Stackly Brew</title>
+
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+</head>
+
+<body>
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="page-loader">
+    <div class="page-loader__content">
+      <div class="page-loader__spinner"></div>
+      <div class="page-loader__logo">Stackly <em>Brew</em></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const loader = document.getElementById("page-loader");
+        if (loader) loader.classList.add("is-hidden");
+      }, 1500);
+    });
+  </script>
+
+    <!-- ======================== HEADER ======================== -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a class="brand" href="../index.html" aria-label="Stackly Brew home">
+                <img src="../logo.webp" alt="Stackly Brew">
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="about.html" aria-current="page">About</a>
+                <a href="services.html">Menu</a>
+                <a href="blog.html">Journal</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn btn--primary header-cta" href="login.html">
+                    Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu"
+                    aria-controls="mobile-nav" aria-expanded="false">
+                    <span class="menu-toggle__lines" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+            <div class="mobile-nav__inner">
+                <div class="mobile-nav__links">
+                    <a href="../index.html">Home</a>
+                    <a href="about.html" aria-current="page">About</a>
+                    <a href="services.html">Menu</a>
+                    <a href="blog.html">Journal</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="mobile-nav__meta">
+                    <span>Mon–Fri <i class="fa-solid fa-circle"
+                            style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                        7:00–20:00</span>
+                    <span>Sat–Sun <i class="fa-solid fa-circle"
+                            style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                        8:00–21:00</span>
+                </div>
+
+                <div style="margin-top: 28px;">
+                    <a class="btn btn--primary" href="login.html">Login <i class="fa-solid fa-arrow-right btn__arrow"
+                            style="margin-left: 6px;"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ======================== 01 HERO — EDITORIAL FULL-BLEED ======================== -->
+        <section class="ab-hero" aria-labelledby="ab-hero-title">
+            <div class="ab-hero__media">
+                <img src="../assets/images/image_09.webp"
+                    alt="Barista preparing coffee behind the cafe bar" fetchpriority="high">
+                <div class="ab-hero__scrim"></div>
+            </div>
+
+            <div class="ab-hero__inner">
+                <div class="ab-hero__meta fade-in-left">
+                    <span>Est. 2018</span>
+                    <span class="ab-hero__meta-dot"></span>
+                    <span>The Corner District</span>
+                </div>
+
+                <h1 class="ab-hero__title fade-in-left" id="ab-hero-title">
+                    A cafe built
+                    <span class="ab-hero__title-em">slowly</span>,
+                    <br>
+                    on purpose.
+                </h1>
+
+                <div class="ab-hero__foot">
+                    <p class="ab-hero__lede fade-in-left">
+                        Eight years, one roaster, three espresso machines, and a
+                        stubborn belief that coffee is better when nobody is rushing.
+                    </p>
+
+                    <a class="ab-hero__scroll fade-in-right" href="./blog.html" aria-label="Scroll to our letter">
+                        <span>Read the letter</span>
+                        <span class="ab-hero__scroll-line" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== 03 MISSION & VISION — DIAGONAL OVERLAP ======================== -->
+        <section class="ab-mv" aria-labelledby="ab-mv-title">
+            <div class="container">
+                <div class="ab-mv__head fade-in-left">
+                    <span class="eyebrow">Mission &amp; Vision</span>
+                    <h2 class="section-title" id="ab-mv-title">Two ideas<br>we keep returning to.</h2>
+                </div>
+
+                <div class="ab-mv__stage">
+                    <article class="ab-mv__panel ab-mv__panel--mission fade-in-left">
+                        <div class="ab-mv__panel-inner">
+                            <span class="ab-mv__panel-num">01</span>
+                            <h3>Mission</h3>
+                            <p>
+                                Make coffee that is worth slowing down for, and a room
+                                that makes slowing down easy.
+                            </p>
+                            <ul class="ab-mv__list">
+                                <li>Roast in-house, in small batches</li>
+                                <li>Pay producers properly</li>
+                                <li>Never rush a pour</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="ab-mv__panel ab-mv__panel--vision fade-in-right">
+                        <div class="ab-mv__panel-inner">
+                            <span class="ab-mv__panel-num">02</span>
+                            <h3>Vision</h3>
+                            <p>
+                                Become the kind of cafe that outlives its founders — a
+                                quiet institution for the neighborhood it sits in.
+                            </p>
+                            <ul class="ab-mv__list">
+                                <li>Train the next generation</li>
+                                <li>Stay independent</li>
+                                <li>Keep the door open</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 04 VALUES — EXPANDABLE ACCORDION ======================== -->
+        <section class="section ab-values" aria-labelledby="ab-values-title">
+            <div class="container">
+                <div class="ab-values__head">
+                    <div class="eyebrow fade-in-left">What
+                        We Value</div>
+                    <h2 class="section-title fade-in-left" id="ab-values-title">
+                        Four commitments<br>written on the wall.
+                    </h2>
+                    <p class="ab-values__hint fade-in-right">
+                        Tap a value to read the longer version.
+                    </p>
+                </div>
+
+                <div class="ab-values__list">
+                    <article class="value-row is-open fade-in-left">
+                        <button class="value-row__trigger" type="button" aria-expanded="true"
+                            aria-controls="value-craft">
+                            <span class="value-row__num">01</span>
+                            <span class="value-row__label">Craft</span>
+                            <span class="value-row__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="value-row__panel" id="value-craft" role="region">
+                            <p>
+                                We taste every roast before it reaches the bar and re-dial
+                                the grinder twice a day. Craft, for us, is not perfection —
+                                it is attention, repeated.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="value-row fade-in-right">
+                        <button class="value-row__trigger" type="button" aria-expanded="false"
+                            aria-controls="value-hospitality">
+                            <span class="value-row__num">02</span>
+                            <span class="value-row__label">Hospitality</span>
+                            <span class="value-row__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="value-row__panel" id="value-hospitality" role="region" hidden>
+                            <p>
+                                Every guest gets the same welcome — the regular who comes
+                                daily and the visitor who wandered in by accident. There is
+                                no VIP room here, and there never will be.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="value-row fade-in-left">
+                        <button class="value-row__trigger" type="button" aria-expanded="false"
+                            aria-controls="value-curiosity">
+                            <span class="value-row__num">03</span>
+                            <span class="value-row__label">Curiosity</span>
+                            <span class="value-row__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="value-row__panel" id="value-curiosity" role="region" hidden>
+                            <p>
+                                Coffee is an endless subject. We cup weekly, we travel to
+                                origin when we can, and we are not embarrassed to admit
+                                we still learn something new every month.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="value-row fade-in-right">
+                        <button class="value-row__trigger" type="button" aria-expanded="false"
+                            aria-controls="value-community">
+                            <span class="value-row__num">04</span>
+                            <span class="value-row__label">Community</span>
+                            <span class="value-row__icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="value-row__panel" id="value-community" role="region" hidden>
+                            <p>
+                                We host a monthly cupping, keep a shelf of borrowed books,
+                                and know most of our regulars by name. A cafe is only as
+                                good as the people who choose to sit in it.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== 06 TEAM — COVERFLOW CARDS ======================== -->
+        <section class="section ab-team" aria-labelledby="ab-team-title">
+            <div class="container">
+                <div class="ab-team__head">
+                    <span class="eyebrow fade-in-left">The
+                        People</span>
+                    <h2 class="section-title fade-in-left" id="ab-team-title">
+                        Names behind<br>the bar.
+                    </h2>
+                    <p class="ab-team__lede fade-in-right">
+                        Five people, one very specific set of opinions about grinders.
+                    </p>
+                </div>
+
+                <div class="coverflow" data-coverflow>
+                    <div class="coverflow__viewport">
+                        <ul class="coverflow__track">
+
+                            <li class="crew" data-crew>
+                                <div class="crew__photo">
+                                    <img src="../assets/images/image_16.webp"
+                                        alt="Aria, Head Barista" loading="lazy">
+                                </div>
+                                <div class="crew__info">
+                                    <span class="crew__role">Head Barista</span>
+                                    <h3 class="crew__name">Aria</h3>
+                                    <p class="crew__bio">Ten years on bar. Still tastes every shot before it leaves.</p>
+                                </div>
+                            </li>
+
+                            <li class="crew" data-crew>
+                                <div class="crew__photo">
+                                    <img src="../assets/images/image_35.webp"
+                                        alt="Noah, Roaster" loading="lazy">
+                                </div>
+                                <div class="crew__info">
+                                    <span class="crew__role">Roaster</span>
+                                    <h3 class="crew__name">Noah</h3>
+                                    <p class="crew__bio">Keeps a notebook of every roast since 2019. We've stopped
+                                        asking why.</p>
+                                </div>
+                            </li>
+
+                            <li class="crew" data-crew>
+                                <div class="crew__photo">
+                                    <img src="../assets/images/image_53.webp"
+                                        alt="Mira, Cafe Host" loading="lazy">
+                                </div>
+                                <div class="crew__info">
+                                    <span class="crew__role">Cafe Host</span>
+                                    <h3 class="crew__name">Mira</h3>
+                                    <p class="crew__bio">Knows your order, your name, and probably your dog's name too.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="crew" data-crew>
+                                <div class="crew__photo">
+                                    <img src="../assets/images/image_51.webp"
+                                        alt="Elias, Pastry Lead" loading="lazy">
+                                </div>
+                                <div class="crew__info">
+                                    <span class="crew__role">Pastry Lead</span>
+                                    <h3 class="crew__name">Elias</h3>
+                                    <p class="crew__bio">Laminates dough at 5am. Says it's meditative. We believe him.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li class="crew" data-crew>
+                                <div class="crew__photo">
+                                    <img src="../assets/images/image_54.webp"
+                                        alt="Sana, Green Coffee Buyer" loading="lazy">
+                                </div>
+                                <div class="crew__info">
+                                    <span class="crew__role">Green Buyer</span>
+                                    <h3 class="crew__name">Sana</h3>
+                                    <p class="crew__bio">Travels to origin twice a year. Brings back beans and stories.
+                                    </p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="coverflow__nav">
+                        <button class="coverflow__btn" data-cf-prev type="button"
+                            aria-label="Previous team member">←</button>
+                        <div class="coverflow__dots" data-cf-dots aria-hidden="true"></div>
+                        <button class="coverflow__btn" data-cf-next type="button" aria-label="Next team member"> <i
+                                class="fa-solid fa-arrow-right" style="margin: 0 6px;"></i> </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================== 08 SOURCING — ORIGIN LIST ======================== -->
+        <section class="section ab-origins" aria-labelledby="ab-origins-title">
+            <div class="container">
+                <div class="ab-origins__head">
+                    <span class="eyebrow fade-in-left">Sourcing</span>
+                    <h2 class="section-title fade-in-left" id="ab-origins-title">
+                        Where our coffee<br>comes from.
+                    </h2>
+                    <p class="ab-origins__lede fade-in-right">
+                        A rotating list of the origins currently on our bar. We know
+                        every producer by name.
+                    </p>
+                </div>
+
+                <ul class="origin-list">
+                    <li class="origin fade-in-left">
+                        <div class="origin__index">01</div>
+                        <div class="origin__place">
+                            <h3>Yirgacheffe</h3>
+                            <span>Ethiopia</span>
+                        </div>
+                        <p class="origin__notes">
+                            Jasmine, bergamot, white peach. Our house filter since day one.
+                        </p>
+                        <div class="origin__tag">Filter <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Washed</div>
+                    </li>
+
+                    <li class="origin fade-in-right">
+                        <div class="origin__index">02</div>
+                        <div class="origin__place">
+                            <h3>Huila</h3>
+                            <span>Colombia</span>
+                        </div>
+                        <p class="origin__notes">
+                            Red apple, panela, toasted almond. Our espresso base.
+                        </p>
+                        <div class="origin__tag">Espresso <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Washed</div>
+                    </li>
+
+                    <li class="origin fade-in-left">
+                        <div class="origin__index">03</div>
+                        <div class="origin__place">
+                            <h3>Nyeri</h3>
+                            <span>Kenya</span>
+                        </div>
+                        <p class="origin__notes">
+                            Blackcurrant, tomato leaf, cane sugar. Loud, in the best way.
+                        </p>
+                        <div class="origin__tag">Filter <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Washed</div>
+                    </li>
+
+                    <li class="origin fade-in-right">
+                        <div class="origin__index">04</div>
+                        <div class="origin__place">
+                            <h3>Antigua</h3>
+                            <span>Guatemala</span>
+                        </div>
+                        <p class="origin__notes">
+                            Cocoa nib, brown butter, orange peel. Our seasonal espresso.
+                        </p>
+                        <div class="origin__tag">Espresso <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Washed</div>
+                    </li>
+
+                    <li class="origin fade-in-left">
+                        <div class="origin__index">05</div>
+                        <div class="origin__place">
+                            <h3>Kayanza</h3>
+                            <span>Burundi</span>
+                        </div>
+                        <p class="origin__notes">
+                            Dried fig, dark honey, a whisper of clove.
+                        </p>
+                        <div class="origin__tag">Filter <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Natural</div>
+                    </li>
+                </ul>
+
+                <p class="ab-origins__foot fade-in-right">
+                    Full origin notes available at the bar. Ask anyone in an apron.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======================== 09 THE ROOM — TABBED GALLERY ======================== -->
+        <section class="section ab-room" aria-labelledby="ab-room-title">
+            <div class="container">
+                <div class="ab-room__head">
+                    <span class="eyebrow fade-in-left">The
+                        Room</span>
+                    <h2 class="section-title fade-in-left" id="ab-room-title">
+                        Four corners<br>worth knowing.
+                    </h2>
+                </div>
+
+                <div class="room-tabs fade-in-right">
+                    <div class="room-tabs__list" role="tablist" aria-label="Cafe spaces">
+                        <button class="room-tab is-active" role="tab" aria-selected="true" aria-controls="room-bar"
+                            id="tab-bar" type="button">
+                            <span>01</span> The Bar
+                        </button>
+                        <button class="room-tab" role="tab" aria-selected="false" aria-controls="room-window"
+                            id="tab-window" type="button" tabindex="-1">
+                            <span>02</span> The Window
+                        </button>
+                        <button class="room-tab" role="tab" aria-selected="false" aria-controls="room-back"
+                            id="tab-back" type="button" tabindex="-1">
+                            <span>03</span> The Back Room
+                        </button>
+                        <button class="room-tab" role="tab" aria-selected="false" aria-controls="room-courtyard"
+                            id="tab-courtyard" type="button" tabindex="-1">
+                            <span>04</span> The Courtyard
+                        </button>
+                    </div>
+
+                    <div class="room-tabs__panels">
+                        <div class="room-panel is-active" id="room-bar" role="tabpanel" aria-labelledby="tab-bar">
+                            <div class="room-panel__media">
+                                <img src="../assets/images/image_56.webp"
+                                    alt="The long coffee bar with stools" loading="lazy">
+                            </div>
+                            <div class="room-panel__meta">
+                                <h3>Six stools, one bar, endless opinions.</h3>
+                                <p>Sit here if you want to watch your coffee being made and hear the grinder argue with
+                                    itself.</p>
+                            </div>
+                        </div>
+
+                        <div class="room-panel" id="room-window" role="tabpanel" aria-labelledby="tab-window" hidden>
+                            <div class="room-panel__media">
+                                <img src="../assets/images/image_32.webp"
+                                    alt="Window seating with morning light" loading="lazy">
+                            </div>
+                            <div class="room-panel__meta">
+                                <h3>Morning light, west-facing, best before 10am.</h3>
+                                <p>Two tables by the glass. Popular with writers, readers, and people avoiding their
+                                    inbox.</p>
+                            </div>
+                        </div>
+
+                        <div class="room-panel" id="room-back" role="tabpanel" aria-labelledby="tab-back" hidden>
+                            <div class="room-panel__media">
+                                <img src="../assets/images/image_07.webp"
+                                    alt="Quiet back room with soft seating" loading="lazy">
+                            </div>
+                            <div class="room-panel__meta">
+                                <h3>The quiet room. Phones on silent, please.</h3>
+                                <p>Deep chairs, a low ceiling, and enough distance from the grinder to actually hear
+                                    yourself think.</p>
+                            </div>
+                        </div>
+
+                        <div class="room-panel" id="room-courtyard" role="tabpanel" aria-labelledby="tab-courtyard"
+                            hidden>
+                            <div class="room-panel__media">
+                                <img src="../assets/images/image_01.webp"
+                                    alt="Outdoor courtyard seating" loading="lazy">
+                            </div>
+                            <div class="room-panel__meta">
+                                <h3>Eight tables outside, weather permitting.</h3>
+                                <p>Shaded by an old fig tree in summer. Blankets provided when it isn't.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 10 CTA — OVERLAPPING CARD ======================== -->
+        <section class="section ab-cta" aria-labelledby="ab-cta-title">
+            <div class="container">
+                <div class="ab-cta__stage">
+
+                    <div class="ab-cta__image fade-in-left">
+                        <img src="../assets/images/image_19.webp"
+                            alt="Coffee being poured at the cafe bar" loading="lazy">
+                    </div>
+
+                    <div class="ab-cta__card fade-in-right">
+                        <span class="eyebrow">Next Chapter</span>
+                        <h2 class="ab-cta__title" id="ab-cta-title">
+                            Come be part<br>of the story.
+                        </h2>
+                        <p class="ab-cta__copy">
+                            The room is warm, the grinder is dialled in, and there is
+                            almost certainly a seat free. We would love to see you.
+                        </p>
+
+                        <div class="ab-cta__actions">
+                            <a class="btn btn--primary" href="login.html">
+                                Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+                            </a>
+                            <a class="btn btn--outline" href="services.html">
+                                View the Menu
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+      <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="../index.html" aria-label="Stackly Brew home">
+            <img src="../logo.webp" alt="Stackly Brew">
+          </a>
+          <p>
+            Specialty coffee, handmade food and slow moments.
+            A neighborhood cafe built around the simple pleasure of a good cup.
+          </p>
+          <div class="footer-socials-new" style="margin-top: 20px; display: flex; gap: 15px;">
+            <a href="../404.html" aria-label="Instagram" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+            <a href="../404.html" aria-label="Facebook" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="../404.html" aria-label="Twitter" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="../404.html" aria-label="Pinterest" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="../404.html" aria-label="LinkedIn" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Explore</div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Menu</a>
+            <a href="blog.html">Journal</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Quick Links</div>
+          <nav class="footer-links" aria-label="Quick links">
+            <a href="../404.html">Gift Cards</a>
+            <a href="../404.html">Merchandise</a>
+            <a href="../404.html">Wholesale</a>
+            <a href="../404.html">Careers</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Hours</div>
+          <div class="footer-hours">
+            <span><strong>Mon�LFri</strong><br>7:00 — 20:00</span>
+            <span><strong>Sat��Sun</strong><br>8:00 — 21:00</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Stay in touch</div>
+          <div class="footer-hours">
+            <span><i class="fa-solid fa-location-dot" style="width: 16px; margin-right: 8px;"></i> Stackly, Salem, TN, India</span>
+            <span><i class="fa-solid fa-phone" style="width: 16px; margin-right: 8px;"></i> +91 90000 00000</span>
+            <span><i class="fa-solid fa-envelope" style="width: 16px; margin-right: 8px;"></i> hello@stackly.example</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Stackly Brew. Crafted with care.</span>
+
+        <div class="footer-legal" style="display: flex; gap: 20px;">
+          <a href="../404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Privacy Policy</a>
+          <a href="../404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <button class="back-top" id="back-top" type="button" aria-label="Back to top">↑</button>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.documentElement.classList.remove("no-js");
+
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (typeof gsap !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger);
+        }
+
+        /* ---------- Header ---------- */
+        const header = document.getElementById("site-header");
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileNav = document.getElementById("mobile-nav");
+        const mobileLinks = mobileNav.querySelectorAll("a");
+
+        const setHeaderState = () => {
+            header.classList.toggle("is-scrolled", window.scrollY > 30);
+        };
+
+        window.addEventListener("scroll", setHeaderState, { passive: true });
+        setHeaderState();
+
+        const closeMenu = () => {
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+            mobileNav.classList.remove("is-open");
+            mobileNav.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("menu-open");
+
+            if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+                gsap.to(".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn", {
+                    y: 15,
+                    opacity: 0,
+                    duration: .2,
+                    stagger: .02,
+                    overwrite: true
+                });
+            }
+        };
+
+        const openMenu = () => {
+            menuToggle.setAttribute("aria-expanded", "true");
+            menuToggle.setAttribute("aria-label", "Close navigation menu");
+            mobileNav.classList.add("is-open");
+            mobileNav.setAttribute("aria-hidden", "false");
+            document.body.classList.add("menu-open");
+
+            if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+                gsap.fromTo(
+                    ".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn",
+                    { y: 30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: .55, stagger: .06, ease: "power3.out", delay: .08 }
+                );
+            }
+        };
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+            isOpen ? closeMenu() : openMenu();
+        });
+
+        mobileLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeMenu();
+        });
+
+        /* ---------- Hero ---------- */
+        window.addEventListener("load", () => {
+            if (typeof gsap === "undefined" || prefersReducedMotion) {
+                document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+                    el.style.opacity = "1";
+                });
+                return;
+            }
+
+            const tl = gsap.timeline({ defaults: { duration: .9, ease: "power3.out" } });
+
+            tl.fromTo(".ab-hero__meta", { x: -40, opacity: 0 }, { x: 0, opacity: 1 })
+                .fromTo(".ab-hero__title", { x: -50, opacity: 0 }, { x: 0, opacity: 1 }, "-=.6")
+                .fromTo(".ab-hero__lede", { x: -30, opacity: 0 }, { x: 0, opacity: 1 }, "-=.5")
+                .fromTo(".ab-hero__scroll", { x: 30, opacity: 0 }, { x: 0, opacity: 1 }, "-=.5");
+
+            gsap.to(".ab-hero__media img", {
+                yPercent: 12,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".ab-hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+
+        /* ---------- Scroll Reveals ---------- */
+        if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+            gsap.utils.toArray(".fade-in-left").forEach(el => {
+                if (el.closest(".ab-hero")) return;
+                gsap.fromTo(el,
+                    { x: -40, opacity: 0 },
+                    {
+                        x: 0, opacity: 1, duration: .75, ease: "power3.out",
+                        scrollTrigger: { trigger: el, start: "top 86%", once: true }
+                    });
+            });
+
+            gsap.utils.toArray(".fade-in-right").forEach(el => {
+                if (el.closest(".ab-hero")) return;
+                gsap.fromTo(el,
+                    { x: 40, opacity: 0 },
+                    {
+                        x: 0, opacity: 1, duration: .75, ease: "power3.out",
+                        scrollTrigger: { trigger: el, start: "top 86%", once: true }
+                    });
+            });
+        } else {
+            document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+                el.style.opacity = "1";
+            });
+        }
+
+        /* ---------- 04 Values Accordion ---------- */
+        (function initValues() {
+            const rows = document.querySelectorAll(".value-row");
+            if (!rows.length) return;
+
+            rows.forEach(row => {
+                const trigger = row.querySelector(".value-row__trigger");
+                const panel = row.querySelector(".value-row__panel");
+
+                trigger.addEventListener("click", () => {
+                    const isOpen = row.classList.contains("is-open");
+
+                    rows.forEach(other => {
+                        if (other === row) return;
+                        other.classList.remove("is-open");
+                        const t = other.querySelector(".value-row__trigger");
+                        const p = other.querySelector(".value-row__panel");
+                        t.setAttribute("aria-expanded", "false");
+                        p.hidden = true;
+                    });
+
+                    if (isOpen) {
+                        row.classList.remove("is-open");
+                        trigger.setAttribute("aria-expanded", "false");
+                        panel.hidden = true;
+                    } else {
+                        row.classList.add("is-open");
+                        trigger.setAttribute("aria-expanded", "true");
+                        panel.hidden = false;
+                    }
+                });
+            });
+        })();
+
+        /* ---------- 05 Journey horizontal scroll ---------- */
+        (function initJourney() {
+            const rail = document.querySelector("[data-journey-rail]");
+            if (!rail) return;
+
+            const enableHorizontal = () => window.innerWidth > 900;
+
+            if (typeof gsap === "undefined" || prefersReducedMotion) return;
+
+            ScrollTrigger.matchMedia({
+                "(min-width: 901px)": function () {
+                    const track = rail.querySelector(".ab-journey__track");
+                    if (!track) return;
+
+                    const distance = () => Math.max(0, track.scrollWidth - rail.clientWidth + 40);
+
+                    const tween = gsap.to(track, {
+                        x: () => -distance(),
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: rail,
+                            start: "top 70%",
+                            end: () => "+=" + (distance() + window.innerHeight * 0.4),
+                            scrub: 1,
+                            pin: false,
+                            invalidateOnRefresh: true
+                        }
+                    });
+
+                    return () => {
+                        tween.scrollTrigger && tween.scrollTrigger.kill();
+                        tween.kill();
+                        gsap.set(track, { x: 0 });
+                    };
+                }
+            });
+        })();
+
+        /* ---------- 06 Coverflow ---------- */
+        (function initCoverflow() {
+            const root = document.querySelector("[data-coverflow]");
+            if (!root) return;
+
+            const cards = Array.from(root.querySelectorAll("[data-crew]"));
+            const prev = root.querySelector("[data-cf-prev]");
+            const next = root.querySelector("[data-cf-next]");
+            const dotsWrap = root.querySelector("[data-cf-dots]");
+            if (!cards.length) return;
+
+            let index = Math.floor(cards.length / 2);
+            let autoPlayTimer;
+
+            function startAutoPlay() {
+                if (prefersReducedMotion) return;
+                autoPlayTimer = setInterval(() => {
+                    go(index + 1);
+                }, 2000);
+            }
+
+            function pauseAutoPlay() {
+                clearInterval(autoPlayTimer);
+            }
+
+            function resetAutoPlay() {
+                pauseAutoPlay();
+                startAutoPlay();
+            }
+
+            cards.forEach((_, i) => {
+                const d = document.createElement("button");
+                d.type = "button";
+                d.className = "coverflow__dot";
+                d.setAttribute("aria-label", "Show team member " + (i + 1));
+                d.addEventListener("click", () => { go(i); resetAutoPlay(); });
+                dotsWrap.appendChild(d);
+            });
+
+            const dots = Array.from(dotsWrap.children);
+
+            function layout() {
+                cards.forEach((card, i) => {
+                    const offset = i - index;
+                    const abs = Math.abs(offset);
+                    const isActive = offset === 0;
+
+                    card.classList.toggle("is-active", isActive);
+                    card.style.zIndex = String(100 - abs);
+                    card.style.setProperty("--offset", offset);
+                    card.style.setProperty("--abs", Math.min(abs, 3));
+                });
+
+                dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+            }
+
+            function go(i) {
+                index = (i + cards.length) % cards.length;
+                layout();
+            }
+
+            prev && prev.addEventListener("click", () => { go(index - 1); resetAutoPlay(); });
+            next && next.addEventListener("click", () => { go(index + 1); resetAutoPlay(); });
+
+            // keyboard nav
+            root.addEventListener("keydown", e => {
+                if (e.key === "ArrowLeft") { e.preventDefault(); go(index - 1); resetAutoPlay(); }
+                if (e.key === "ArrowRight") { e.preventDefault(); go(index + 1); resetAutoPlay(); }
+            });
+
+            // simple swipe
+            let startX = 0, dragging = false;
+            root.addEventListener("touchstart", e => {
+                startX = e.touches[0].clientX; dragging = true; pauseAutoPlay();
+            }, { passive: true });
+            root.addEventListener("touchend", e => {
+                if (!dragging) return; dragging = false;
+                const dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+                startAutoPlay();
+            });
+
+            // pause on hover
+            root.addEventListener("mouseenter", pauseAutoPlay);
+            root.addEventListener("mouseleave", startAutoPlay);
+
+            layout();
+            startAutoPlay();
+        })();
+
+        /* ---------- 09 Room tabs ---------- */
+        (function initRoomTabs() {
+            const root = document.querySelector(".room-tabs");
+            if (!root) return;
+
+            const tabs = Array.from(root.querySelectorAll(".room-tab"));
+            const panels = Array.from(root.querySelectorAll(".room-panel"));
+
+            function activate(i) {
+                tabs.forEach((tab, j) => {
+                    const active = i === j;
+                    tab.classList.toggle("is-active", active);
+                    tab.setAttribute("aria-selected", active ? "true" : "false");
+                    tab.tabIndex = active ? 0 : -1;
+                });
+
+                panels.forEach((panel, j) => {
+                    const active = i === j;
+                    panel.classList.toggle("is-active", active);
+                    panel.hidden = !active;
+                });
+            }
+
+            tabs.forEach((tab, i) => {
+                tab.addEventListener("click", () => activate(i));
+                tab.addEventListener("keydown", e => {
+                    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                        e.preventDefault();
+                        const dir = e.key === "ArrowRight" ? 1 : -1;
+                        const next = (i + dir + tabs.length) % tabs.length;
+                        activate(next);
+                        tabs[next].focus();
+                    }
+                });
+            });
+
+            activate(0);
+        })();
+
+        /* ---------- CTA overlap subtle animation ---------- */
+        if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+            const card = document.querySelector(".ab-cta__card");
+            if (card) {
+                gsap.fromTo(card, { y: 40 }, {
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: ".ab-cta",
+                        start: "top 75%",
+                        once: true
+                    }
+                });
+            }
+        }
+
+        /* ---------- Back To Top ---------- */
+        const backTop = document.getElementById("back-top");
+
+        window.addEventListener("scroll", () => {
+            backTop.classList.toggle("is-visible", window.scrollY > 700);
+        }, { passive: true });
+
+        backTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? "auto" : "smooth"
+            });
+        });
+    </script>
+</body>
+
+</html>

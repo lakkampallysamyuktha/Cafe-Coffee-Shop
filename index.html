@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A modern independent cafe serving carefully sourced coffee, handmade pastries, and slow moments.">
+    <meta name="theme-color" content="#FFFBF5">
+    <title>Stackly Brew — Coffee, Slowly Made</title>
+
+    <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+</head>
+
+<body>
+  <!-- PAGE LOADER -->
+  <div class="page-loader" id="page-loader">
+    <div class="page-loader__content">
+      <div class="page-loader__spinner"></div>
+      <div class="page-loader__logo">Stackly <em>Brew</em></div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        const loader = document.getElementById("page-loader");
+        if (loader) loader.classList.add("is-hidden");
+      }, 1500);
+    });
+  </script>
+
+    <!-- ======================== HEADER ======================== -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="Stackly Brew home">
+                <img src="logo.webp" alt="Stackly Brew">
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="html/about.html">About</a>
+                <a href="html/services.html">Menu</a>
+                <a href="html/blog.html">Journal</a>
+                <a href="html/contact.html">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn btn--primary header-cta" href="html/login.html">
+                    Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu"
+                    aria-controls="mobile-nav" aria-expanded="false">
+                    <span class="menu-toggle__lines" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+            <div class="mobile-nav__inner">
+                <div class="mobile-nav__links">
+                    <a href="index.html" aria-current="page">Home</a>
+                    <a href="html/about.html">About</a>
+                    <a href="html/services.html">Menu</a>
+                    <a href="html/blog.html">Journal</a>
+                    <a href="html/contact.html">Contact</a>
+                </div>
+
+                <div class="mobile-nav__meta">
+                    <span>Mon–Fri <i class="fa-solid fa-circle"
+                            style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                        7:00–20:00</span>
+                    <span>Sat–Sun <i class="fa-solid fa-circle"
+                            style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                        8:00–21:00</span>
+                </div>
+
+                <div style="margin-top: 28px;">
+                    <a class="btn btn--primary" href="html/login.html">Login <i
+                            class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ======================== 01 HERO ======================== -->
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="hero__grid">
+
+                <div class="hero__content">
+                    <div class="eyebrow hero__eyebrow fade-in-left">Independent Coffee House <i
+                            class="fa-solid fa-circle"
+                            style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i> Est.
+                        2018</div>
+
+                    <h1 class="hero__title fade-in-left" id="hero-title">
+                        Good coffee
+                        <br>
+                        deserves a
+                        <span class="wave-word" aria-label="slow">
+                            <span aria-hidden="true">S</span>
+                            <span aria-hidden="true">L</span>
+                            <span aria-hidden="true">O</span>
+                            <span aria-hidden="true">W</span>
+                        </span>
+                        <br>
+                        kind of morning.
+                    </h1>
+
+                    <p class="hero__copy fade-in-left">
+                        Thoughtfully sourced beans, quietly bold espresso, handmade pastries,
+                        and a room made for staying a little longer.
+                    </p>
+
+                    <div class="hero__actions fade-in-left">
+                        <a class="btn btn--primary" href="html/services.html">
+                            Explore the Menu <i class="fa-solid fa-arrow-right btn__arrow"
+                                style="margin-left: 6px;"></i>
+                        </a>
+                        <a class="btn btn--outline" href="./html/contact.html">
+                            Visit the Cafe
+                        </a>
+                    </div>
+
+                    <div class="hero__note fade-in-left">
+                        <span class="hero__note-dot" aria-hidden="true"></span>
+                        Freshly brewed every morning
+                    </div>
+                </div>
+
+                <div class="hero__visual fade-in-right" aria-label="Coffee and cafe gallery">
+                    <figure class="hero-photo hero-photo--one">
+                        <img src="assets/images/image_17.webp"
+                            alt="Fresh coffee being prepared on a cafe counter" fetchpriority="high">
+                    </figure>
+
+                    <figure class="hero-photo hero-photo--two">
+                        <img src="assets/images/image_34.webp"
+                            alt="Warm and inviting coffee shop interior" loading="eager">
+                    </figure>
+
+                    <figure class="hero-photo hero-photo--three">
+                        <img src="assets/images/image_06.webp"
+                            alt="Roasted coffee beans" loading="eager">
+                    </figure>
+
+                    <figure class="hero-photo hero-photo--four">
+                        <img src="assets/images/image_28.webp"
+                            alt="Latte art in a ceramic coffee cup" loading="eager">
+                    </figure>
+
+                    <div class="hero-stamp" aria-hidden="true">
+                        <span>Roasted with care <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            served with heart</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 02 HIGHLIGHTS ======================== -->
+        <section class="highlights" aria-label="Cafe highlights">
+            <div class="marquee">
+                <div class="marquee__track highlights__track">
+                    <div class="marquee__group">
+                        <span class="marquee__item">Specialty Coffee</span>
+                        <span class="marquee__item">Fresh Pastries</span>
+                        <span class="marquee__item">Slow Mornings</span>
+                        <span class="marquee__item">Handcrafted Drinks</span>
+                        <span class="marquee__item">Local Community</span>
+                    </div>
+                    <div class="marquee__group" aria-hidden="true">
+                        <span class="marquee__item">Specialty Coffee</span>
+                        <span class="marquee__item">Fresh Pastries</span>
+                        <span class="marquee__item">Slow Mornings</span>
+                        <span class="marquee__item">Handcrafted Drinks</span>
+                        <span class="marquee__item">Local Community</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ======================== 04 MENU ======================== -->
+        <section class="section menu-section" id="menu" aria-labelledby="menu-title">
+            <div class="container">
+                <div class="menu-section__head">
+                    <div>
+                        <div class="eyebrow fade-in-left">The Menu</div>
+                        <h2 class="section-title fade-in-left" id="menu-title">Small menu.<br>Big character.</h2>
+                    </div>
+                    <p class="fade-in-right">
+                        Familiar favorites and curious seasonal pours, prepared with the same attention
+                        we give every bean.
+                    </p>
+                </div>
+
+                <div class="menu-grid">
+                    <article class="menu-card menu-card--large fade-in-left">
+                        <div class="menu-card__image">
+                            <img src="assets/images/image_44.webp"
+                                alt="Rich espresso coffee" loading="lazy">
+                        </div>
+                        <div class="menu-card__overlay"></div>
+                        <div class="menu-card__content">
+                            <h3>Espresso</h3>
+                            <p>Short, intense, beautifully balanced.</p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card fade-in-right">
+                        <div class="menu-card__image">
+                            <img src="assets/images/image_42.webp"
+                                alt="Latte with foam" loading="lazy">
+                        </div>
+                        <div class="menu-card__overlay"></div>
+                        <div class="menu-card__content">
+                            <h3>Milk Coffee</h3>
+                            <p>Stacklyy lattes and flat whites.</p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card fade-in-left">
+                        <div class="menu-card__image">
+                            <img src="assets/images/image_13.webp"
+                                alt="Iced coffee" loading="lazy">
+                        </div>
+                        <div class="menu-card__overlay"></div>
+                        <div class="menu-card__content">
+                            <h3>Cold Brew</h3>
+                            <p>Slow extracted and naturally sweet.</p>
+                        </div>
+                    </article>
+
+                    <article class="menu-card menu-card--wide fade-in-right">
+                        <div class="menu-card__image">
+                            <img src="assets/images/image_36.webp"
+                                alt="Fresh artisan pastries" loading="lazy">
+                        </div>
+                        <div class="menu-card__overlay"></div>
+                        <div class="menu-card__content">
+                            <h3>Pastries & Breakfast</h3>
+                            <p>Freshly baked, warm from the oven, made to disappear quickly.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 05 FEATURED ======================== -->
+        <section class="section featured" aria-labelledby="featured-title">
+            <div class="container featured__grid">
+                <div class="featured__image img-reveal fade-in-left">
+                    <img src="assets/images/image_24.webp"
+                        alt="Signature coffee with latte art" loading="lazy">
+                </div>
+
+                <div class="featured__card fade-in-right">
+                    <div class="eyebrow">This
+                        Week's Pour</div>
+                    <h2 id="featured-title">The house latte, reimagined.</h2>
+                    <p>
+                        A chocolate-forward seasonal espresso, steamed with silky whole milk
+                        and finished with our house cacao dust.
+                    </p>
+                    <div class="featured__details">
+                        <span>Seasonal</span>
+                        <span>Single Origin</span>
+                        <span>Barista Pick</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 06 SPECIALTIES ======================== -->
+        <section class="section specialties" aria-labelledby="specialties-title">
+            <div class="container">
+                <div class="specialties__intro">
+                    <div>
+                        <div class="eyebrow fade-in-left">Signatures</div>
+                        <h2 class="section-title fade-in-left" id="specialties-title">A few things<br>we do differently.
+                        </h2>
+                    </div>
+                    <p class="fade-in-right">
+                        Seasonal recipes, careful ingredients, and enough personality to make the second order
+                        inevitable.
+                    </p>
+                </div>
+            </div>
+
+            <div class="container" style="overflow: visible;">
+                <div class="specialty-track">
+                    <article class="specialty-card fade-in-left">
+                        <img src="assets/images/image_47.webp"
+                            alt="Espresso in a ceramic cup" loading="lazy">
+                        <div class="specialty-card__content">
+                            <span>01 <i class="fa-solid fa-circle"
+                                    style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                Signature</span>
+                            <h3>Stackly Espresso</h3>
+                        </div>
+                    </article>
+
+                    <article class="specialty-card fade-in-right">
+                        <img src="assets/images/image_14.webp"
+                            alt="Coffee and pastry on a cafe table" loading="lazy">
+                        <div class="specialty-card__content">
+                            <span>02 <i class="fa-solid fa-circle"
+                                    style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                Morning</span>
+                            <h3>Butter Croissant</h3>
+                        </div>
+                    </article>
+
+                    <article class="specialty-card fade-in-left">
+                        <img src="assets/images/image_22.webp"
+                            alt="Coffee brewing at a cafe" loading="lazy">
+                        <div class="specialty-card__content">
+                            <span>03 <i class="fa-solid fa-circle"
+                                    style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                Filter</span>
+                            <h3>Today's Pour Over</h3>
+                        </div>
+                    </article>
+
+                    <article class="specialty-card fade-in-right">
+                        <img src="assets/images/image_50.webp"
+                            alt="Iced coffee drink" loading="lazy">
+                        <div class="specialty-card__content">
+                            <span>04 <i class="fa-solid fa-circle"
+                                    style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                Cold</span>
+                            <h3>Lavender Cold Brew</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 07 WHY US ======================== -->
+        <section class="why-us" aria-labelledby="why-title">
+            <div class="container">
+                <div class="why-us__sticky">
+                    <div class="why-us__intro">
+                        <div class="eyebrow fade-in-left">Why Stackly Brew</div>
+                        <h2 class="fade-in-left" id="why-title">Good coffee is a process.</h2>
+                        <p class="fade-in-left">
+                            We obsess over the small decisions because those are the things you taste.
+                        </p>
+                    </div>
+
+                    <div class="why-steps">
+                        <article class="why-step fade-in-right">
+                            <div class="why-step__top">
+                                <span class="why-step__number">01</span>
+                                <span>Origin</span>
+                            </div>
+                            <h3>We look for character, not just scores.</h3>
+                            <p>We work with coffees that have something interesting to say in the cup.</p>
+                        </article>
+
+                        <article class="why-step fade-in-right">
+                            <div class="why-step__top">
+                                <span class="why-step__number">02</span>
+                                <span>Roast</span>
+                            </div>
+                            <h3>We roast to reveal, never to hide.</h3>
+                            <p>Our profiles are designed around sweetness, clarity and balance.</p>
+                        </article>
+
+                        <article class="why-step fade-in-right">
+                            <div class="why-step__top">
+                                <span class="why-step__number">03</span>
+                                <span>Brew</span>
+                            </div>
+                            <h3>Precision without the performance.</h3>
+                            <p>Every recipe is repeatable, but every cup still feels handmade.</p>
+                        </article>
+
+                        <article class="why-step fade-in-right">
+                            <div class="why-step__top">
+                                <span class="why-step__number">04</span>
+                                <span>Serve</span>
+                            </div>
+                            <h3>The final ingredient is hospitality.</h3>
+                            <p>We want you to leave happier than you arrived. Simple as that.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 08 TEAM ======================== -->
+        <section class="section team" aria-labelledby="team-title">
+            <div class="container">
+                <div class="team__head">
+                    <div>
+                        <div class="eyebrow fade-in-left">Behind The Bar</div>
+                        <h2 class="section-title fade-in-left" id="team-title">Meet the people<br>behind your cup.</h2>
+                    </div>
+                    <p class="fade-in-right">
+                        Curious humans, serious about coffee, and very opinionated about grinders.
+                    </p>
+                </div>
+
+                <div class="team-grid">
+                    <article class="team-card fade-in-left">
+                        <img src="assets/images/image_16.webp"
+                            alt="Portrait of cafe team member" loading="lazy">
+                        <div class="team-card__content">
+                            <span>Head Barista</span>
+                            <h3>Aria</h3>
+                        </div>
+                    </article>
+
+                    <article class="team-card fade-in-right">
+                        <img src="assets/images/image_35.webp"
+                            alt="Portrait of cafe team member" loading="lazy">
+                        <div class="team-card__content">
+                            <span>Roaster</span>
+                            <h3>Noah</h3>
+                        </div>
+                    </article>
+
+                    <article class="team-card fade-in-left">
+                        <img src="assets/images/image_53.webp"
+                            alt="Portrait of cafe team member" loading="lazy">
+                        <div class="team-card__content">
+                            <span>Cafe Host</span>
+                            <h3>Mira</h3>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 09 JOURNEY ======================== -->
+        <section class="section journey" aria-labelledby="journey-title">
+            <div class="container journey__grid">
+                <div class="journey__intro">
+                    <div class="eyebrow fade-in-left">Your
+                        Visit</div>
+                    <h2 class="section-title fade-in-left" id="journey-title">Come in.<br>Take your time.</h2>
+                    <p class="fade-in-left">
+                        There is no right way to spend time at Stackly Brew. Here is one possible version.
+                    </p>
+                </div>
+
+                <div class="stepper">
+                    <article class="step fade-in-right">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <span>Step 01</span>
+                        <h3>Walk through the door.</h3>
+                        <p>Find a sunny table, a quiet corner, or a seat by the bar.</p>
+                    </article>
+
+                    <article class="step fade-in-right">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <span>Step 02</span>
+                        <h3>Choose your cup.</h3>
+                        <p>Ask us what is tasting great today. We are happy to guide you.</p>
+                    </article>
+
+                    <article class="step fade-in-right">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <span>Step 03</span>
+                        <h3>Watch it come together.</h3>
+                        <p>Our bar is intentionally open. Coffee should be something you can see being made.</p>
+                    </article>
+
+                    <article class="step fade-in-right">
+                        <span class="step__dot" aria-hidden="true"></span>
+                        <span>Step 04</span>
+                        <h3>Stay for another.</h3>
+                        <p>Because the first cup was obviously just research.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 10 STATS ======================== -->
+        <section class="section stats" aria-labelledby="stats-title">
+            <div class="container">
+                <div class="stats__head">
+                    <div class="eyebrow fade-in-left">By The
+                        Numbers</div>
+                    <h2 class="section-title fade-in-left" id="stats-title">A lot of coffee.<br>A lot of love.</h2>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card fade-in-left">
+                        <div class="stat-card__number"><span data-counter="48000">0</span><i class="fa-solid fa-plus"
+                                style="font-size: 0.6em; margin-left: 4px; vertical-align: super;"></i></div>
+                        <div class="stat-card__label">Cups served</div>
+                        <p class="stat-card__copy">And we still get excited about the first one every morning.</p>
+                    </article>
+
+                    <article class="stat-card fade-in-right">
+                        <div class="stat-card__number"><span data-counter="18">0</span></div>
+                        <div class="stat-card__label">Coffee origins</div>
+                        <p class="stat-card__copy">Rotating through the year for a broader coffee experience.</p>
+                    </article>
+
+                    <article class="stat-card fade-in-left">
+                        <div class="stat-card__number"><span data-counter="6">0</span></div>
+                        <div class="stat-card__label">Years brewing</div>
+                        <p class="stat-card__copy">Learning, adjusting, and drinking an unreasonable amount of espresso.
+                        </p>
+                    </article>
+
+                    <article class="stat-card fade-in-right">
+                        <div class="stat-card__number"><span data-counter="4.9" data-decimals="1">0.0</span></div>
+                        <div class="stat-card__label">Guest rating</div>
+                        <p class="stat-card__copy">Based on hundreds of reviews from our wonderful neighborhood.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 11 TESTIMONIALS ======================== -->
+        <section class="section testimonials" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="testimonials__head">
+                    <div>
+                        <div class="eyebrow fade-in-left">Kind Words</div>
+                        <h2 class="section-title fade-in-left" id="testimonials-title">People say<br>nice things.</h2>
+                    </div>
+                    <p class="fade-in-right">
+                        The best part of making coffee is seeing where it takes people.
+                    </p>
+                </div>
+            </div>
+
+            <div class="quote-marquee">
+                <div class="quote-track">
+                    <article class="quote-card">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>The kind of cafe where one coffee somehow becomes three hours.</blockquote>
+                        <div class="quote-card__person">— Riya <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Regular</div>
+                    </article>
+
+                    <article class="quote-card">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>The espresso is excellent, but the atmosphere is what keeps me coming back.
+                        </blockquote>
+                        <div class="quote-card__person">— Daniel <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Guest</div>
+                    </article>
+
+                    <article class="quote-card">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>Finally found a place that takes coffee seriously without taking itself too
+                            seriously.</blockquote>
+                        <div class="quote-card__person">— Anika <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Neighbor</div>
+                    </article>
+
+                    <article class="quote-card">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>The lavender cold brew is dangerously good.</blockquote>
+                        <div class="quote-card__person">— Kabir <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Regular</div>
+                    </article>
+
+                    <article class="quote-card" aria-hidden="true">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>The kind of cafe where one coffee somehow becomes three hours.</blockquote>
+                        <div class="quote-card__person">— Riya <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Regular</div>
+                    </article>
+
+                    <article class="quote-card" aria-hidden="true">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>The espresso is excellent, but the atmosphere is what keeps me coming back.
+                        </blockquote>
+                        <div class="quote-card__person">— Daniel <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Guest</div>
+                    </article>
+
+                    <article class="quote-card" aria-hidden="true">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>Finally found a place that takes coffee seriously without taking itself too
+                            seriously.</blockquote>
+                        <div class="quote-card__person">— Anika <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Neighbor</div>
+                    </article>
+
+                    <article class="quote-card" aria-hidden="true">
+                        <div class="quote-card__mark">“</div>
+                        <blockquote>The lavender cold brew is dangerously good.</blockquote>
+                        <div class="quote-card__person">— Kabir <i class="fa-solid fa-circle"
+                                style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                            Regular</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 12 JOURNAL ======================== -->
+        <section class="section journal" aria-labelledby="journal-title">
+            <div class="container">
+                <div class="journal__head">
+                    <div>
+                        <div class="eyebrow fade-in-left">The Journal</div>
+                        <h2 class="section-title fade-in-left" id="journal-title">Coffee worth<br>reading about.</h2>
+                    </div>
+                    <a class="btn btn--outline fade-in-right" href="html/blog.html">
+                        Read the Journal <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+                    </a>
+                </div>
+
+                <div class="journal-grid">
+                    <a class="article-card article-card--large fade-in-left" href="html/blog.html">
+                        <img src="assets/images/image_18.webp"
+                            alt="Barista brewing coffee" loading="lazy">
+                        <div class="article-card__overlay"></div>
+                        <div class="article-card__content">
+                            <span>Coffee Guide <i class="fa-solid fa-circle"
+                                    style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                8 min read</span>
+                            <h3>How to taste coffee without pretending you know everything.</h3>
+                        </div>
+                    </a>
+
+                    <div class="journal-side">
+                        <a class="article-card fade-in-right" href="html/blog.html">
+                            <img src="assets/images/image_02.webp"
+                                alt="Coffee beans" loading="lazy">
+                            <div class="article-card__overlay"></div>
+                            <div class="article-card__content">
+                                <span>Origins <i class="fa-solid fa-circle"
+                                        style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                    5 min read</span>
+                                <h3>Why origin changes your morning cup.</h3>
+                            </div>
+                        </a>
+
+                        <a class="article-card fade-in-right" href="html/blog.html">
+                            <img src="assets/images/image_23.webp"
+                                alt="Latte art" loading="lazy">
+                            <div class="article-card__overlay"></div>
+                            <div class="article-card__content">
+                                <span>Barista Notes <i class="fa-solid fa-circle"
+                                        style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                    4 min read</span>
+                                <h3>Milk, texture and the art of a great latte.</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 13 VISIT ======================== -->
+        <section class="section visit" id="visit" aria-labelledby="visit-title">
+            <div class="container">
+                <div class="visit__grid">
+                    <div class="visit__image fade-in-left">
+                        <img src="assets/images/image_31.webp"
+                            alt="Interior of Stackly Brew cafe" loading="lazy">
+                    </div>
+
+                    <div class="visit__content fade-in-right">
+                        <div class="eyebrow">Come Say Hello</div>
+                        <h2 id="visit-title">Find your table.</h2>
+
+                        <div class="visit__details">
+                            <div class="visit__detail">
+                                <span>Address</span>
+                                <span>18 Willow Street, The Corner District</span>
+                            </div>
+                            <div class="visit__detail">
+                                <span>Hours</span>
+                                <span>Mon–Fri 7:00–20:00 <i class="fa-solid fa-circle"
+                                        style="font-size: 0.25em; margin: 0 10px; vertical-align: middle; opacity: 0.5;"></i>
+                                    Sat–Sun 8:00–21:00</span>
+                            </div>
+                            <div class="visit__detail">
+                                <span>Phone</span>
+                                <span>+91 90000 00000</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a class="btn btn--light" href="html/contact.html">
+                                Get Directions <i class="fa-solid fa-arrow-right btn__arrow"
+                                    style="margin-left: 6px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================== 14 CTA ======================== -->
+        <section class="final-cta" aria-labelledby="cta-title">
+            <div class="final-cta__image">
+                <img src="assets/images/image_33.webp"
+                    alt="" loading="lazy">
+            </div>
+            <div class="final-cta__overlay"></div>
+
+            <div class="final-cta__content">
+                <div class="eyebrow fade-in-left">See You
+                    Soon</div>
+                <h2 class="fade-in-left" id="cta-title">Make room<br>for a good cup.</h2>
+                <p class="fade-in-right">
+                    Come for the coffee. Stay for the conversation, the quiet, the music,
+                    or absolutely nothing at all.
+                </p>
+                <div class="final-cta__actions fade-in-right">
+                    <a class="btn btn--light" href="html/login.html">
+                        Login <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+                    </a>
+                    <a class="btn" style="border-color:rgba(255,255,255,.35);color:#fff;" href="html/services.html">
+                        Explore Menu
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================== FOOTER ======================== -->
+      <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Stackly Brew home">
+            <img src="logo.webp" alt="Stackly Brew">
+          </a>
+          <p>
+            Specialty coffee, handmade food and slow moments.
+            A neighborhood cafe built around the simple pleasure of a good cup.
+          </p>
+          <div class="footer-socials-new" style="margin-top: 20px; display: flex; gap: 15px;">
+            <a href="404.html" aria-label="Instagram" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" aria-label="Facebook" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Twitter" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="Pinterest" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="404.html" aria-label="LinkedIn" style="color: var(--purple); font-size: 1.2rem;"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Explore</div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="html/about.html">About</a>
+            <a href="html/services.html">Menu</a>
+            <a href="html/blog.html">Journal</a>
+            <a href="html/contact.html">Contact</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Quick Links</div>
+          <nav class="footer-links" aria-label="Quick links">
+            <a href="404.html">Gift Cards</a>
+            <a href="404.html">Merchandise</a>
+            <a href="404.html">Wholesale</a>
+            <a href="404.html">Careers</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer-title">Hours</div>
+          <div class="footer-hours">
+            <span><strong>Mon�LFri</strong><br>7:00 — 20:00</span>
+            <span><strong>Sat��Sun</strong><br>8:00 — 21:00</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Stay in touch</div>
+          <div class="footer-hours">
+            <span><i class="fa-solid fa-location-dot" style="width: 16px; margin-right: 8px;"></i> Stackly, Salem, TN, India</span>
+            <span><i class="fa-solid fa-phone" style="width: 16px; margin-right: 8px;"></i> +91 90000 00000</span>
+            <span><i class="fa-solid fa-envelope" style="width: 16px; margin-right: 8px;"></i> hello@stackly.example</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Stackly Brew. Crafted with care.</span>
+
+        <div class="footer-legal" style="display: flex; gap: 20px;">
+          <a href="404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Privacy Policy</a>
+          <a href="404.html" style="color: var(--muted); font-size: 0.8rem; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--purple)'" onmouseout="this.style.color='var(--muted)'">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <button class="back-top" id="back-top" type="button" aria-label="Back to top">↑</button>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.documentElement.classList.remove("no-js");
+
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (typeof gsap !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger);
+        }
+
+        /* ---------- Header ---------- */
+        const header = document.getElementById("site-header");
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileNav = document.getElementById("mobile-nav");
+        const mobileLinks = mobileNav.querySelectorAll("a");
+
+        const setHeaderState = () => {
+            header.classList.toggle("is-scrolled", window.scrollY > 30);
+        };
+
+        window.addEventListener("scroll", setHeaderState, { passive: true });
+        setHeaderState();
+
+        const closeMenu = () => {
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+            mobileNav.classList.remove("is-open");
+            mobileNav.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("menu-open");
+
+            if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+                gsap.to(".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn", {
+                    y: 15,
+                    opacity: 0,
+                    duration: .2,
+                    stagger: .02,
+                    overwrite: true
+                });
+            }
+        };
+
+        const openMenu = () => {
+            menuToggle.setAttribute("aria-expanded", "true");
+            menuToggle.setAttribute("aria-label", "Close navigation menu");
+            mobileNav.classList.add("is-open");
+            mobileNav.setAttribute("aria-hidden", "false");
+            document.body.classList.add("menu-open");
+
+            if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+                gsap.fromTo(
+                    ".mobile-nav__links a, .mobile-nav__meta, .mobile-nav .btn",
+                    { y: 30, opacity: 0 },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: .55,
+                        stagger: .06,
+                        ease: "power3.out",
+                        delay: .08
+                    }
+                );
+            }
+        };
+
+        menuToggle.addEventListener("click", () => {
+            const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+            isOpen ? closeMenu() : openMenu();
+        });
+
+        mobileLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") closeMenu();
+        });
+
+        /* ---------- Hero ---------- */
+        window.addEventListener("load", () => {
+            document.querySelector(".hero").classList.add("is-loaded");
+
+            if (typeof gsap === "undefined" || prefersReducedMotion) {
+                document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+                    el.style.opacity = "1";
+                });
+                return;
+            }
+
+            const heroTimeline = gsap.timeline({
+                defaults: {
+                    duration: 1.4,
+                    ease: "power3.out"
+                }
+            });
+
+            heroTimeline
+                .fromTo(".hero__eyebrow", { x: -40, opacity: 0 }, { x: 0, opacity: 1 })
+                .fromTo(".hero__title", { x: -45, opacity: 0 }, { x: 0, opacity: 1 }, "-=1.0")
+                .fromTo(".hero__copy", { x: -30, opacity: 0 }, { x: 0, opacity: 1 }, "-=1.1")
+                .fromTo(".hero__actions", { x: -25, opacity: 0 }, { x: 0, opacity: 1 }, "-=1.1")
+                .fromTo(".hero__note", { x: -20, opacity: 0 }, { x: 0, opacity: 1 }, "-=1.1")
+                .fromTo(".hero__visual", { opacity: 0 }, { opacity: 1, duration: 0.4 }, "-=.75")
+                .fromTo(".hero-stamp", { scale: 0, opacity: 0, rotation: -45 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.6, ease: "back.out(1.5)" }, "-=0.3")
+                .fromTo(".hero-photo--two", { x: -100, y: -100, opacity: 0, rotation: -12 }, { x: 0, y: 0, opacity: 1, rotation: -4, duration: 0.7, ease: "power3.out" }, "-=0.1")
+                .fromTo(".hero-photo--one", { x: 100, y: -100, opacity: 0, rotation: 10 }, { x: 0, y: 0, opacity: 1, rotation: 2, duration: 0.7, ease: "power3.out" }, "-=0.4")
+                .fromTo(".hero-photo--four", { x: -100, y: 100, opacity: 0, rotation: -6 }, { x: 0, y: 0, opacity: 1, rotation: 4, duration: 0.7, ease: "power3.out" }, "-=0.4")
+                .fromTo(".hero-photo--three", { x: 100, y: 100, opacity: 0, rotation: 8 }, { x: 0, y: 0, opacity: 1, rotation: -2, duration: 0.7, ease: "power3.out" }, "-=0.4");
+        });
+
+        /* ---------- Scroll Reveals ---------- */
+        if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+            gsap.utils.toArray(".fade-in-left").forEach(element => {
+                if (element.closest(".hero")) return;
+
+                gsap.fromTo(
+                    element,
+                    { x: -40, opacity: 0 },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: .75,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 86%",
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            gsap.utils.toArray(".fade-in-right").forEach(element => {
+                if (element.closest(".hero")) return;
+
+                gsap.fromTo(
+                    element,
+                    { x: 40, opacity: 0 },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: .75,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 86%",
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            /* ---------- Image Reveal ---------- */
+            gsap.utils.toArray(".img-reveal").forEach(element => {
+                ScrollTrigger.create({
+                    trigger: element,
+                    start: "top 82%",
+                    once: true,
+                    onEnter: () => element.classList.add("is-visible")
+                });
+            });
+
+            /* ---------- Story Parallax ---------- */
+            gsap.utils.toArray(".story-preview__visual img").forEach(img => {
+                gsap.to(img, {
+                    yPercent: 7,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: img.closest(".story-preview"),
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+            });
+
+            /* ---------- Why Us Subtle Storytelling ---------- */
+            gsap.utils.toArray(".why-step").forEach((step, index) => {
+                gsap.to(step, {
+                    x: 0,
+                    opacity: 1,
+                    scrollTrigger: {
+                        trigger: step,
+                        start: "top 82%",
+                        once: true
+                    },
+                    duration: .65,
+                    delay: index * .03,
+                    ease: "power2.out"
+                });
+            });
+
+            /* ---------- Team Tilt ---------- */
+            document.querySelectorAll(".team-card").forEach(card => {
+                card.addEventListener("mousemove", event => {
+                    if (window.innerWidth < 900) return;
+
+                    const rect = card.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - .5;
+                    const y = (event.clientY - rect.top) / rect.height - .5;
+
+                    gsap.to(card, {
+                        rotateY: x * 5,
+                        rotateX: y * -5,
+                        duration: .35,
+                        ease: "power2.out"
+                    });
+                });
+
+                card.addEventListener("mouseleave", () => {
+                    gsap.to(card, {
+                        rotateY: 0,
+                        rotateX: 0,
+                        duration: .55,
+                        ease: "power3.out"
+                    });
+                });
+            });
+
+            /* ---------- Final CTA Parallax ---------- */
+            gsap.to(".final-cta__image img", {
+                yPercent: 10,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".final-cta",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        } else {
+            document.querySelectorAll(".fade-in-left, .fade-in-right").forEach(el => {
+                el.style.opacity = "1";
+            });
+        }
+
+        /* ---------- Counters ---------- */
+        const counterElements = document.querySelectorAll("[data-counter]");
+
+        const animateCounter = element => {
+            const target = Number(element.dataset.counter);
+            const decimals = element.dataset.decimals ? Number(element.dataset.decimals) : 0;
+
+            if (typeof gsap === "undefined" || prefersReducedMotion) {
+                element.textContent = target.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+                return;
+            }
+
+            const state = { value: 0 };
+
+            gsap.to(state, {
+                value: target,
+                duration: 1.8,
+                ease: "power2.out",
+                onUpdate: () => {
+                    if (decimals > 0) {
+                        element.textContent = state.value.toFixed(decimals);
+                    } else {
+                        element.textContent = Math.floor(state.value).toLocaleString();
+                    }
+                }
+            });
+        };
+
+        if (typeof gsap !== "undefined" && !prefersReducedMotion) {
+            counterElements.forEach(counter => {
+                ScrollTrigger.create({
+                    trigger: counter,
+                    start: "top 86%",
+                    once: true,
+                    onEnter: () => animateCounter(counter)
+                });
+            });
+
+            document.querySelectorAll(".radial").forEach(radial => {
+                ScrollTrigger.create({
+                    trigger: radial,
+                    start: "top 86%",
+                    once: true,
+                    onEnter: () => {
+                        const progress = Number(radial.dataset.progress || 0);
+                        gsap.to(radial, {
+                            "--progress": progress + "%",
+                            duration: 1.4,
+                            ease: "power2.out"
+                        });
+                    }
+                });
+            });
+        } else {
+            counterElements.forEach(counter => {
+                counter.textContent = Number(counter.dataset.counter).toLocaleString();
+            });
+
+            document.querySelectorAll(".radial").forEach(radial => {
+                radial.style.setProperty("--progress", radial.dataset.progress + "%");
+            });
+        }
+
+        /* ---------- Back To Top ---------- */
+        const backTop = document.getElementById("back-top");
+
+        window.addEventListener("scroll", () => {
+            backTop.classList.toggle("is-visible", window.scrollY > 700);
+        }, { passive: true });
+
+        backTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? "auto" : "smooth"
+            });
+        });
+    </script>
+</body>
+
+</html>
