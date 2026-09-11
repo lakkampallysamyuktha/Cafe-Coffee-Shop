@@ -444,8 +444,8 @@ h4 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 125vh;
-  height: 125dvh;
+  height: 100vh;
+  height: 100dvh;
   display: grid;
   place-items: center;
   padding: 110px 30px 40px;
