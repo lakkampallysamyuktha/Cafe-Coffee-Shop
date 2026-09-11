@@ -1107,7 +1107,6 @@
       padding: 18px 4px;
       border-bottom: 1px solid var(--border);
       transition: padding-left .4s var(--ease), background .3s ease;
-      cursor: pointer;
     }
 
     .order-row:hover { padding-left: 14px; background: rgba(255, 251, 245, .5); }
@@ -1214,7 +1213,6 @@
       padding: 22px 4px;
       border-bottom: 1px solid var(--border);
       transition: padding-left .4s var(--ease), background .3s ease;
-      cursor: pointer;
     }
 
     .stock-row:hover { padding-left: 14px; background: rgba(255, 251, 245, .5); }
@@ -1395,7 +1393,6 @@
       border: 1px solid var(--border);
       display: grid;
       gap: 6px;
-      cursor: pointer;
       transition: transform .3s var(--ease), border-color .3s ease, box-shadow .3s ease;
     }
 
@@ -1457,7 +1454,6 @@
       padding: 22px 0;
       border-bottom: 1px solid var(--border);
       transition: padding-left .4s var(--ease), background .3s ease;
-      cursor: pointer;
     }
 
     .lb-entry:hover { padding-left: 12px; background: rgba(255, 251, 245, .5); }
@@ -1848,15 +1844,32 @@
     <div class="topbar__actions">
       <span class="topbar__live">Live · 42 orders today</span>
 
-      <button class="topbar__icon-btn" type="button" aria-label="Notifications">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/>
-          <path d="M10 21a2 2 0 0 0 4 0"/>
-        </svg>
-        <span class="topbar__badge" aria-hidden="true"></span>
-      </button>
+      <div class="topbar__notif-wrapper" style="position: relative;">
+        <button class="topbar__icon-btn" type="button" aria-label="Notifications" id="notif-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/>
+            <path d="M10 21a2 2 0 0 0 4 0"/>
+          </svg>
+          <span class="topbar__badge" aria-hidden="true"></span>
+        </button>
+        <div id="notif-dropdown" style="display: none; position: absolute; top: calc(100% + 12px); right: -10px; width: 320px; background: var(--white); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); border: 1px solid var(--border); padding: 1.25rem; z-index: 100;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="margin: 0; font-size: 1rem; color: var(--ink);">Notifications</h4>
+            <span style="font-size: 0.75rem; background: rgba(116, 73, 240, 0.1); color: var(--purple); padding: 2px 8px; border-radius: 10px; font-weight: 600;">1 New</span>
+          </div>
+          <div style="display: flex; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px;">
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--purple); margin-top: 6px; flex-shrink: 0;"></div>
+            <div>
+              <p style="margin: 0 0 4px 0; font-size: 0.875rem; color: var(--ink); font-weight: 500;">New catering request</p>
+              <p style="margin: 0; font-size: 0.8rem; color: var(--text-light);">Acme Corp requested a coffee cart for next Friday.</p>
+              <span style="display: block; margin-top: 6px; font-size: 0.75rem; color: var(--text-light);">2 mins ago</span>
+            </div>
+          </div>
+          <a href="../404.html" style="display: block; text-align: center; font-size: 0.875rem; color: var(--purple); font-weight: 500; text-decoration: none;">View all notifications</a>
+        </div>
+      </div>
 
-      <a class="topbar__user" href="../404.html" aria-label="Your account">
+      <a class="topbar__user" href="javascript:void(0)" aria-label="Your account">
         <span class="topbar__user-avatar" data-avatar aria-hidden="true">A</span>
         <span class="topbar__user-name" data-user-mail>Admin</span>
       </a>
@@ -1962,12 +1975,8 @@
             9:00–10:30. Oat milk running low — flagged for reorder.
           </p>
           <div class="cmd-hero__actions">
-            <a class="btn btn--dark" href="../404.html">
-              Open Shift Report <span aria-hidden="true">↗</span>
-            </a>
-            <a class="btn btn--ghost" style="color: rgba(255,251,245,.72); border-color: rgba(255,251,245,.18);" href="../404.html">
-              Full Log
-            </a>
+
+           
           </div>
         </div>
 
@@ -2024,7 +2033,7 @@
               <span class="ed-head__kicker">Live Floor Plan</span>
               <h2 class="ed-head__title" style="font-size: clamp(1.4rem, 2.2vw, 1.8rem);">Seats, at a glance</h2>
             </div>
-            <a class="btn btn--ghost btn--small" href="../404.html">Manage →</a>
+
           </div>
 
           <div class="floor-plan__grid" id="floorplan-grid"></div>
@@ -2043,7 +2052,7 @@
           <div class="cmd-widget">
             <div class="cmd-widget__head">
               <h3 class="cmd-widget__title">Alerts</h3>
-              <a class="btn btn--ghost btn--small" href="../404.html">View All →</a>
+
             </div>
 
             <ul class="alert-list">
@@ -2642,7 +2651,7 @@
           <span class="ed-head__kicker">Performance</span>
           <h2 class="ed-head__title" style="font-size: clamp(1.4rem, 2.2vw, 1.8rem);">This month's leaderboard</h2>
         </div>
-        <a class="btn btn--ghost btn--small" href="../404.html">Full Report →</a>
+
       </div>
 
       <div class="leader-list">
@@ -2780,7 +2789,7 @@
           <span class="ed-head__kicker">Ledger</span>
           <h2 class="ed-head__title" style="font-size: clamp(1.4rem, 2.2vw, 1.8rem);">Recent transactions</h2>
         </div>
-        <a class="btn btn--ghost btn--small" href="../404.html">Export CSV →</a>
+
       </div>
 
       <div class="ledger-table-wrap">
@@ -2993,8 +3002,9 @@
        5) INTERACTIONS
        ===================================================== */
     document.querySelectorAll("[data-order], [data-stock], [data-shift], [data-lb]").forEach(el => {
-      el.addEventListener("click", () => {
-        window.location.href = "../404.html";
+      el.addEventListener("click", (e) => {
+        // Prototype only - do nothing
+        e.preventDefault();
       });
     });
 
@@ -3083,6 +3093,23 @@
 
       animateActivePanel();
     });
+
+    /* =====================================================
+       9) NOTIFICATIONS DROPDOWN
+       ===================================================== */
+    const notifBtn = document.getElementById("notif-btn");
+    const notifDropdown = document.getElementById("notif-dropdown");
+    if (notifBtn && notifDropdown) {
+      notifBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        notifDropdown.style.display = notifDropdown.style.display === "none" ? "block" : "none";
+      });
+      document.addEventListener("click", (e) => {
+        if (!notifDropdown.contains(e.target)) {
+          notifDropdown.style.display = "none";
+        }
+      });
+    }
   </script>
 </body>
 </html>

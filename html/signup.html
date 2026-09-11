@@ -195,9 +195,12 @@
           </div>
 
           <button class="btn btn--primary auth-form__submit" type="submit" id="signup-submit">
-            Create Account <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
+            Create account <i class="fa-solid fa-arrow-right btn__arrow" style="margin-left: 6px;"></i>
           </button>
 
+          <div id="signup-success-msg" style="display: none; color: var(--purple); text-align: center; margin-top: 1rem; font-weight: 500;">
+            Account created successfully! Redirecting to login...
+          </div>
         </form>
 
         <p class="auth__legal">
@@ -498,7 +501,20 @@
           opts.forEach(o => o.setAttribute("aria-selected", "false"));
         });
 
-        window.location.href = "login.html";
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const successMsg = document.getElementById("signup-success-msg");
+        
+        if (submitBtn) {
+          submitBtn.style.pointerEvents = 'none';
+          submitBtn.style.opacity = '0.7';
+        }
+        if (successMsg) {
+          successMsg.style.display = 'block';
+        }
+
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1500);
       });
     }
 

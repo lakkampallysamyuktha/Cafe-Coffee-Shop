@@ -590,7 +590,7 @@
                     </p>
 
                     <div class="nf-art-cup">
-                        <img src="assets/images/image_22.webp"
+                        <img src="assets/images/image_01.webp"
                             alt="" loading="lazy">
                     </div>
 
@@ -641,13 +641,18 @@
             if (!btn) return;
 
             btn.addEventListener("click", () => {
-                // If the browser has history to go back to, use it
+                // Prefer document.referrer to accurately route them back
+                if (document.referrer) {
+                    window.location.href = document.referrer;
+                    return;
+                }
+                // Fallback to history if no referrer exists
                 if (window.history.length > 1) {
                     window.history.back();
                     return;
                 }
 
-                // Fallback — send home rather than leaving them stranded
+                // Final fallback — send home rather than leaving them stranded
                 window.location.href = "index.html";
             });
         })();
